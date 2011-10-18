@@ -1,0 +1,204 @@
+\documentclass[a4paper,11pt,notitlepage]{report}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{bibgerm}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage[pdftex,pdfpagelabels,colorlinks,backref,pagebackref]{hyperref}
+\usepackage{tikz} % SELBST HINZUGEFÜGT
+% == Set the heading style ===================================================
+\setlength{\headheight}{14pt}
+\pagestyle{fancyplain}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\rightmark}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+% ============================================================================
+
+% == Set correct values for fitting floats ===================================
+\tolerance=2000
+\emergencystretch=10pt
+
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{5}
+\setcounter{bottomnumber}{2}
+
+% To make those darn floats fit where they should
+\setcounter{totalnumber}{9}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\renewcommand{\textfraction}{0.00}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+% ============================================================================
+
+% == German definitions for theorems etc. ==================================== 
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Satz}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{corollary}{Korollar}[chapter]
+\newtheorem{observation}{Beobachtung}[chapter]
+\newtheorem{fact}{Fakt}[chapter]
+\newtheorem{remark}{Bemerkung}[chapter]
+\newtheorem{example}{Beispiel}[chapter]
+% ============================================================================
+
+% == Abkürzungen für die reellen, natürlichen, ganzen,... Zahlen =============
+\newcommand{\R}{{\ensuremath{\mathbb{R}}}}
+\newcommand{\N}{{\ensuremath{\mathbb{N}}}}
+\newcommand{\Z}{{\ensuremath{\mathbb{Z}}}}
+\newcommand{\C}{{\ensuremath{\mathbb{C}}}}
+\newcommand{\Q}{{\ensuremath{\mathbb{Q}}}}
+\newcommand{\F}{{\ensuremath{\mathbb{F}}}}
+\newcommand{\Prim}{{\ensuremath{\mathbb{P}}}}
+% ============================================================================
+
+% == Makros für Autorenname und -adresse =====================================
+\newcommand{\myaddress}[6]{%
+  \parbox{\textwidth}{\textbf{\large #1}\\
+    #2\\ #3\\ #4\\ 
+    \ifthenelse{\equal{#5}{}}{}{Email: \href{mailto:#5}{\texttt{#5}}\\}
+    \ifthenelse{\equal{#6}{}}{}{WWW: \href{#6}{\path|#6|}\\}
+  } 
+}
+
+\newcommand{\myauthor}[1]{%
+  \addtocontents{toc}{\protect\hspace{3.35ex}%
+  \textsl{#1}\par}\vspace{-4ex}\quad\hfill\textsl{\Large #1}\vspace{8ex}}
+
+\newcommand{\myname}[1]{\Large #1}
+
+\title{\textbf{{Einführung in die Stochastik - Mitschrieb} \\[5ex] 
+    {\Large Vorlesung im Wintersemester 2011/2012\\[5ex]}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tragen Sie in der folg. Zeile Ihren Namen ein: %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{\myname{Sarah Lutteropp}}
+
+\begin{document}
+\shorthandoff{"}
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section*{Vorwort}
+Dies ist ein Mitschrieb der Vorlesung “Einführung in die Stochastik” vom Wintersemester 2011/2012 am Karlsruher Institut für Technologie, die von Herrn Prof. Dr. Günther Last gehalten wird.
+
+\chapter{Deskriptive Statistik}
+\section{Der Grundraum}
+$\emptyset \neq \Omega$ = Grundraum (Grundgesamtheit, Merkmalsraum, Stichprobenraum)
+Annahme: $\Omega$ ist diskret(endlich oder abzählbar unendlich) (Häufig $\Omega \subseteq \R$)
+
+\section{Absolute und relative Häufigkeit}
+$x_1, \ldots, x_n \in \Omega$ ("Daten") \newline
+$h(\omega) = card\left\{j\in\{1, \ldots, n\} \colon x_j = \omega\right\}, \omega \in \Omega$, absolute Häufigkeit von $\omega$
+
+\paragraph{Bemerkung}
+$\sum\limits_{\omega \in \Omega}{h(\omega)} = n$
+
+\paragraph{Definition}
+$\frac{1}{n} h(\omega)$ = relative Häufigkeit von $\omega$ \newline
+$h(A)=card\left\{j\in\{1,\ldots,n\}\colon x_j \in A\right\}, A \subset \Omega$ = absolute Häufigkeit von A, $\frac{1}{n} h(A)$ = relative Häufigkeit von A
+
+\section{Histogramm}
+$x_1, \ldots, x_n \in \R, b_1 < b_2 < \ldots < b_s$ mit $b_1 \leq \min\limits_{1 \leq i \leq n}{x_i}, b_s > \max\limits_{1 \leq i \leq n}{x_i}$
+\newline
+TODO: BILD
+\newline
+$d_j(b_{j+1}-b_j)=h([b_j,b_{j+1})) = card \left\{i\in\{1,\ldots,n\}\colon b_j \leq x_i < b_{j+1}\right\}$
+
+\section{Lagemaße}
+\paragraph{Definition}
+Ein \textbf{Lagemaß} ist eine Abbildung $l \colon \R^n \rightarrow \R$ mit $$l(x_1+a,\ldots,x_n+a) = l(x_1,\ldots,x_n)+a$$ "Verschiebungskovarianz".
+$x_1,\ldots,x_n,a \in \R$
+
+\subsection{Arithmetisches Mittel}
+$x_1,\ldots,x_n \in \R, \bar{x} := \frac{1}{n} \sum\limits_{j=1}^{n}{x_j}$ "Schwerpunkt der Daten"
+
+\paragraph{Fakt}
+$\sum\limits_{j=1}^{n}{(x_i - t)^2} \overset{t}{\rightarrow} \text{Min}$
+\newline
+Lösung: $t = \bar{x}$
+\newline
+"Prinzip der kleinsten Quadrate"
+
+\paragraph{Beweis}
+$\frac{1}{n} \sum\limits_{j=1}^{n}{(x_j - t)^2} = t^2 - 2\bar{x}t + \frac{1}{n} \sum\limits_{j=1}^{n}{x_j^2} = (t - \bar{x})^2 + \frac{1}{n} \sum\limits_{j=1}^{n}{x_j^2 - (\bar{x})^2}$
+
+\subsection{Median, Quantile}
+$x_1,\ldots,x_n \in \R \Rightarrow x_{(1)} \leq x_{(2)} \leq \ldots \leq x_{(n)}$ geordnete Stichprobe
+
+\paragraph{Definition}
+
+$$x_{1/2}:= \begin{cases}
+	x_{(\frac{n+1}{2})} & \text{, falls } n \text{ ungerade} \\
+	\frac{1}{2}(x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)}) & \text{, falls } n \text{ gerade}
+\end{cases}
+$$ 
+heißt \textbf{Median} von $x_1,\ldots,x_n$.
+
+\paragraph{Fakt}
+$\sum\limits_{j=1}^{n}{|x_j - x_{1/2}|} = \min\limits_{t}{\sum\limits_{j=1}^{n}{|x_j - t|}}$ Übungsaufgabe
+
+\paragraph{Bemerkung}
+Der Median ist "robust" gegenüber "Ausreißern".
+Ist etwa $x_1 = \ldots = x_9 = 1$ und $x_{10} = 1000 (n=10)$, so gilt $\bar{x} = 100,9  , x_{1/2} = 1$
+
+\paragraph{Definition}
+Für 0 < p < 1 heißt
+$$
+x_p := \begin{cases}
+	x_{(\lfloor n \cdot p + 1 \rfloor )} & \text{, falls } n \cdot p \notin \N \\
+	\frac{1}{2}(x_{(n \cdot p)} + x_{(n \cdot p + 1)}) & \text{, falls } n \cdot p \in \N
+\end{cases}
+$$
+\textbf{p-Quantil} von $x_1, \ldots, x_n$.
+
+\paragraph{Interpretation}
+Mindestens $p \cdot 100 \%$ der Daten liegen links von $x_p$ und mindestens $(1-p) \cdot 100 \%$ liegen rechts von $x_p$. \newline
+$x_{1/4}=$ unteres Quartil, $x_{3/4}=$ oberes Quartil
+
+\section{Streuungsmaße}
+\paragraph{Definition}
+Eine Abbildung $\sigma \colon \R^n \rightarrow \R$ mit $$\sigma(x_1+a,\ldots,x_n+a) = \sigma(x_1,\ldots,x_n)\text{ (Translationsinvarianz)}$$ heißt \textbf{Streuungsmaß}.
+
+\subsection{Empirische Varianz}
+$s^2 := \frac{1}{n-1} \sum\limits_{j=1}^{n}{(x_j - \bar{x})^2}$ = \textbf{empirische Varianz} von $x_1,\ldots,x_n$
+
+\subsection{Empirische Standardabweichung}
+$s := + \sqrt{s^2}$ = \textbf{empirische Standardabweichung} von $x_1,\ldots,x_n$
+
+\subsection{Spannweite}
+$x_{(n)} - x_{(1)}$ = \textbf{Spannweite} von $x_1,\ldots,x_n$
+
+\subsection{Quartilsabstand}
+$x_{(3/4) - x_{(1/4)}}$ = \textbf{Quartilsabstand} von $x_1,\ldots,x_n$
+
+\section{Empirischer Korrelationskoeffizient}
+
+$(x_1,y_1), \ldots, (x_n,y_n) \in \R^2$
+TODO: BILD
+
+Gesucht: Gerade $y = a + b \cdot x$ so, dass
+$$(*) \sum\limits_{j=1}^{n}{(y_j - a - b x_j)^2} \overset{a,b}\rightarrow \text{Min}$$
+
+\paragraph{Definition}
+$\sigma_{x}^2 = \frac{1}{n}\sum\limits_{j=1}^{n}{(x_j - \bar{x})^2}$
+$\sigma_{y}^2 = \frac{1}{n}\sum\limits_{j=1}^{n}{(y_j - \bar{y})^2}$
+
+$\sigma_{xy} = \frac{1}{n}\sum\limits_{j=1}^{n}{(x_j - \bar{x})(y_j - \bar{y})}$ \textbf{empirischer Korrelationskoeffizient}
+
+Lösung von (*):
+$b^* = \frac{\sigma_{xy}}{\sigma_{x^2}}, a^*= \bar{y} - b^* \cdot \bar{x}$
+\end{document}
