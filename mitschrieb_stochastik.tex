@@ -197,8 +197,144 @@ $$(*) \sum\limits_{j=1}^{n}{(y_j - a - b x_j)^2} \overset{a,b}\rightarrow \text{
 $\sigma_{x}^2 = \frac{1}{n}\sum\limits_{j=1}^{n}{(x_j - \bar{x})^2}$
 $\sigma_{y}^2 = \frac{1}{n}\sum\limits_{j=1}^{n}{(y_j - \bar{y})^2}$
 
-$\sigma_{xy} = \frac{1}{n}\sum\limits_{j=1}^{n}{(x_j - \bar{x})(y_j - \bar{y})}$ \textbf{empirischer Korrelationskoeffizient}
+$\sigma_{xy} = \frac{1}{n}\sum\limits_{j=1}^{n}{(x_j - \bar{x})(y_j - \bar{y})}$ \textbf{empirische Kovarianz} $\sigma_x^2 > 0, \sigma_y^2 >0.$
 
 Lösung von (*):
 $b^* = \frac{\sigma_{xy}}{\sigma_{x^2}}, a^*= \bar{y} - b^* \cdot \bar{x}$
+
+
+$\min\limits_{a,b} {\sum\limits_{j=1}^{n}{(y_j - a - b x_j)^2}} \stackrel{!}{=} \min\limits_{b}{\sum\limits_{j=1}^{n}{(y_i - \bar{y} - b (x_j - \bar{x}))^2}}=\ldots$
+
+"lineare Regression"
+\newline
+
+Einsetzen von $a^*$ und $b^*$ in die Zielfunktion:
+$$0 \leq \sum\limits_{j=1}^{n}{(y_j - a^* - b^* x_j)^2} = \ldots = n \sigma_y^2 (1-(\frac{\sigma_{xy}}{\sigma_x \sigma_y})^2)$$
+
+\paragraph{Definition}
+$r_{xy}:= \frac{\sigma_{xy}}{\sigma_x \sigma_y}$ heißt \textbf{empirischer Korrelationskoeffizient} (\emph{Pearson}).
+
+\paragraph{Folgerung}
+$|r_{xy}|\leq 1$
+\newline
+Es gilt $r_{xy} = \pm 1 \Leftrightarrow$ Punktewolke liegt exakt auf der Geraden $y=a^*+b^*x$.
+Dabei ist $b^* > 0$, falls $r_{xy} = 1$ und $b^* < 0$, falls $r_{xy} = -1$.
+\newline 
+\emph{Dieser empirische Korrelationskoeffizient ist ein Maß für die (affin) lineare Abhängigkeit zwischen den $x_j$ und den $y_j$.}
+
+\chapter{Ereignisse und Zufallsvariablen}
+
+\section{Definition}
+Gegeben sei eine \underline{Grundmenge} $\Omega$. Die Elemente von $\Omega$ heißen \textbf{Elementarereignisse}. Teilmengen von $\Omega$ heißen \textbf{Ereignisse}. (Idee: $\omega \in \Omega$ ist Ausgang eines zufälligen Versuchs.)
+
+\paragraph{Interpretation}
+Ein Ereignis $A \subset \Omega$ "tritt ein", wenn $\omega \in A$.
+
+\section{Beispiele}
+\begin{itemize}
+	\item (i) (Münzwurf) \newline
+		$\Omega = \{0,1\} (\text{oder } \Omega = \{W,Z\})$
+	\item (ii) (m Münzwürfe) \newline
+		$\Omega = \{0,1\}^m (A = \{\omega = (\omega_1, \ldots, \omega_m) : \sum\limits_{j=1}^{m}{\omega_j} \geq k\} \text{ Ereignis })$
+	\item (iii) Werfen von 2 Würfeln \newline
+		$\Omega = \{1, \ldots, 6\}^2$
+	\item (iv) Brownsche Bewegung \newline
+		(TODO: BILD) Bewegung eines Blütenpollens in einer Flüssigkeit
+		\newline
+		$\Rightarrow$ Zukunftsmusik
+		\newline
+		$\Omega = C([0,1], \R^2)$
+\end{itemize}
+
+\section{Bemerkung (Mengentheoretische Operationen)}
+Seien $A, B, A_1, A_2, \ldots \subset \Omega$.
+\newline
+$A \cap B = \{\omega \in \Omega : \omega \in A \text{ und } \omega \in B\} \mathop{\hat{=}}  \text{"A und B treten ein"}$
+\newline
+$A \cup B \mathop{\hat{=}}  \text{"A oder B treten ein"}$
+\newline
+$\bar{A} \equiv A^c := \Omega \backslash A = \{\omega \in \Omega : \omega \notin A \} \mathop{\hat{=}} \text{"A tritt nicht ein"}$
+\newline
+$A \backslash B = A \cap B^c \mathop{\hat{=}} \text{"A tritt ein, aber nicht B"}$
+\newline
+$A \subset B \mathop{\hat{=}} \text{"wenn A, dann B"}$
+\newline
+$\emptyset \mathop{\hat{=}} \text{"unmögliches Ereignis"}$
+\newline
+$\Omega \mathop{\hat{=}} \text{"sicheres Ereignis"}$
+\newline
+\paragraph{Abkürzung} $AB = A \cap B$
+
+\section{Definition}
+Eine Abbildung $X \colon \Omega \rightarrow \R$ heißt (reelle) \textbf{Zufallsvariable}. Für $\omega \in \Omega$ heißt $X(\omega)$ \textbf{Realisierung} der Zufallsvariable zu $\omega$.
+
+\paragraph{Idee} 
+Mit $\omega \in \Omega$ bekommt auch $X(\omega)$ einen zufälligen Charakter.
+
+\paragraph{Definition}
+$X^{-1} \colon \mathcal{P}(\R) \rightarrow \mathcal{P}(\Omega) = \{A \colon A \in \Omega\}$ ist definiert durch 
+$$X^{-1}(A) = \{\omega \in \Omega \colon X(\omega) \in A\} \text{ ("Urbild von A unter X")}$$
+
+\paragraph{Bemerkung}
+\begin{itemize}
+\item $X^{-1}(A \cap B) = X^{-1}(A) \cap X^{-1}(B), A,B \subset \R$
+\item $X^{-1}(A \cup B) = X^{-1}(A) \cup X^{-1}(B)$
+\item $X^{-1}(\bigcup\limits_{j=1}^{\infty}{A_j}) = \bigcup\limits_{j=1}^{\infty}{X^{-1}(A_j)}$
+\item $X^{-1}(\bigcap\limits_{j=1}^{\infty}{A_j}) = \bigcap\limits_{j=1}^{\infty}{X^{-1}(A_j)}$
+\end{itemize}
+
+\paragraph{Vereinbarung}
+Es sei $X$ eine Zufallsvariable und $t \in \R$. Wir setzen
+\begin{itemize}
+ \item $\{X=t\} := \{\omega \colon X(\omega) = t \} (= X^{-1}(t))$
+ \item $\{X \geq t\} := \{\omega \colon X(\omega) \geq t \}$
+\end{itemize}
+
+\section{Definition}
+Sind $X,Y$ Zufallsvariablen, so definiert man
+\begin{itemize}
+	\item $(X+Y)(\omega) = X(\omega) + Y (\omega)$
+	\item $(X-Y)(\omega) = X(\omega) - Y (\omega)$
+	\item $(X \cdot Y)(\omega) = X(\omega) \cdot Y (\omega)$
+\end{itemize}
+$\omega \in \Omega, \text{neue Zufallsvariablen } X+Y, X-Y, X \cdot Y$
+\newline
+analog für $a \in \R$
+\begin{itemize}
+	\item $a X(\omega) = a \cdot (X(\omega))$
+	\item $\min(X,Y) = (X \wedge Y)(\omega):= \min \{X(\omega), Y(\omega)\} \ldots$
+\end{itemize}
+
+\section{Definition}
+Sei $A \subset \Omega$. Die Funktion $1_A \colon \Omega \rightarrow \R$ ist definiert durch
+$$1_A(\omega) = \begin{cases} 1 & \text{, falls } \omega \in A \\
+							  0 & \text{, falls } \omega \notin A						
+\end{cases}
+$$
+und heißt \textbf{Indikatorfunktion} von $A$.
+
+\section{Bemerkungen (Rechenregeln für Indikatorfunktionen)}
+
+\begin{itemize}
+	\item $1_{\emptyset} \equiv 0$
+	\item $1_{\Omega} \equiv 1$
+	\item $(1_A)^2 = 1_A$
+	\item $1_{A^c} = 1 - 1_A$
+	\item $1_{A \cap B} = 1_A \cdot 1_B$
+	\item $1_{A \cup B} = 1_A + 1_B - 1_{A \cap B}$
+	\item $A \subset B \Leftrightarrow 1_A \leq 1_B$
+	\item $1_{A \triangle B} = |1_A - 1_B|$
+\end{itemize}
+
+\section{Definition}
+Seien $A_1, \ldots, A_n \subset \Omega$. Die Zufallsvariable 
+$$X := \sum\limits_{j=1}^{n}{1_{A_j}}$$ heißt \textbf{Zählvariable} oder \textbf{Indikatorsumme}.
+
+\paragraph{Bemerkung}
+\begin{itemize}
+	\item $\{X=0\} = \{\omega \colon X(\omega) = 0 \} = A_{1}^c \cap \ldots A_{n}^c$
+	\item $\{X = n \} = A_1 \cap \ldots \cap A_n$
+	\item $\{X = k\} = $ "genau k der Ereignisse $A_1, \ldots, A_n$ treten ein" = $\bigcup\limits_{T \subset \{1, \ldots, n\}, |T|=k}{\bigl (\bigcap\limits_{j \in T}{A_j} \cap \bigcap\limits_{j \notin T}{A_{j}^c} \bigr )}$ \newline
+$(T \subset \{1, \ldots, n\}, |T| = \text{card } T = k)$
+\end{itemize}
 \end{document}

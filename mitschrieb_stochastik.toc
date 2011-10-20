@@ -25,3 +25,21 @@
 \contentsline {subsection}{\numberline {1.5.4}Quartilsabstand}{5}{subsection.1.5.4}
 \contentsline {section}{\numberline {1.6}Empirischer Korrelationskoeffizient}{5}{section.1.6}
 \contentsline {paragraph}{Definition}{5}{section*.14}
+\contentsline {paragraph}{Definition}{6}{section*.15}
+\contentsline {paragraph}{Folgerung}{6}{section*.16}
+\contentsline {chapter}{\numberline {2}Ereignisse und Zufallsvariablen}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Definition}{7}{section.2.1}
+\contentsline {paragraph}{Interpretation}{7}{section*.17}
+\contentsline {section}{\numberline {2.2}Beispiele}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Bemerkung (Mengentheoretische Operationen)}{7}{section.2.3}
+\contentsline {paragraph}{Abk\IeC {\"u}rzung}{8}{section*.18}
+\contentsline {section}{\numberline {2.4}Definition}{8}{section.2.4}
+\contentsline {paragraph}{Idee}{8}{section*.19}
+\contentsline {paragraph}{Definition}{8}{section*.20}
+\contentsline {paragraph}{Bemerkung}{8}{section*.21}
+\contentsline {paragraph}{Vereinbarung}{8}{section*.22}
+\contentsline {section}{\numberline {2.5}Definition}{8}{section.2.5}
+\contentsline {section}{\numberline {2.6}Definition}{9}{section.2.6}
+\contentsline {section}{\numberline {2.7}Bemerkungen (Rechenregeln f\IeC {\"u}r Indikatorfunktionen)}{9}{section.2.7}
+\contentsline {section}{\numberline {2.8}Definition}{9}{section.2.8}
+\contentsline {paragraph}{Bemerkung}{10}{section*.23}
