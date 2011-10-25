@@ -337,4 +337,114 @@ $$X := \sum\limits_{j=1}^{n}{1_{A_j}}$$ heißt \textbf{Zählvariable} oder \text
 	\item $\{X = k\} = $ "genau k der Ereignisse $A_1, \ldots, A_n$ treten ein" = $\bigcup\limits_{T \subset \{1, \ldots, n\}, |T|=k}{\bigl (\bigcap\limits_{j \in T}{A_j} \cap \bigcap\limits_{j \notin T}{A_{j}^c} \bigr )}$ \newline
 $(T \subset \{1, \ldots, n\}, |T| = \text{card } T = k)$
 \end{itemize}
+
+\chapter{Diskrete Wahrscheinlichkeitsräume}
+
+\section{Motivation}
+Zufallsexperiment mit Ausgängen in $\Omega$
+\newline
+n-malige, `unabhängige' Wiederholung
+\newline
+$\Rightarrow$ Ergebnis $(a_1, \ldots, a_n) \in \Omega^n$
+\newline
+$r_n(A):= \frac{1}{n} \sum\limits_{j=1}^{n}{1_A(a_j)}, A \subset \Omega$ relative Häufigkeit von $A$
+\newline
+$0 \leq r_n(A) \leq 1, r_n(\emptyset) = 0, r_n(\Omega) = 1$
+\newline
+$r_n(A \cup B) = r_n(A) + r_n(B), A \cap B = \emptyset$
+\newline
+empirisches Gesetz über Stabilisierung relativer Häufigkeiten:
+\newline
+$r_n(A) \underset{n \rightarrow \infty}{\leadsto} ? $
+
+\section{Definition}
+	Ein Paar $(\Omega, \mathbb{P})$ bestehend aus einer diskreten Menge $\Omega \neq \emptyset$ und einer Funktion $\mathbb{P} \colon \mathcal{P} \rightarrow \R$ heißt \textbf{diskreter Wahrscheinlichkeitsraum}, falls:
+	\begin{itemize}
+		\item (P1) $\mathbb{P}(A) \geq 0, A \subset \Omega$
+		\item (P2) $\mathbb{P}(\Omega) = 1$
+		\item (P3) $\mathbb{P}(\bigcup\limits_{j = 1}^{\infty}{A_j}) = \sum\limits_{j=1}^{\infty}{\mathbb{P}(A_j)}, A_i \cap A_j = \emptyset, i \neq j$
+		\newline
+		Diese Eigenschaft heißt $\sigma$-Additivität.
+	\end{itemize}
+	Man nennt $\mathbb{P}$ \textbf{Wahrscheinlichkeitsmaß (auf $\Omega$)} (oder Wahrscheinlichkeitsverteilung) und $\mathbb{P}(A)$ heißt \textbf{Wahrscheinlichkeit von A}.
+	
+\section{Folgerung}
+\begin{itemize}
+	\item a) $\Prim(\emptyset) = 0$
+	\item b) $\Prim(\bigcup\limits_{j=1}^{n}{A_j}) = \sum \limits_{j=1}^{n}{\Prim(A_j)}, A_i \cap A_j = \emptyset, i \neq j$
+	\item c) $0 \leq \Prim(A) \leq 1, A \subset \Omega$
+	\item d) $\Prim(A \cup B) = \Prim(A) + \Prim(B) - \Prim(A \cap B), A,B \subset \Omega$
+	\item e) $A \subset B \Rightarrow \Prim(A) \leq \Prim(B)$ (Monotonie)
+	\item f) $\Prim(A^c) = 1 - \Prim(A)$ (Komplementärwahrscheinlichkeit)
+	\item g) $\Prim(\bigcup\limits_{j=1}^{\infty}{A_j}) \leq \sum \limits_{j=1}^{\infty}{A_j}$ (Subadditivität)
+	\item h) $A_n \subset A_{n+1}, n \in \N \Rightarrow \Prim(\bigcup\limits_{n=1}^{\infty}{A_n}) = \lim \limits_{n \rightarrow \infty}{\Prim(A_n)}$ (Stetigkeit von unten)
+	\item i) $A_n \supset A_{n+1}, n \in \N \Rightarrow \Prim(\bigcap\limits_{n=1}^{\infty}{A_n}) = \lim \limits_{n \rightarrow \infty}{\Prim(A_n)}$ (Stetigkeit von oben)
+\end{itemize}
+
+\paragraph{Beweis}
+$\bullet$ a): $A_j = \emptyset, j \in \N$ (P3) \footnote{$\Prim(\emptyset) = \Prim(\emptyset \cup \emptyset) = \Prim(\emptyset) + \Prim(\emptyset) = 2 \cdot \Prim(\emptyset)$} $\Prim(\emptyset) = 0$.
+\newline
+$\bullet$ b): $A_{n+1} = A_{n+2} = \ldots = \emptyset$ in P3!
+\newline
+$\bullet$ c) + f): Für $A \subset \Omega$ gilt nach b) (für n = 2): \newline
+	$1 = \Prim(\Omega) = \Prim(A \cup A^c) \overset{(b)}{=} \Prim(A) + \Prim(A^c)$
+\newline
+$\bullet$ d): Nach b) gilt $\Prim(A) = \Prim(A \backslash B) + \Prim(A \cap B)$, $\Prim(B) = \Prim(B \backslash A) + \Prim(A \cap B)$ und somit $\Prim(A) + \Prim(B) - \Prim(A \cap B) = \Prim(A \backslash B) + \Prim (B \backslash A) + \Prim(A \cap B) \overset{(b)}{=} \Prim(A \cup B)$
+\newline
+$\bullet$ e): Wegen $B = A \cup (B \backslash A)$ folgt\footnote{(aus der Additivität)}
+	$\Prim(B) = \Prim(A) + \Prim(B \backslash A) \geq \Prim(A)$
+\newline
+$\bullet$ g): $B_1 := A_1, B_2 := A_2 \backslash A_1, \ldots , B_n := A_n \backslash (\bigcup \limits_{j=1}^{n-1}{A_j}), n \geq 2$.
+\newline
+Dann gilt $B_n \subset A_n$ und $\bigcup\limits_{j=1}^{n}{B_j} = \bigcup\limits_{j=1}^{n}{A_j}$ sowie $B_i \cap B_j = \emptyset, i \neq j.$
+\newline
+Es folgt aus (P3):
+\newline
+$\Prim(\bigcup\limits_{j=1}^{\infty}{A_j}) \overset{!}{=} \Prim(\bigcup\limits_{j=1}^{n}{B_j}) \overset {(P3)} {=} \sum\limits_{j=1}^{n}{\Prim(B_j)} \overset {e)}{\leq} \sum\limits_{j=1}^{n}{\Prim(A_j)}$ ($\infty$ ist zugelassen)
+\newline
+$\bullet$ h) + i): Übungsaufgabe
+
+\section{Satz}
+Seien $A_1, \ldots, A_n \subset \Omega.$ Setze
+$$S_k := \sum\limits_{1 \leq i_1 < \ldots < i_k \leq n}{\Prim(A_{i_1} \cap \ldots \cap A_{i_k})}$$
+Dann gilt
+\begin{itemize}
+	\item a) $\Prim(\bigcup\limits_{j=1}^{n}{A_j}) = \sum\limits_{k=1}^{n}{(-1)^{k-1} S_k}$ `Siebformel'
+	\item b) $\Prim(\bigcup\limits_{j=1}^{n}{A_j}) \leq \sum\limits_{k=1}^{2s+1}{(-1)^{k-1}S_k}, s = 0, \ldots, \lfloor \frac{n-1}{2} \rfloor$
+	\newline
+	$\Prim(\bigcup\limits_{j=1}^{n}{A_j}) \geq \sum\limits_{k=1}^{2s}{(-1)^{k-1}S_k}, s = 1, \ldots, \lfloor \frac{n}{2} \rfloor$
+\end{itemize}
+
+\paragraph{Beweisidee für Siebformel}
+vollständige Induktion nach $n$:
+\newline
+$\text{\underline{n=2:} }\Prim(A_1 \cup A_2) \overset{(d)}{=} \Prim(A_1) + \Prim(A_2) - \Prim(A_1 \cap A_2) = S_1 - S_2$
+\newline
+$\text{\underline{n=3:} }\Prim(\underbrace{A_1 \cup A_2} \cup A_3) \overset {(d)} {=} \Prim(A_1 \cup A_2) + \Prim(A_3) - \Prim((A_1 \cup A_2) \cap A_3)$ \footnote{$(A_1 \cup A_2) \cap A_3 = (A_1 \cap A_3) \cup (A_2 \cap A_3)$}
+\newline
+  $\overset {(d)} {=} \Prim(A_1) + \Prim(A_2) - \Prim(A_1 \cap A_2) + \Prim(A_3) - \Prim(A_1 \cap A_3) - \Prim(A_2 \cap A_3) + \Prim(A_1 \cap A_2 \cap A_3) = S_1 - S_2 + S_3$
+  
+\section{Definition + Satz}
+a) Sei $(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum. Dann heißt $p \colon \Omega \rightarrow \R$ definiert durch $p(\omega) := \Prim(\{\omega\})$ \textbf{Wahrscheinlichkeitsfunktion} (von $\Prim$).
+\newline
+Es gilt $\Prim(A) = \sum\limits_{\omega \in A}{p(\omega)}, A\subset \Omega$.
+\newline
+b) Sind $\Omega$ diskret und $p \colon \Omega \rightarrow \R$ eine Abbildung mit $p(\omega)\geq 0$ und $\sum\limits_{\omega \in \Omega}{p(\omega)} = 1$, so erhält man vermöge $\Prim(A):= \sum\limits_{\omega \in A}{p(\omega)}$ einen diskreten Wahrscheinlichkeitsraum.
+
+\paragraph{Beweis}
+$\bullet$ a) $\sigma$-Additivität ($A = \bigcup\limits_{\omega \in A}{\{\omega\}}$)
+\newline
+$\bullet$ b) $\sigma$-Additivität: Großer Umordnungssatz! (Analysis)
+
+\section{Definition}
+$|\Omega| =: n < \infty$. Definiere $\Prim(A)= \frac{|A|}{n}.$
+Dann heißt $(\Omega, \Prim)$ (ein diskreter Wahrscheinlichkeitsraum!) \textbf{Laplace-Raum}. Man nennt $\Prim$ \textbf{Gleichverteilung} auf $\Omega$. 
+\newline
+(`homogene Münze', `Würfeln', \ldots)
+
+\paragraph{Definition}
+Sei $\Omega \neq \emptyset$ beliebig!
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum $\Leftrightarrow \exists$ abzählbare Menge $\Omega_0 \subset \Omega$, $\exists p \colon \Omega \rightarrow [0, \infty)$ mit $p(\omega=0)$ für alle $\omega \notin \Omega_0$, und $\sum\limits_{\omega \in \Omega_0}{p(\omega)} = 1$, und $\Prim(A) = \sum \limits_{\omega \in A \cap \Omega_0}{p(\omega)}, A \subset \Omega$.
+
+
 \end{document}
