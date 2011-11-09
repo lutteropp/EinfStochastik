@@ -62,6 +62,7 @@
 \newcommand{\Q}{{\ensuremath{\mathbb{Q}}}}
 \newcommand{\F}{{\ensuremath{\mathbb{F}}}}
 \newcommand{\Prim}{{\ensuremath{\mathbb{P}}}}
+\newcommand{\E}{{\ensuremath{\mathbb{E}}}}
 % ============================================================================
 
 % == Makros für Autorenname und -adresse =====================================
@@ -582,7 +583,80 @@ nein & $Per_{k,\neq}^n$ \textcolor{blue}{Fermi-Dirak-Statistik} & $Kom_{k,\neq}^
 $p(\omega) = \Prim(\{\omega\})$, $(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum
 
 \section{Definition}
-... (TODO:weitermachen)
+\begin{itemize}
+	\item Der Erwartungswert einer Zufallsvariablen $X \colon \Omega \rightarrow \R$ existiert (genauer: $X$ ist integrierbar bezüglich $\Prim$), falls
+	\begin{equation}
+		\label{ewert}
+		\sum\limits_{\omega \in \Omega}{|X(\omega)| p(\omega)} < \infty
+	\end{equation}
+	In diesem Fall heißt 
+		$$\E X = \E[X] := \sum\limits_{\omega \in \Omega}{X(\omega)p(\omega)}$$
+		(Physik: $<X>=\E[X]$) \textbf{Erwartungswert von $X$}.
+	\item Ist $X \geq 0$ eine Zufallsvariable, so heißt
+		$$\E X := \sum\limits_{\omega \in \Omega}{X(\omega)p(\omega)} \in [0,\infty]$$
+		ebenfalls Erwartungswert von $X$.
+\end{itemize}
+
+\section{Satz}
+Sei $L^1 \equiv L^1(\Prim) := \{X \colon X \text{ erfüllt } \ref{ewert} \}$. Dann ist $L^1$ ein reeller Vektorraum. Genauer:
+\begin{itemize}
+	\item (i) $\E [X+Y] = \E X + \E Y, X,Y \in L^1$
+	\item (ii) $\E [aX] = a \E X, X \in L^1, a \in \R$
+	\item (iii) $\E 1_A = \Prim(A), A \subset \Omega$
+	\item (iv) $X \leq Y \Rightarrow \E X \leq \E Y$
+	\item (v) $|\E X| \leq \E |X|$
+\end{itemize}
+
+\begin{proof}
+	(i) $|(X+Y)(\omega)| \leq |X(\omega)| + |Y(\omega)|$.
+	\newline
+	Also $X+Y \in L^1(\Prim)$ und
+	$$\sum\limits_{\omega \in \Omega}{(X(\omega)+Y(\omega)) p(\omega)} \overset{!}{=} \sum\limits_{\omega \in \Omega}{X(\omega)p(\omega)} + \sum\limits_{\omega \in \Omega}{Y(\omega)p(\omega)}$$
+	(ii) analog
+	\newline
+	(iii) $\E 1_A = \sum\limits_{\omega \in \Omega}{p(\omega)}=\Prim(A)$
+	\newline
+	(iv) + (v) Übungsaufgabe
+\end{proof}
+
+\section{Folgerung}
+Seien $A_1, \ldots, A_n \subset \Omega$ und $X := \sum\limits_{j=1}^{n}{1_{A_j}}$. Dann gilt $\E X = \sum\limits_{j=1}^{n}{\Prim(A_j)}$. \newline
+(Gilt auch für $\infty$ viele Ereignisse.)
+
+\section{Satz (Transformationsformel)}
+Seien $X \colon \Omega \Rightarrow \R$ und $g \colon \R \rightarrow \R$. Definiere $g(X) \colon \Omega \rightarrow \R$ durch $$g(X)(\omega) = g(X(\omega)).$$ Dann ist $g(X) \in L^1(\Prim)$ genau dann, wenn
+$$\sum\limits_{x \colon \Prim(X=x)>0}{|g(x)| \Prim(X=x)} < \infty$$\footnote{$\Prim(X=x) = \Prim(\{\omega \in \Omega \colon X(\omega)=x\})$}
+
+In diesem Fall gilt
+$$\E g(x) = \sum\limits_{x \colon \Prim(X=x)>0}{g(x) \Prim(X=x)}$$
+
+\begin{proof}
+	Es gilt
+	$$\sum\limits_{\omega \in \Omega}{|g\left(X(\omega)\right)|p(\omega)} = \sum\limits_{x \in \R \colon \Prim(X=x)>0}{|g(x)|} \sum\limits_{\omega \in \Omega \colon X(\omega) = x}{p(\omega)}$$
+	\hrule
+	$\Omega = \bigcup\limits_{x \in \R \colon X(\omega) = x, \Prim(X=x)>0}{\{\omega \colon X(\omega) = x\}} \cup \Omega^\prime, \Prim(\Omega^\prime) = 0$
+	\hrule
+	$$= \sum{|g\left(X(\omega)\right)|p(\omega)} = \sum\limits_{\omega \notin \Omega^\prime}{|g\left(X(\omega)\right)|p(\omega)}$$
+	$$= \sum\limits_{x \in \R \colon \Prim(X=x)>0}{\sum\limits_{\omega \in \{\omega \in \Omega \colon X(\omega) = x \}}{|g(X(\omega))|p(\omega)}}$$
+	$$= \sum\limits_{x \cdots}{|g(x)| \Prim(X=x)}$$
+	Ist das endlich, so gilt die Rechnung auch ohne Betragsstriche!
+	\newline
+	Insbesondere gilt
+	$$\E X = \sum\limits_{x \in \R}{x \Prim(X=x)} \left(g(x)\equiv x\right)$$
+\end{proof}
+
+\section{Beispiele}
+\begin{itemize}
+	\item Würfelwurf, $X$=Augenzahl, $\Prim(X=j)=\frac{1}{6}$.
+		\newline Also $$\E X = \sum\limits_{j=1}^{6}{j \cdot \Prim(X=j)}=\frac{6\cdot 7}{2} \cdot \frac{1}{6} = \frac{7}{2} = 3,5$$
+	\item Zweifacher Würfelwurf, $X$=Maximum der Augenzahlen ($\Omega=\{1,\ldots,6\}^2, \Prim = \text{Gleichverteilung}$)
+		 $$\Prim(X=1)=\frac{1}{36}$$
+		 $$\Prim(X=2)=p((1,2)) + p((2,1)) + p((2,2)) = \frac{3}{36}$$
+		 \underline{Allgemein:} $\Prim(X=j)=\frac{2j-1}{36}, j =1,\ldots,6$
+		 \newline
+		 Es folgt
+		 $$\E X = \sum\limits_{j=1}^{6}{j \cdot \frac{2j-1}{36}} \overset{?}{\approx} 4,47$$
+\end{itemize}
 
 \chapter{Die hypergeometrische Verteilung und die Binomialverteilung}
 ... (TODO:weitermachen)

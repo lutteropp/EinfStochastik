@@ -69,4 +69,8 @@
 \contentsline {section}{\numberline {4.8}Beispiel (Besetzungsmodelle)}{18}{section.4.8}
 \contentsline {chapter}{\numberline {5}Der Erwartungswert}{19}{chapter.5}
 \contentsline {section}{\numberline {5.1}Definition}{19}{section.5.1}
-\contentsline {chapter}{\numberline {6}Die hypergeometrische Verteilung und die Binomialverteilung}{20}{chapter.6}
+\contentsline {section}{\numberline {5.2}Satz}{19}{section.5.2}
+\contentsline {section}{\numberline {5.3}Folgerung}{20}{section.5.3}
+\contentsline {section}{\numberline {5.4}Satz (Transformationsformel)}{20}{section.5.4}
+\contentsline {section}{\numberline {5.5}Beispiele}{21}{section.5.5}
+\contentsline {chapter}{\numberline {6}Die hypergeometrische Verteilung und die Binomialverteilung}{22}{chapter.6}
