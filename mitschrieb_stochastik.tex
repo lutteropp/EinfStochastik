@@ -13,6 +13,7 @@
 \usepackage{fancyhdr}
 \usepackage[pdftex,pdfpagelabels,colorlinks,backref,pagebackref]{hyperref}
 \usepackage{tikz} % SELBST HINZUGEFÜGT
+\usepackage{slashbox}
 % == Set the heading style ===================================================
 \setlength{\headheight}{14pt}
 \pagestyle{fancyplain}
@@ -442,9 +443,148 @@ Dann heißt $(\Omega, \Prim)$ (ein diskreter Wahrscheinlichkeitsraum!) \textbf{L
 \newline
 (`homogene Münze', `Würfeln', \ldots)
 
-\paragraph{Definition}
+\section{Definition}
 Sei $\Omega \neq \emptyset$ beliebig!
 $(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum $\Leftrightarrow \exists$ abzählbare Menge $\Omega_0 \subset \Omega$, $\exists p \colon \Omega \rightarrow [0, \infty)$ mit $p(\omega=0)$ für alle $\omega \notin \Omega_0$, und $\sum\limits_{\omega \in \Omega_0}{p(\omega)} = 1$, und $\Prim(A) = \sum \limits_{\omega \in A \cap \Omega_0}{p(\omega)}, A \subset \Omega$.
 
+\paragraph{Wiederholung}
+$(\Omega, \Prim)$ Wahrscheinlichkeitsraum
+\newline
+$p \colon \Omega \rightarrow [0,1], \sum\limits_{\omega \in \Omega}{p(\omega)} = 1$
+\newline
+$\Prim(A):=\sum\limits_{\omega \in A}{p(\omega)}, A \subset \Omega$
+\newline
+$p(\omega) := \Prim(\{\omega\})$
+\newline
+\hrule
+\vspace{10pt}
+$\Omega$ allgemeine Menge, $\Omega_0 \subset \Omega$ diskret
+\newline
+$p \colon \Omega \rightarrow [0,1], \sum\limits_{\omega \in \Omega_0}{p(\omega)}=1, p(\omega) = 0, \omega \notin \Omega_0$
+\newline
+$\Prim(A):= \sum\limits_{\omega \in A}{p(\omega)}:=\sum\limits_{\omega \in A \cap \Omega_0}{p(\omega)}$
+\newline
+$\Omega_0$= Träger von $\Prim$
+
+\section{Definition}
+\label{defVerteilung}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum  mit Träger $\Omega_0$.
+Es sei $X \colon \Omega \rightarrow \R$ eine Zufallsvariable.
+Dann heißt die Funktion $\Prim^X \colon \Prim(\R) \rightarrow \R$ definiert durch 
+$\Prim^X(B):= \Prim\left(X^{-1}(B)\right), B \subset \R$ \textbf{Verteilung um $X$}.
+
+\section{Satz}
+In der Situation von Definition \ref{defVerteilung} ist $(\R,\Prim^X)$ ein diskreter Wahrscheinlichkeitsraum mit Träger $B_0 := X(\Omega_0) = \{X(\omega) \colon \omega \in \Omega_0 \}$ 
+
+\begin{proof}
+Für $B \subset \R$.
+\newline
+$$\Prim^X(B) = \Prim(\{ \omega \colon X(\omega) \in B\})$$
+$$\overset{!}{=} \Prim(\{\omega \colon X(\omega) \in B \cap B_0 \})$$
+Definiert man für $t \in \R$
+$$p_t = \Prim(\{\omega \colon X(\omega) = t\}) = \Prim(X = t)$$
+so ergibt sich aus der $\sigma$-Additivität von $\Prim$
+$$\Prim^X(B) = \sum\limits_{t \in B \cap B_0}{\Prim(\{\omega \colon X(\omega) = t \})} = \sum \limits_{t \in B \cap B_0}{p_t}$$
+\end{proof}
+
+\chapter{Kombinatorik}
+$|A| = card(A)$ = Anzahl der Elemente einer endlichen Menge $A$
+
+\section{Grundregeln}
+$A_1, \ldots, A_k$ endliche Menge
+\newline
+(i) $A_i \cap A_j = \emptyset, i \neq j \Rightarrow \left|\bigcup\limits_{j=1}^{n}{A_j}\right| = \sum\limits_{j=1}^{n}{A_j}$
+\newline
+\label{grundregeln}
+(ii) $|A_1 \times \ldots \times A_n| = \prod\limits_{j=1}^{k}{|A_j|}$
+
+\section{Satz}
+\label{urnen}
+Es sollen k-Tupel $(a_1, \ldots, a_k)$ durch sukzessives Festlegen von $a_1,a_2,\ldots,a_k$ nach folgenden Regeln gebildet werden:
+\begin{itemize}
+	\item es gibt $j_1$ Möglichkeiten für die Wahl von $a_1$
+	\item es gibt (dann) $j_2$ Möglichkeiten für die Wahl von $a_2$
+	\item \ldots
+	\item es gibt (dann) $j_k$ Möglichkeiten für die Wahl von $a_k$
+\end{itemize}
+Dann gibt es genau $j_1 \cdot \ldots \cdot j_k$ solcher Tupel.
+
+\section{Beispiel (Urnenmodelle)}
+Betrachte Urne mit $n$ durchnummerierten Kugeln.Es werden $k$ Kugeln nach folgenden Regeln gezogen: ($M:=\{1,\ldots,n\}$)
+\newline
+\begin{tabular}{|c|p{4cm}|p{4cm}|} \hline 
+ \begin{tiny} \backslashbox{Zurücklegen\\ (Wiederholung)}{Beachtung der\\ Reihenfolge} \end{tiny} & ja & nein \\ \hline
+ja & $k$-Permutationen aus $M$ mit Wiederholung, $Per_k^n$ & $k$-Kombinationen aus $M$ mit Wiederholung, $Kom_k^n$ \\ \hline
+nein & $k$-Permutationen aus $M$ ohne Wiederholung, $Per_{k,\neq}^n$ & $k$-Kombinationen aus $M$ ohne Wiederholung, $Kom_{k,\neq}^n$ \\ \hline
+\end{tabular}
+
+\section{Definition} $M=\{1, \ldots,n\} (n \in \N)$
+\begin{itemize}
+	\item $Per_k^{n} := M^k$
+	\item $Per_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_i \neq a_j \text{ für } i \neq j\}$
+	\item $Kom_k^{n} := \{(a_1,\ldots,a_k= \in M^k \colon a_1 \leq a_2 \leq \ldots \leq a_k\}$
+	\item $(Kom_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 < a_2 < \ldots < a_k\}$
+\end{itemize}
+
+\section{Satz}
+\begin{itemize}
+	\item (i) $|Per_k^n| = n^k$
+	\item (ii) $|Per_{k,\neq}^n| := n^{\underline{k}} = n \cdot (n-1) \cdot \ldots \cdot (n-k+1)$
+	\item (iii) $|Kom_k^n| = {{n+k-1} \choose {k}}$
+	\item (iv) $|Kom_{k,\neq}^n| = {n \choose k}$
+\end{itemize}
+
+\begin{proof}
+	(i): \ref{grundregeln}.(ii)
+	\newline
+	(ii) Satz \ref{urnen}
+	\newline
+	(iv) Betrachte Äquivalenzrelation $$(a_1,\ldots,a_k) \sim (b_1,\ldots,b_k) \Leftrightarrow \{a_1,\ldots,a_k\} = \{b_1,\ldots,b_k\}$$ auf $Per_{k,\neq}^n$. Jede Äquivalenzklasse hat $k!$ Elemente! Es folgt
+		$$|Kom_{k,\neq}^n| \cdot k! = |Per_{k,\neq}^n| = n^{\underline{k}}$$
+	(iii) Die Abbildung $g \colon Kom_k^n \rightarrow Kom_{k,\neq}^{n+k-1}$ definiert durch $$(a_1,\ldots,a_k) \mapsto (a_1,a_2+1,a_3+2,\ldots,a_k+k-1)$$ ist eine Bijektion! (Umkehrabbildung!) Es folgt(!)
+		$$|Kom_k^n| = |Kom_{k,\neq}^{n+k-1}| = {{n+k-1} \choose k}$$
+\end{proof}
+
+\section{Beispiel (Geburtstagsproblem)}
+Wie groß ist die Wahrscheinlichkeit, dass unter $k$ rein zufällig ausgewählten Personen mindestens zwei am selben Tag Geburtstag haben?
+
+\paragraph{Antwort}
+Betrachte $\Sigma = Per_k^n$ mit $n=365$, und der Laplace-Verteilung.
+\newline
+Es sei $A:=\left\{(a_1,\ldots,a_k) \in \Omega \colon \text{ es gibt } i,j \in \{1,\ldots,k\} \text{ mit } i \neq j, a_i = a_j \right \}$.
+Es gilt
+$$\Prim(A) = 1- \Prim(A^c)$$
+$$= 1- \Prim(Per_{k,\neq}^n)$$
+$$\overset{!}{=}1-\frac{|Per_{k,\neq}^n|}{card \Omega}$$
+$$= 1- \frac{n \cdot (n-1) \cdot \ldots \cdot (n-k+1)}{n^k}$$
+$$= 1- \frac{n}{n} \cdot \frac{(n-1)}{n} \cdot \ldots \cdot \frac{n-k+1}{n}$$
+$$= 1- (1-\frac{1}{n}) \cdot \ldots \cdot (1- \frac{k-1}{n})$$
+\underline{$k=23$:} $\Prim(A) \approx 0,507 > \frac{1}{2}$
+\newline
+$n={49 \choose 6}, k=4004, \Prim(A) = 0,5001 > \frac{1}{2}$
+
+\section{Beispiel}
+$n$ Personen bringen (zu einer Feier) je ein Geschenk mit. Geschenke werden "rein zufällig" verteilt. Mit welcher Wahrscheinlichkeit bekommt mindestens eine Person ihr eigenes Geschenk? 
+\newline
+$\leadsto$ Siebformel!
+
+\section{Beispiel (Besetzungsmodelle)}
+$k$ Teilchen sollen auf $n$ nummerierte Fächer verteilt werden. Analogie zu Urnenmodell: Nummer der Kugel $\hat{=}$ Nummer des Fachs, Nummer der Ziehung $\hat{=}$ Nummer des Teilchens
+
+\begin{tabular}{|c|p{3cm}|p{3cm}|} \hline 
+ \begin{tiny} \backslashbox{Unterscheidbare\\ Teilchen}{Mehrfachbesetzungen} \end{tiny} & ja & nein \\ \hline
+ja & $Per_k^n$ \textcolor{blue}{Maxwell-Boltzmann} & $Kom_k^n$ \textcolor{blue}{Bose-Einstein-Statistik}\\ \hline
+nein & $Per_{k,\neq}^n$ \textcolor{blue}{Fermi-Dirak-Statistik} & $Kom_{k,\neq}^n$ \\ \hline
+\end{tabular}
+\textcolor{blue}{Statistische Physik}
+
+\chapter{Der Erwartungswert}
+$p(\omega) = \Prim(\{\omega\})$, $(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum
+
+\section{Definition}
+... (TODO:weitermachen)
+
+\chapter{Die hypergeometrische Verteilung und die Binomialverteilung}
+... (TODO:weitermachen)
 
 \end{document}
