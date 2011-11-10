@@ -620,6 +620,7 @@ Sei $L^1 \equiv L^1(\Prim) := \{X \colon X \text{ erfüllt } \ref{ewert} \}$. Da
 \end{proof}
 
 \section{Folgerung}
+\label{folg}
 Seien $A_1, \ldots, A_n \subset \Omega$ und $X := \sum\limits_{j=1}^{n}{1_{A_j}}$. Dann gilt $\E X = \sum\limits_{j=1}^{n}{\Prim(A_j)}$. \newline
 (Gilt auch für $\infty$ viele Ereignisse.)
 
@@ -659,6 +660,40 @@ $$\E g(x) = \sum\limits_{x \colon \Prim(X=x)>0}{g(x) \Prim(X=x)}$$
 \end{itemize}
 
 \chapter{Die hypergeometrische Verteilung und die Binomialverteilung}
-... (TODO:weitermachen)
+Urne mit Kugeln $\underbrace{1,2,\ldots,r}_{rot}, \underbrace{r+1,\ldots,r+s}_{schwarz}$
+\newline $r,s \in \N_0, r+s > 0$.
+
+\section{Definition}
+\begin{itemize}
+	\item $n$ mal Ziehen ohne Zurücklegen
+	\item $a_j :=$ Nummer der $j$-ten gezogenen Kugel
+	\item $\Omega = Per_{n,\neq}^{r+s}$
+	\item $\Prim =$ Gleichverteilung ("unabhängiges", "rein zufälliges" Ziehen)
+	\item $A_j := \{(a_1,\ldots,a_n) \in \Omega \colon a_j \leq r\} \hat{=} \{\text{j-te gezogene Kugel ist rot}\}$
+	\item $X:= \sum\limits_{j=1}^{n}{1_{A_j}}$= Anzahl der gezogenen roten Kugeln
+\end{itemize}
+$\Prim^X$ (die Verteilung von $X$) heißt \textbf{hypergeometrische Verteilung} mit Parametern $r,s,n$, kurz:
+$$X \sim Hyp(n,r,s), n \leq r+s$$
+$$\Prim^X = Hyp(n,r,s)$$
+
+\section{Satz}
+Es gilt
+\begin{itemize}
+	\item (i) $\E X = n \cdot \frac{r}{r+s}$
+	\item (ii) $\Prim(X=k) = \frac{{r \choose s}{s \choose {n-k}}}{{{r+s} \choose {n}}}, k = 0, \ldots, r \wedge n$
+\end{itemize}
+
+\begin{proof}
+	(i) Es gilt (Symmetrieargument!) $|A_j| = r \cdot (r+s-1)^{\underline{n-1}}$
+	\newline
+	$|\Omega| = (r+s)^{\underline{n}}$
+	$\Rightarrow \Prim(A_j) = \frac{|A_j|}{|\Omega|} = \frac{r}{r+s}$
+	\newline
+	Aus \ref{folg} folgt $\E X = n \cdot \frac{r}{r+s}$
+	\newline
+	(ii) $|\{X=k\}| \overset{!}{=} {n \choose k} r^{\underline{k}} s^{\underline{n-k}}$
+	\newline
+	$\Rightarrow \Prim(X=k) = \frac{{n \choose k} r^{\underline{k}} s^{\underline{n-k}}}{(r+s)^{\underline{n}}} = \frac{{r \choose k}{s \choose {n-k}}}{{{r+s}\choose n}}$
+\end{proof}
 
 \end{document}

@@ -74,3 +74,5 @@
 \contentsline {section}{\numberline {5.4}Satz (Transformationsformel)}{20}{section.5.4}
 \contentsline {section}{\numberline {5.5}Beispiele}{21}{section.5.5}
 \contentsline {chapter}{\numberline {6}Die hypergeometrische Verteilung und die Binomialverteilung}{22}{chapter.6}
+\contentsline {section}{\numberline {6.1}Definition}{22}{section.6.1}
+\contentsline {section}{\numberline {6.2}Satz}{23}{section.6.2}
