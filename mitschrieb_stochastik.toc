@@ -76,3 +76,15 @@
 \contentsline {chapter}{\numberline {6}Die hypergeometrische Verteilung und die Binomialverteilung}{22}{chapter.6}
 \contentsline {section}{\numberline {6.1}Definition}{22}{section.6.1}
 \contentsline {section}{\numberline {6.2}Satz}{23}{section.6.2}
+\contentsline {section}{\numberline {6.3}Motivation}{23}{section.6.3}
+\contentsline {section}{\numberline {6.4}Definition}{23}{section.6.4}
+\contentsline {section}{\numberline {6.5}Satz}{24}{section.6.5}
+\contentsline {paragraph}{Bemerkung}{24}{section*.29}
+\contentsline {chapter}{\numberline {7}Mehrstufige Experimente}{25}{chapter.7}
+\contentsline {section}{\numberline {7.1}Beispiel}{25}{section.7.1}
+\contentsline {paragraph}{Konstruktion von ${\ensuremath {\mathbb {P}}}$}{25}{section*.30}
+\contentsline {section}{\numberline {7.2}Definition}{25}{section.7.2}
+\contentsline {paragraph}{Mehrstufige Experimente}{25}{section*.31}
+\contentsline {section}{\numberline {7.3}Satz}{26}{section.7.3}
+\contentsline {section}{\numberline {7.4}Beispiel}{26}{section.7.4}
+\contentsline {paragraph}{Unabh\IeC {\"a}ngige Experimente}{26}{section*.32}

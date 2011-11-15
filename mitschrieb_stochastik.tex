@@ -696,4 +696,141 @@ Es gilt
 	$\Rightarrow \Prim(X=k) = \frac{{n \choose k} r^{\underline{k}} s^{\underline{n-k}}}{(r+s)^{\underline{n}}} = \frac{{r \choose k}{s \choose {n-k}}}{{{r+s}\choose n}}$
 \end{proof}
 
+\section{Motivation}
+$X$ Zufallsvariable, $\sum\limits_{k=1}^r{\Prim(X=x_n)} = 1$
+\newline
+$X_1, X_2, \ldots, X_n$ "unabhängige" Wiederholungen von $X$ (= Ergebnis eines zufälligen Versuchs)
+\newline
+$\bar{X}:=\frac{1}{n}(X_1 + \ldots + X_n)$ Zufallsvariable!
+\newline
+Mit $h_j := card\{i \in \{1,\ldots,n\} \colon X_i = x_j \}$ gilt $\bar{X} \overset{!}{=} \frac{1}{n}(h_1x_1 + h_2x_2 + \ldots + h_nx_n)$
+\newline
+empirisches Gesetz über Stabilität relativer Häufigkeiten
+\newline
+$\underset{n \rightarrow \infty}{\rightarrow} \Prim(X=x_1)x_1 + \ldots + \Prim(X=x_r)x_r \overset{!}{=} \E X$
+\newline
+$X \sim Hyp(n,r,s) = \Prim^X, n \leq r +s$
+\newline
+$\Prim(X=k)=\frac{
+			{{r \choose k}{s \choose {n-k}}}}{{{r+s}\choose n}}, k = 0, \ldots, n$
+\newline
+Wegen ${m \choose l}:= 0$ für $m<l$ gilt:
+$\Prim(X=k)=0$ für $k < r$ und für $n-k>s (k < n-s)$
+
+\section{Definition}
+\textbf{Binomialverteilung}:
+\begin{itemize}
+	\item n maliges Ziehen aus einer Urne mit $r+s$ Kugeln mit Zurücklegen
+	\item $\Omega = Per_n^{r+s} = \{(a_1,\ldots,a_n) \colon 1 \leq a_i \leq r+s, i = 1, \ldots, n\}$
+	\item $\Prim$ Gleichverteilung
+\end{itemize}
+$X:= \sum\limits_{j=1}^n {1_{A_j}}, A_j := \{(a_1,\ldots,a_n) \in \Omega \colon a_j \leq r\}$
+\newline
+$\Prim^X$ heißt Binomialverteilung mit Parametern n und $p:=\frac{r}{r+s}$. Man schreibt auch $Bin(n,p):=\Prim^X$.
+
+\section{Satz}
+Es gilt
+\begin{enumerate}
+	\item $\E X = np$
+	\item $\Prim(X=k)= {n \choose k} p^k (1-p)^{n-k}, 0 \leq k \leq n$
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+	\item $|A_j|=r \cdot (r+s)^{n-1}$
+		\newline
+		$|\Omega| = (r+s)^n \leadsto \Prim(A_j) = \frac{|A_j|}{|\Omega|}= \frac{r}{r+s}=p$
+		\newline
+		Folgerung 5.3 $\leadsto \E X = np$.
+	\item $card\{X=k\} = {n \choose k} r^k s^{n-k}$
+		\newline
+		$\leadsto \Prim(X=k)=\frac{{n \choose k} r^k s^{n-k}}{(r+s)^k (r+s)^{n-k}}$
+\end{enumerate}
+\end{proof}
+
+\paragraph{Bemerkung}
+$Bin(n,p)$ ist für jedes $p \in [0,1]$ definiert.
+
+\chapter{Mehrstufige Experimente}
+\section{Beispiel}
+Urne mit einer roten und drei schwarzen Kugeln
+\newline
+\underline{1. Experiment} Kugel ziehen, Farbe notieren, Kugel und eine weitere Kugel derselben Farbe zurücklegen
+\newline
+\underline{2. Experiment} Erneut Kugel ziehen
+\newline
+Modell: $\Omega := \{0,1\} \times \{0,1\}, \quad (0 \hat{=} s, 1 \hat{=} r)$
+\paragraph{Konstruktion von $\Prim$}
+$p(\omega):= \Prim(\{\omega\})$
+
+$\left.
+\begin{array}{cc} % für mehrzeiligen Text nötig
+p(1,1) := \frac{1}{4} \cdot \frac{2}{5} = \frac{2}{20} = \frac{1}{10}
+ \\ p(1,0) := \frac{1}{4} \cdot \frac{3}{5} = \frac{3}{20} 
+ \\ p(0,1) := \frac{3}{4} \cdot \frac{1}{5} = \frac{3}{20} 
+ \\ p(0,0) := \frac{3}{4} \cdot \frac{4}{5} = \frac{12}{20}
+\end{array}
+\right\}
+\text{1. Pfadregel}
+$
+$$\sum\limits_{\omega \in \Omega}{p(\omega)} = 1.$$
+Betrachte $B:= \{(1,1),(0,1)\}$.
+Dann gilt
+$$\Prim(B) = p(1,1) + p(0,1) = (\text{2. Pfadregel})$$
+$$= \frac{2}{20} + \frac{3}{20} = \frac{1}{4} \overset{!}{=} \Prim(\text{erste Kugel ist rot})$$
+(TODO: Bild(Baumdiagramm))
+
+\section{Definition}
+\paragraph{Mehrstufige Experimente}
+$\Omega = \Omega_1 \times \ldots \times \Omega_n$ ($\Omega_j \hat{=}$ Grundraum für $j$-tes Teilexperiment)
+\newline
+$\omega = (a_1, \ldots, a_n) \in \Omega$
+\newline
+Problem: Definiere $p(\omega) = \Prim(\{\omega\})$
+\begin{enumerate}
+	\item Startverteilung $p_1 \colon \Omega_1 \rightarrow [0,1] \quad \sum\limits_{\omega \in \Omega_1}{p_1(\omega)} = 1$
+	\item Übergangswahrscheinlichkeiten $p_2(a_2 | a_1) \geq 0 \quad \sum\limits_{a_2 \in \Omega_2}{p_2(a_2|a_1)} \overset{!}{=} 1$ 
+	
+	$(p_2(a_2|a_1) \hat{=}$ Wahrscheinlichkeit, dass 2. Versuch das Ergebnis $a_2$ liefert unter der Bedingung, dass 1. Versuch Ergebnis $a_1$ geliefert hat.)
+	\newline
+	$p_3(a_3|a_1,a_2) \geq 0 \quad \sum\limits_{a_3 \in \Omega_3}{p_3(a_3|a_1,a_2)} = 1$
+	\newline	
+	...
+	\newline
+	$p_n(a_n | a_1, \ldots, a_{n-1}) \geq 0 \quad \sum\limits_{a_n \in \Omega_n}{p_n(a_n|a_1, \ldots, a_{n-1})} = 1$
+\end{enumerate}
+Setze für $\omega = (a_1, \ldots, a_n) \in \Omega$
+$$p(\omega) := p_1(a_1) \cdot p_2(a_2|a_1) \cdot p_3(a_3|a_1,a_2) \cdot \ldots \cdot p_n(a_n|a_1,\ldots,a_{n-1}) \quad \text{1. Pfadregel}$$
+Schließlich sei
+$$\Prim(A) := \sum\limits_{\omega \in A}{p(\omega)}, \quad A \subset \Omega \qquad \text{Produkt von Übergangswahrscheinlichkeiten}$$
+
+\section{Satz}
+$(\Omega, \Prim)$ ist diskreter Wahrscheinlichkeitsraum.
+
+\begin{proof}
+	zu zeigen: $\sum\limits_{\omega \in \Omega}{p(\omega)} = 1$
+	\newline
+	Induktion (oder direkt)! Zum Beispiel gilt für $n=2$
+	$$\sum\limits_{\omega \in \Omega}{p(\omega)} = \sum\limits_{(a_1,a_2) \in \Omega_1 \times \Omega_2}{p_1(a_1) p_2(a_2|a_1)} = \sum\limits_{a_1 \in \Omega_1}{\sum\limits_{a_2 \in \Omega_2}{p_1(a_1) p_2(a_2|a_1)}}$$
+	$$\sum\limits_{a_1 \in \Omega_1}{p_1(a_1) \cdot 1} = 1.$$
+\end{proof}
+
+\section{Beispiel}
+\paragraph{Unabhängige Experimente}
+$(\Omega_j,\Prim_j), j=1,\ldots,n$, diskrete Wahrscheinlichkeitsräume, $p_i(a_i)=\Prim_i(\{a_i\})$
+\newline
+Idee: "Unabhängiges" Durchführen der zugehörigen Experimente
+$$\Omega := \Omega_1 \times \ldots \times \Omega_n, p(\omega):= p_1(a_1) \cdot \ldots \cdot p_n(a_n), \omega=(a_1, \ldots, a_n) \in \Omega$$
+$\big(p_2(a_2|a_1) = p_2(a_2), \ldots, p_n(a_n|a_1, \ldots, a_{n-1})=p_n(a_n)\big)$
+
+$$\Prim(A) = \sum\limits_{\omega \in A}{p(\omega)}$$
+Man nennt $\Prim$ das \textbf{Produkt} von $\Prim_1, \ldots, \Prim_n$ und schreibt 
+	$$\Prim := \bigotimes\limits_{i=1}^n{\Prim_i}.$$
+	z.B. kann $\Omega = \Omega_1 \times \Omega_2, \quad \Omega_1 = \Omega_2 = \{1,\ldots,6\}$
+	\newline
+	$p_1(a_1)=p_2(a_2)=\frac{1}{6}$
+	\newline
+	Dann ist 
+		$$p(a_1,a_2)=\frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}$$
+		und $\Prim$ ist die Laplace-Verteilung auf $\Omega$.
 \end{document}
