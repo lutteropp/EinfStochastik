@@ -88,3 +88,15 @@
 \contentsline {section}{\numberline {7.3}Satz}{26}{section.7.3}
 \contentsline {section}{\numberline {7.4}Beispiel}{26}{section.7.4}
 \contentsline {paragraph}{Unabh\IeC {\"a}ngige Experimente}{26}{section*.32}
+\contentsline {chapter}{\numberline {8}Bedingte Wahrscheinlichkeiten}{28}{chapter.8}
+\contentsline {section}{\numberline {8.1}Definition}{28}{section.8.1}
+\contentsline {section}{\numberline {8.2}Satz}{28}{section.8.2}
+\contentsline {paragraph}{Motivation}{28}{section*.33}
+\contentsline {section}{\numberline {8.3}Bemerkung (Zusammenhang zu \IeC {\"U}bergangswahrscheinlichkeiten)}{29}{section.8.3}
+\contentsline {section}{\numberline {8.4}Satz (Multiplikationsformel)}{29}{section.8.4}
+\contentsline {section}{\numberline {8.5}Satz}{29}{section.8.5}
+\contentsline {section}{\numberline {8.6}Beispiel}{30}{section.8.6}
+\contentsline {paragraph}{Modell}{30}{section*.34}
+\contentsline {section}{\numberline {8.7}Beispiel (Ziegenproblem)}{30}{section.8.7}
+\contentsline {section}{\numberline {8.8}Beispiel (Simpson-Paradoxon)}{31}{section.8.8}
+\contentsline {paragraph}{Erkl\IeC {\"a}rung}{31}{section*.35}

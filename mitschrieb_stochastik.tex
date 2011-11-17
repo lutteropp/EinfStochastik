@@ -833,4 +833,116 @@ Man nennt $\Prim$ das \textbf{Produkt} von $\Prim_1, \ldots, \Prim_n$ und schrei
 	Dann ist 
 		$$p(a_1,a_2)=\frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}$$
 		und $\Prim$ ist die Laplace-Verteilung auf $\Omega$.
+		
+\chapter{Bedingte Wahrscheinlichkeiten}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum.
+\section{Definition}
+Sei $B \subset \Omega$ mit $\Prim(B)>0$. Dann heißt
+$$\Prim(A|B):=\frac{\Prim(A \cap B)}{\Prim(B)}$$
+\textbf{bedingte Wahrscheinlichkeit} von $A \subset \Omega$ unter der Bedingung $B$.
+\newline
+Alternativ: $P_B(A):=\Prim(A|B)$
+
+\section{Satz}
+$P_B$ ist ein Wahrscheinlichkeitsmaß auf $\Omega$.
+Dabei ist $P_B(A)=1$ falls $B \subset A$ und $P_B(A) = 0$ falls $A \cap B = \emptyset$.
+Es gilt:
+$$p_B(\omega):= \begin{cases}
+		\frac{p(\omega)}{\Prim(B)} & \text{, falls } \omega \in B \\
+			0 & \text{, sonst}
+	\end{cases} \qquad \text{ mit } p_B(\omega):=\Prim_B(\{\omega\})$$
+	Beweis ist klar! ($\sum\limits_{\omega \in \Omega}{p_B(\omega)} = \frac{1}{\Prim(B)} \sum \limits_{\omega \in B}{p(\omega)} = \frac{\Prim(B)}{\Prim(B)}=1$.)
+	
+\paragraph{Motivation}
+Für $A \subset B$
+$$\frac{h_n(A)}{h_n(B)}= \frac{\frac{1}{n}h_n(A)}{\frac{1}{n}h_n(B)} \leadsto \frac{\Prim(A)}{\Prim(B)}.$$
+
+\section{Bemerkung (Zusammenhang zu Übergangswahrscheinlichkeiten)}
+$\Omega = \Omega_1 \times \Omega_2, \quad p(\omega) = p_1(a_1)p_2(a_2|a_1), \quad \omega = (a_1,a_2)$
+\newline
+Für $a_1 \in \Omega_1$ sei
+$$B := \{a_1\} \times \Omega_2.$$
+Für $a_2 \in \Omega_2$ sei
+$$A := \Omega_1 \times \{a_2\}.$$
+Es gilt $A \cap B = \{(a_1,a_2)\}$,
+$$\Prim(A \cap B) = \sum\limits_{\omega \in A\cap B}{p(\omega)} = \sum\limits_{(b_1,b_2) \in A \cap B}{p_1(b_1) p_2(b_2|b_1)} = p_1(a_1) p_2(a_2|a_1),$$
+$$\Prim(B) = \sum\limits_{b_2 \in \Omega_2}{p(a_1|b_2)} = \sum\limits_{b_2 \in \Omega_2}{p_1(a_1) p_2(b_2|a_1)} = p_1(a_1)$$
+Es folgt
+$$\Prim(A|B) = \frac{\Prim(A \cap B)}{\Prim(B)} \overset{p_1(a_1)>0}{=} p_2(a_2|a_1)$$
+
+\section{Satz (Multiplikationsformel)}
+Seien $A_1, \ldots, A_n \subset \Omega$ mit $\Prim(A_1 \cap \ldots \cap A_{n-1}) > 0$.
+Dann gilt
+$$\Prim(A_1 \cap \ldots \cap A_n) = \Prim(A_1) \Prim(A_2|A_1) \Prim(A_3|A_1 \cap A_2) \cdot \ldots \cdot \Prim(A_n|A_1 \cap \ldots \cap A_{n-1})$$
+
+\begin{proof}
+	Für $n=2$:
+		$$\Prim(A_1 \cap A_2) = \Prim(A_1) \cdot \Prim(A_2|A_1)$$
+	\underline{Allgemein:} Ausschreiben der Definitionen + kürzen
+	\newline
+	$n=3$: rechte Seite: $\Prim(A_1) \cdot \frac{\Prim(A_1 \cap A_2)}{\Prim(A_1)} = \frac{\Prim(A_1 \cap A_2 \cap A_3)}{\Prim(A_1 \cap A_2)} = \Prim(A_1 \cap A_2 \cap A_3)$
+\end{proof}
+
+\section{Satz}
+Sei $A_1, A_2, \ldots$ Zerlegung von $\Omega (\bigcup{A_i} = \Omega, A_i \cap A_j = \emptyset, i \neq j)$.
+\newline
+Sei $B \subset \Omega$. Dann gilt
+\begin{enumerate}
+	\item $\Prim(B) = \sum\limits_{j=1}^{\infty}{\Prim(A_j)\Prim(B|A_j)}$ Formel der totalen Wahrscheinlichkeit
+	\item \footnote{Formel von Bayes} Für $\Prim(B)>0$, so gilt $$\Prim(A_k|B) = \frac{\Prim(A_k)\Prim(B|A_k)}{\sum\limits_{j=1}^\infty{\Prim(A_j)\Prim(B|A_j)}},\quad k=1,2,\ldots$$
+\end{enumerate}
+(Man vereinbart $\Prim(B|A_j)\Prim(A_j):= 0$, falls $\Prim(A_j)=0$)
+
+\begin{proof}
+	\begin{enumerate}
+		\item $B = B \cap \Omega = \bigcup\limits_{j=1}^\infty{\underbrace{B \cap A_j}_{\text{paarweise disjunkt}}}$ 
+		Aus der $\sigma$-Additivität von $\Prim$ folgt
+		$$\Prim(B)=\sum\limits_{j=1}^\infty{\Prim(B \cap A_j)} = \sum\limits_{j=1}^\infty{\Prim(B|A_j)\Prim(A_j)}$$
+		\item rechte Seite der Behauptung: $\frac{\Prim(B \cap A_k)}{\Prim(B)} \overset{!}{=} \Prim(A_k|B)$
+	\end{enumerate}
+\end{proof}
+
+\section{Beispiel}
+Eine Krankheit komme bei $4 \%$ der Bevölkerung vor\footnote{Die Mediziner sprechen von "Prävalenz".}. Ein Test spreche bei $90 \%$ der Kranken an und bei $20 \%$ der Gesunden!
+\paragraph{Modell}
+\begin{itemize}
+	\item $\Omega :$ Menge der Personen in Deutschland
+	\item $K \subset \Omega :$ Menge der kranken Personen
+	\item $A \subset \Omega :$ Menge der (hypothetisch) positiv getesteten Personen
+	\item $\Prim$ = Gleichverteilung auf $\Omega$
+\end{itemize}
+
+Dann 
+$$\Prim(K|A)=\text{ Wahrscheinlichkeit, dass eine positiv getestete Person krank ist}$$
+$$\overset{Bayes}{=} \frac{\Prim(K)\Prim(A|K)}{\Prim(K)\Prim(A|K) + \Prim(K^c)\Prim(A|K^c)} \quad (K = A_j, K^c = A_k)$$
+$$= \frac{0,04 \cdot 0,9}{0,04 \cdot 0,9 + 0,96 \cdot 0,2} = \frac{0,036}{0,036 + 0,192} = \frac{0,036}{0,228} = 0,158$$
+
+\section{Beispiel (Ziegenproblem)} Ausgelassen.
+
+\section{Beispiel (Simpson-Paradoxon)}
+Zulassung von Studenten in Berkeley (1973)
+\begin{itemize}
+	\item Zulassungsrate Männer: $44 \%$
+	\item Zulassungsrate Frauen: $35 \%$
+\end{itemize}
+\underline{Aber:} Zulassungsraten der Männer in den einzelnen Fächern kleiner als die der Frauen
+
+\paragraph{Erklärung}
+\begin{itemize}
+	\item $A \hat{=}$ Zulassung \footnote{Ereignis, dass rein zufällig ausgewählter Bewerber erfolgreich ist mit seiner Bewerbung.}
+	\item $B \hat{=}$ Frau \footnote{Ereignis, dass zufällig ausgewählte weibliche Bewerberin erfolgreich ist.}
+	\item $K_j \hat{=}$ Bewerbung für Fach $j$
+\end{itemize}
+
+Dann kann gelten
+$$\Prim(A|B) < \Prim(A | B^c)$$
+aber
+$$\Prim(A|B \cap K_j) > \Prim(A|B^c \cap K_j), \quad j=1,2,\ldots$$
+Denn:
+$$\Prim(A|B)= \frac{\Prim(A\cap B)}{\Prim(B)} = \sum\limits_{j}{\frac{\Prim(A \cap B\cap K_j)}{\Prim(B)} \frac{\Prim(B \cap K_j)}{\Prim(B \cap K_j)}}$$
+$$ = \sum\limits_{j}{\underbrace{\Prim(K_j|B)}_{\text{Bewerbungsrate der Frauen im j-ten Fach}}\underbrace{\Prim(A|B \cap K_j)}_{\text{siehe oben}}}$$
+analog
+$$\Prim(A|B^c) = \sum{\Prim(K_j|B^c) \Prim(A|B^c \cap K_j)}$$
+
+Die absolute Erfolgsquote ist eine gewichtete Summe der relativen Erfolgsquoten.
 \end{document}
