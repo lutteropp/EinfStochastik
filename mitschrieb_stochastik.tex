@@ -945,4 +945,42 @@ analog
 $$\Prim(A|B^c) = \sum{\Prim(K_j|B^c) \Prim(A|B^c \cap K_j)}$$
 
 Die absolute Erfolgsquote ist eine gewichtete Summe der relativen Erfolgsquoten.
+
+\chapter{Stochastische Unabhängigkeit}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum.
+
+\section{Definition}
+$A_1, \ldots, A_n \subset \Omega$ heißen \textbf{stochastisch unabhängig}, falls
+
+$$\Prim(\bigcap\limits_{j \in T}{A_j}) = \prod\limits_{j \in T}{\Prim(A_j)}, \quad T \subseteq \{1, \ldots, n\}, |T| \geq 2.$$
+
+($2^n - n - 1$ Gleichungen.)
+
+\section{Bemerkung}
+\begin{enumerate}
+	\item $A,B$ stochastisch unabhängig \newline
+	$\Leftrightarrow \Prim(A \cap B) = \Prim(A)\Prim(B)$ \newline
+	$\overset{\Prim(B)>0}{\Leftrightarrow} \Prim(A|B) = \Prim(A)$ (Interpretation!)
+	\footnote{Wenn die Kenntnis des Eintretens von B keinerlei Rückschlüsse auf das Eintreten von A zulässt.} \newline
+	$\Leftrightarrow \Prim(B|A) \overset{\Prim(B)>0}{=} \Prim(B)$
+	
+	\item $\Prim(B) = 0 \leadsto$ $A$ und $B$ sind stochastisch unabhängig \newline
+		$\Prim(B) = 1 \leadsto$ $A$ und $B$ sind stochastisch unabhängig
+		
+	\item $A,B,C$ unabhängig $\Leftrightarrow$
+		
+		$\left.
+\begin{array}{cc} % für mehrzeiligen Text nötig
+\Prim(A \cap B) = \Prim(A)\Prim(B)
+ \\ \Prim(A \cap C) = \Prim(A)\Prim(C) 
+ \\ \Prim(B \cap C) = \Prim(B)\Prim(C) 
+\end{array}
+\right\}
+\text{paarweise stochastische Unabhängigkeit}
+$
+		
+		$$\Prim(A \cap B \cap C) = \Prim(A) \Prim(B) \Prim(C)$$
+\end{enumerate}
+
+
 \end{document}
