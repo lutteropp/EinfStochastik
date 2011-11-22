@@ -982,5 +982,134 @@ $
 		$$\Prim(A \cap B \cap C) = \Prim(A) \Prim(B) \Prim(C)$$
 \end{enumerate}
 
+\paragraph{Wiederholung}
+$A,B \subset \Omega$ stochastisch unabhängig $$\Leftrightarrow \Prim(A \cap B)=\Prim(A) \Prim(B)$$
+$$\Leftrightarrow \Prim(A|B)=\Prim(A) \Leftrightarrow \Prim(B|A)=\Prim(B)$$
+$A_1, \ldots, A_n$ stochastisch unabhängig $\Leftrightarrow$
+$$\Prim(\bigcap\limits_{j \in T}{A_j}) = \prod\limits_{j \in T}{\Prim(A_j)}, \quad T \subset \{1, \ldots, n\}, |T| \geq 2$$
+
+\section{Bemerkungen}
+(iv) $A,B$ stochastisch unabhängig. Dann:
+$$\Prim(A \cap B^c) = \Prim(A) - \Prim(A \cap B)$$
+$$\overset{!}{=} \Prim(A) - \Prim(A) \Prim(B)$$
+$$=\Prim(A)(1-\Prim(B)) = \Prim(A)\Prim(B^c)$$
+
+Also sind $A$ und $B^c$ (also auch $A^c$ und $B^c$ bzw. $A^c$ und B) stochastisch unabhängig.
+\newline
+(v) Seien $A_1, \ldots, A_n$ unabhängig und $1 \leq i_1 < \ldots < i_k \leq n$. Dann sind $A_{i_1}, \ldots, A_{i_k}$ stochastisch unabhängig.
+\newline
+(vi) Ist $A$ von $A$ unabhängig, so ist 
+$$\Prim(A)=\Prim(A)^2$$
+d.h. $\Prim(A) \in \{0,1\}$.
+\newline
+(vii) Man nennt $A_1, A_2, \ldots \subset \Omega$ stochastisch unabhängig
+$$\overset{d}{\Leftrightarrow} A_1, \ldots, A_n \text{ stochastisch unabhängig für jedes } n \geq 2.$$
+
+\section{Beispiel (Produkträume)}
+Sei $(\Omega, \Prim):= (\bigotimes\limits_{j=1}^{n}\Omega_j, \bigotimes\limits_{j=1}^n{\Prim_j}),$
+d.h. $$\Prim(\{(a_1, \ldots, a_n)\})=p(\omega) \quad \omega=(a_1, \ldots, a_n)$$
+$$= p_1(a_1) \cdot \ldots \cdot p_n(a_n) \quad (p_i(a_i)=\Prim_i(\{a_i\}))$$
+Sei $B = B_1^* \times \ldots \times B_n^*, \quad B_i^* \in \Omega_i$.
+Dann $\Prim(B_1^* \times \ldots \times B_n^*)$
+$$= \sum\limits_{(a_1,\ldots,a_n)\in B_1^* \times \ldots \times B_n^*}{p_1(a_1) \cdot \ldots \cdot p_n(a_n)}$$
+$$= \sum\limits_{a_1 \in B_1^*}{\ldots \sum\limits_{a_n \in B_n^*}{p_1(a_1)\cdot \ldots \cdot p_n(a_n)}}$$
+$$= \prod\limits_{j=1}^n{\sum\limits_{a \in B_j^*}{p_j(a)}} = \prod\limits_{j=1}^n{\Prim_j(B_j^*)} \qquad (*)$$
+Sei jetzt $A_j^* \subset \Omega_j, j=1,\ldots,n.$
+\paragraph{Behauptung}
+$A_j = \Omega_1 \times \ldots \times \Omega_{j-1} \times A_j^* \times \Omega_{j+1} \times \ldots \times \Omega_n, \quad j=1, \ldots, n$ stochastisch unabhängig.
+\begin{proof}
+	Sei $T \subset \{1,\ldots,n\}$ mit $|T| \geq 2$.
+	\newline
+	Definiere $$B_j^*:=\begin{cases}
+		A_j^*, & j \in T, \\ \Omega_j, & j \notin T.
+	\end{cases}$$
+	Dann 
+	$$\Prim(\bigcap\limits_{j \in T}{A_j}) = \Prim(B_1^* \times \ldots \times B_n^*)$$
+	\footnote{$(A_1 \times A_2) \cap (B_1 \times B_2) = (A_1 \cap B_1) \times (A_2 \cap B_2)$}
+	$$(*) \quad \prod\limits_{j=1}^n{\Prim_j(B_j^*)}= \prod\limits_{j \in T}{\Prim_j(A_j^*)}$$
+	$$\overset{(*)}{=} \prod\limits_{j \in T}{\Prim_j(A_j)}$$ \footnote{mit $B_i^*=\Omega_i$ bis auf ein $i$}
+\end{proof}
+
+\section{Satz}
+$A_1, \ldots, A_n$ stochastisch unabhängig $\Leftrightarrow$
+$$\Prim(\bigcap\limits_{j \in I}{A_j} \cap \bigcap\limits_{j \in J}{A_j^c}) = \prod\limits_{j \in I}{\Prim(A_j)} \prod\limits_{j \in J}{\Prim(A_j^c)} \quad I,J \subset \{1, \ldots, n\}, I \cap J = \emptyset$$
+(Hierbei $\bigcap\limits_{j \in \emptyset}{B_j}:= \Omega, \prod\limits_{j \in \emptyset}{a_j}:=1$)
+
+\begin{proof}
+	Induktion über Anzahl der Elemente von $J$ (vergleiche auch Bemerkung 9.3 (iv))
+\end{proof}
+
+\paragraph{Definition}
+Für $A \subset \Omega$ sei $A^0 := A^c, A^1 := A$.
+\newline
+Für $B_1, \ldots, B_n \subset \Omega$ sei
+$$\sigma(B_1, \ldots, B_k):=\{B \subset \Omega \colon \exists U \subset \{0,1\}^k \text{ mit } B = \bigcup\limits_{(\epsilon_1, \ldots, \epsilon_n) \in U}{B_1^{\epsilon_1} \cap \ldots \cap B_k^{\epsilon_k}}\}.$$
+(Die von $B_1, \ldots, B_k$ erzeugte \underline{Algebra}).
+
+\begin{example}
+	(TODO: Bild)
+\end{example}
+
+\begin{remark}
+	Eine Menge der Form
+	$$B_1^{\epsilon_1} \cap \ldots \cap B_k^{\epsilon_k} \text{ für } (\epsilon_1, \ldots, \epsilon_k) \in \{0,1\}^k$$
+	heißt \underline{Atom} von $\sigma(B_1, \ldots, B_k)$. Jede Menge in $\sigma(B_1, \ldots, B_k)$ ist Vereinigung von Atomen. Insbesondere gilt
+	$$B_1, \ldots, B_k \in \sigma(B_1, \ldots, B_k), \emptyset \in \sigma(B_1, \ldots, B_k), \Omega \in \sigma(B_1, \ldots, B_k).$$
+\end{remark}
+
+\section{Satz (Blockungslemma)}
+Seien $A_1, \ldots, A_k, A_{k+1}, \ldots, A_n$ stochastisch unabhängig und $B \in \sigma(A_1, \ldots, A_k), C \in \sigma(A_{k+1}, \ldots, A_n)$. Dann sind $B$ und $C$ stochastisch unabhängig.
+
+\begin{proof}
+	Es gilt
+	$$\Prim(B \cap C) = \Prim\left( \underbrace{(\bigcup\limits_{(\epsilon_1, \ldots, \epsilon_k) \in U}{A_1^{\epsilon_1} \cap \ldots A_k^{\epsilon_k}})}_{B} \cap \underbrace{(\bigcup\limits_{(\epsilon_{k+1}, \ldots, \epsilon_n) \in V}{A_{k+1}^{\epsilon_{k+1}} \cap \ldots \cap A_n^{\epsilon_n}})}_{C} \right)$$
+	disjunkte Vereinigung
+	$$= \sum\limits_{U}{\Prim\left((A_1^{\epsilon_1} \cap \ldots \cap A_k^{\epsilon_k}) \cap \bigcup\limits_{V}{(A_{k+1}^{\epsilon_{k+1}} \cap \ldots \cap A_n^{\epsilon_n})}\right)}$$
+	$$= \sum\limits_{U,V}{\Prim(A_1^{\epsilon_1} \cap \ldots \cap A_k^{\epsilon_k} \cap A_{k+1}^{\epsilon_{k+1}} \cap \ldots A_n^{\epsilon_n})}$$
+	$$=\sum\limits_{U,V}{\left(\underbrace{\prod\limits_{j=1}^k{\Prim(A_j^{\epsilon_j})}}_{\Prim(A_1^{\epsilon_1} \cap \ldots \cap A_k^{\epsilon_k})} \underbrace{\prod\limits_{j=k+1}^n{\Prim(A_j^{\epsilon_j})}}_{\Prim(A_{k+1}^{\epsilon_{k+1}} \cap \ldots \cap A_n^{\epsilon_n})}\right)}$$
+	$$=\sum\limits_{(\epsilon_1, \ldots, \epsilon_k) \in U}{\Prim(A_1^{\epsilon_1} \cap \ldots \cap A_k^{\epsilon_k})} \sum\limits_{(\epsilon_{k+1}, \ldots, \epsilon_n) \in V}{\Prim(A_{k+1}^{\epsilon_{k+1}} \cap \ldots \cap A_n^{\epsilon_n})}$$
+	$$\overset{!}{=} \Prim(B) \Prim(C)$$
+\end{proof}
+
+\section{Satz}
+$A_1, \ldots, A_n \subset \Omega$ stochastisch unabhängig. Ferner gelte $\Prim(A_i)=p, \quad i = 1, \ldots, n$. Dann ist
+$$X := \sum\limits_{j=1}^n{1_{A_j}}$$
+$Bin(n,p)$-verteilt.
+
+\begin{proof}
+	Es gilt
+	$$\{X=k\} = \bigcup\limits_{T \subseteq \{1, \ldots,n\}, |T|=k}{\left( \bigcap\limits_{j \in T}{A_j} \cap \bigcap\limits_{j \notin T}{A_j^c}\right )}$$
+	disjunkte Vereinigung, also
+	$$\Prim(X=k)=\Prim(\{X=k\}) = \sum\limits_{T \subseteq \{1, \ldots, n\}, |T| = k}{\Prim(\bigcap\limits_{j \in T}{A_j} \cap \bigcap\limits_{j \notin T}{A_j^c})}$$
+	$$\overset{\text{Voraussetzung}}{=}\sum\limits_{T \subseteq \{1, \ldots, n\}, |T| = k}{p^k (1-p)^{n-k}} = {n \choose k} p^k (1-p)^{n-k}$$
+\end{proof}
+
+\section{Beispiel (Bernoulli-Kette der Länge $n$)}
+$(\Omega, \Prim):= \bigotimes\limits_{j=1}^n{(\Omega_j, \Prim_j)}$
+\newline
+$\Omega_1=\ldots=\Omega_n = \{0,1\}$
+\newline
+$\Prim_j(\{1\}) = 1 - \Prim_j(\{0\}) = p, \quad j = 1, \ldots, n$
+\newline
+Die Ereignisse 
+	$$A_j := \{(a_1, \ldots, a_n)\in \Omega \colon a_j = 1\}, \quad j=1, \ldots, n$$
+	sind stochastisch unabhängig.
+\newline
+Ferner $\Prim(A_j)=p$.
+
+\chapter{Gemeinsame Verteilung}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum (mit Träger $\Omega_0$).
+
+\section{Definition}
+Seien $X_j \colon \Omega \rightarrow \R \quad (j = 1, \ldots, k)$ Zuvfallsvariablen. 
+Definiere $X \colon \Omega \rightarrow \R^k$ vermöge $X(\omega) = \left(X_1(\omega), \ldots, X_k(\omega)\right), \quad \omega \in \Omega$.
+Dann heißt $X$ \textbf{$k$-dimensionaler Zufallsvektor}.
+\newline
+Für $B \subset \R^k$ sei $X^{-1}(B) \equiv \{X \in B\} := \{\omega \in \Omega \colon X(\omega) \in B\}$. Die Abbildung
+$$\Prim^X \colon \mathcal{P}(\R) \rightarrow [0,1]$$ definiert durch
+$$\Prim^X(B):= \Prim(\{X \in B\}) (= \Prim(X \in B))$$ heißt
+\underline{Verteilung} von $X$  oder auch gemeinsame Verteilung von $X_1, \ldots, X_k$.
+\newline
+Die Verteilung von $X_j$ heißt \textbf{$j$-te Marginalverteilung (von $X_j$)}.
 
 \end{document}
