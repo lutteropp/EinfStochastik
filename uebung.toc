@@ -1,0 +1,8 @@
+\select@language {ngerman}
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {1}24.11.11}{3}{chapter.1}
+\contentsline {subsection}{\numberline {1.0.1}Aufgabe 16}{3}{subsection.1.0.1}
+\contentsline {subsection}{\numberline {1.0.2}Zusatz 1}{4}{subsection.1.0.2}
+\contentsline {paragraph}{Modell}{4}{section*.3}
+\contentsline {subsection}{\numberline {1.0.3}Aufgabe 12}{5}{subsection.1.0.3}
+\contentsline {subsection}{\numberline {1.0.4}Aufgabe 15}{5}{subsection.1.0.4}

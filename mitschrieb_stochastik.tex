@@ -1058,7 +1058,7 @@ $$\sigma(B_1, \ldots, B_k):=\{B \subset \Omega \colon \exists U \subset \{0,1\}^
 \end{remark}
 
 \section{Satz (Blockungslemma)}
-Seien $A_1, \ldots, A_k, A_{k+1}, \ldots, A_n$ stochastisch unabhängig und $B \in \sigma(A_1, \ldots, A_k), C \in \sigma(A_{k+1}, \ldots, A_n)$. Dann sind $B$ und $C$ stochastisch unabhängig.
+Seien $A_1, \ldots, A_k, A_{k+1}, \ldots, A_n$ stochastisch unabhängig und \newline $B \in \sigma(A_1, \ldots, A_k), C \in \sigma(A_{k+1}, \ldots, A_n)$. Dann sind $B$ und $C$ stochastisch unabhängig.
 
 \begin{proof}
 	Es gilt
@@ -1111,5 +1111,151 @@ $$\Prim^X(B):= \Prim(\{X \in B\}) (= \Prim(X \in B))$$ heißt
 \underline{Verteilung} von $X$  oder auch gemeinsame Verteilung von $X_1, \ldots, X_k$.
 \newline
 Die Verteilung von $X_j$ heißt \textbf{$j$-te Marginalverteilung (von $X_j$)}.
+
+%hier beginnt der 29.11.2011
+\paragraph{Wiederholung}
+$(\Omega, \Prim)$ Wahrscheinlichkeitsraum
+\newline
+$\Omega_0 := \{ \omega \in \Omega \colon \Prim(\{\omega\})>0 \}$ diskret
+\newline
+$X = (X_1, \ldots, X_k) \colon \Omega \rightarrow \R^k$
+\newline
+Verteilung: $\Prim^X$
+$$\Prim^X(A) := \Prim(X \in A) \equiv \Prim(\{\omega \colon X(\omega) \in A\}), \quad A \subset \R^k$$
+
+\paragraph{Bemerkung}
+Die gemeinsame Verteilung legt Randverteilungen fest. ($k=2$)
+$$\Prim(X_1 = x_1) \quad \left(=\Prim^{X_1}(\{x_1\})\right)$$
+$$= \Prim\left(\{X_1 = x_1\} \cap \bigcup\limits_{x_2 \in X_2(\Omega_0)}{\{X_2 = x_2\}}\right)$$
+$$\overset{\text{$\sigma$-Additivität}}{=} \sum\limits_{x_2  \in X_2(\Omega_0)}{\underbrace{\Prim(\{X_1 = x_1\} \cap \{X_2 = x_2\})}_{\Prim(X_1 = x_1, X_2 = x_2)}}$$
+$$= \sum\limits_{x_2 \in X_2(\Omega_0)}{\Prim^{(X_1,X_2)}\left(\{(x_1,x_2)\}\right)}$$
+
+\section{Beispiel}
+$\Omega := \{1, \ldots, 6\}^2$
+\newline
+$\Prim$ = Gleichverteilung (2-maliger Würfelwurf)
+$$X_1((k,l)):= \min(k,l), X_2((k,l)) := \max(k,l)$$
+(TODO: Tabelle)
+$$\Prim(X_1 = i, X_2 = j), \quad i,j = 1, \ldots, 6$$
+
+
+
+Es gilt
+$$\Prim(X_1 = i) = \Prim(X_2 = 7-i), \quad i=1,\ldots,6$$
+$$\leadsto \Prim^{X_1} = \Prim^{7-X_2} \quad (X_1 \neq 7-X_2)$$
+$$X_1 \overset{d}{=} 7-X_2 \quad \text{Verteilungsgleichheit}$$
+
+\section{Beispiel}
+$\Prim(X_1 = i, X_2 = j)$
+\newline
+$(c \in [0,\frac{1}{2}] \text{ fest})$
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\backslashbox{i}{j} & 1 & 2 &  \\ 
+\hline 
+1 & c & $\frac{1}{2}-c$ & $\frac{1}{2}$ \\ 
+\hline 
+2 & $\frac{1}{2}-c$ & c & $\frac{1}{2}$ \\ 
+\hline 
+ & $\frac{1}{2}$ & $\frac{1}{2}$ &  \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+$$\Prim(X_1 = 1) = \Prim(X_1 = 1, X_2 = 1)+\Prim(X_1 = 1, X_2 = 2)$$
+
+$$\leadsto \Prim^{X_1} = \Prim^{X_2} \hat{=} \text{ fairer Münzwurf!}$$
+Also legen die Randverteilungen $\Prim^{X_1}, \Prim^{X_2}$ die gemeinsame Verteilung $\Prim^{(X_1,X_2)}$ \underline{nicht} fest.
+
+\section{Definition}
+$X_1, \ldots, X_k \colon \Omega \rightarrow \R$ heißen \textbf{stochastisch unabhängig}
+$$\Leftrightarrow \{X_1 \in B_1\}, \ldots, \{X_k \in B_k\} \text{ stochastisch unabhängig } \forall B_1, \ldots, B_k \subset \R$$
+
+\section{Satz}
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+	\item $X_1, \ldots, X_k$ sind stochastisch unabhängig
+	\item $\Prim(X_1 \in B_1, \ldots, X_k \in B_k) = \prod\limits_{i=1}^k{\Prim(X_i \in B_i)} \quad B_1, \ldots, B_k \subset \R$
+	\item $\Prim(X_1 = x_1, \ldots, X_k = x_k) = \prod\limits_{i=1}^k{\Prim(X_i = x_i)} \quad x_1, \ldots, x_k \in \R$
+\end{enumerate}
+
+\begin{proof}
+	(1) $\Rightarrow$ (2) Klar nach Definition.
+	\newline
+	(2) $\Rightarrow$ (1): Wähle in der Definition $B_j = \R$ für $j \notin T (\{X_j \in B_j\} = \Omega)$
+	\newline
+	(2) $\Rightarrow$ (3): Setze $B_i = \{x_i\}$
+	\newline
+	(3) $\Rightarrow$ (2): Für $B_1, \ldots, B_k \subset \R$ gilt
+		$$\Prim(X_1 \in B_1, \ldots, X_k \in B_k) \quad (=\Prim^{(X_1,\ldots,X_k)}(B_1 \times \ldots \times B_k)) \quad (B_i \subset \underbrace{X_i(\Omega_0)}_{\text{diskret}})$$
+		$$= \sum\limits_{x_1 \in B_1, \ldots, x_k \in B_k}{\Prim(X_1 = x_1, \ldots, X_k = x_k)}$$
+		$$\overset{(3)}{=} \sum{\Prim(X_1 = x_1) \ldots \Prim(X_k = x_k)}$$
+		$$= \Prim(X_1 \in B_1) \cdot \ldots \cdot \Prim(X_k \in B_k)$$\footnote{$\sum\limits_{i,j}{a_ib_j} = (\sum{a_i})(\sum{b_j}) \text{ "Fubini"}$}
+\end{proof}
+
+\paragraph{Bemerkung}
+Im Falle stochastischer Unabhängigkeit legen die Randverteilungen die gemeinsame Verteilung fest.
+
+\section{Satz (Blockungslemma)}
+Es seien $X_1, \ldots, X_k$ stochastisch unabhängige, eindimensionale Zufallsvariablen und $1 \leq l \leq k-1$, $g \colon \R^l \rightarrow \R$, $h \colon \R^{k-l} \rightarrow \R$. Dann sind 
+$g(X_1, \ldots, X_l)$ und $h(X_{l+1}, \ldots, X_k)$ stochastisch unabhängig.
+
+\begin{proof}
+Übung!
+\end{proof}
+
+\section{Satz (allgemeine Transformations-Formel)}
+Seien $Z \colon \Omega \rightarrow \R^k$ Zufallsvektor, $g \colon \R^k \rightarrow \R$. Setze
+$$M := \{ z \in \R^k \colon \Prim(Z=z)>0\}.$$
+Dann ist $g(Z)$ integrierbar\footnote{d.h. der Erwartungswert existiert.} genau dann, wenn
+$$\sum\limits_{z \in M}{|g(z)| \cdot \Prim(Z=z)} < \infty$$
+In diesem Fall ist der Erwartungswert
+$$\mathbb{E} g(Z) = \sum\limits_{z \in M}{g(z) \cdot \Prim(Z=z)}$$
+
+\begin{proof}
+vgl. eindimensionalen Spezialfall.
+\end{proof}
+
+\section{Satz}
+Seien $X, Y \colon \Omega \rightarrow \R$ stochastisch unabhängig.
+Sind $X,Y$ integrierbar, so ist auch $X \cdot Y$ integrierbar und $\mathbb{E}(X \cdot Y) = (\mathbb{E} X)\cdot(\mathbb{E} Y)$.
+
+\begin{proof}
+	Setze $M := \{(x,y) \in \R^2 \colon \Prim(X=x, Y=y) > 0 \} = \{(x,y) \colon \Prim(X=x) > 0, \Prim(Y=y) > 0\}$.
+	Dann 
+	$$\E | X \cdot Y | =  \sum\limits_{\omega \in \Omega_0}{|X(\omega)| |Y(\omega)| \Prim(\{\omega\})}$$
+	$$\overset{!}{=} \sum\limits_{(x,y) \in M}{|x| |y| \underbrace{\Prim(X=x, Y=y)}_{\Prim(X=x) \cdot \Prim(Y=y)}}$$
+	$$= \underbrace{\left(\sum\limits_{x \colon \Prim(X=x)>0}{|x| \Prim(X=x)}\right)}_{< \infty} \cdot \underbrace{\left(\sum\limits_{y \colon \Prim(Y=y)>0}{|y| \Prim(Y=y)}\right)}_{< \infty}$$
+	Dieselbe Rechnung "ohne Betragsstriche" liefert die behauptete Formel.
+\end{proof}
+
+\section{Satz (Faltungsformel)}
+Sind $X,Y$ unabhängige reelle Zufallsvariablen, so gilt 
+$$\Prim(X+Y = z) = \sum\limits_{x \in X(\Omega_0)}{\Prim(X=x) \Prim(Y=z-x)}, \quad z \in \R$$
+
+\begin{proof}
+	Ohne Unabhängigkeit gilt
+	$$\Prim(X+Y=z) \overset{!}{=} \sum\limits_{X \in X(\Omega_0)}{\Prim(X=x, Y=z-x)}$$
+\end{proof}
+
+\section{Satz (Additionsgesetz für Binomialverteilungen)}
+Seien $X \sim Bin(m,p), Y \sim Bin(n,p)$ stochastisch unabhängig. \newline
+Dann ist $X+Y \sim Bin(m+n,p)$ $\quad \forall m,n \geq 1, p \in [0,1]$
+
+\begin{proof}
+	Es seien $A_1, \ldots, A_m, A_{m+1}, \ldots, A_{m+n}$ unabhängige Ereignisse mit $\Prim(A_i)=p$.
+	Dann sind
+	$$X^\prime := \sum\limits_{i=1}^m{1_{A_i}}, \qquad Y^\prime := \sum\limits_{i=m+1}^{m+n}{1_{A_i}}$$
+	$Bin(m,p)$ bzw. $Bin(n,p)$ Binomialverteilt. (Bernoulli-Kette)
+	\newline
+	Nach Blockungslemma sind $X^\prime, Y^\prime$ stochastisch unabhängig!
+	Außerdem
+	$$X^\prime + Y^\prime = \sum\limits_{i=1}^{m+n}{1_{A_i}} \sim Bin(m+n,p)$$
+	Aber aus $(X^\prime, Y^\prime) \overset{d}{=} (X,Y)$ folgt
+	$$X^\prime + Y^\prime \overset{d}{=} X+Y, \text{ d.h. $X+Y \sim Bin(m+n,p)$}$$
+	$$\Prim^{X^\prime + Y^\prime} = \Prim^{X+Y}$$
+\end{proof}
 
 \end{document}
