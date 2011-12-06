@@ -1258,4 +1258,293 @@ Dann ist $X+Y \sim Bin(m+n,p)$ $\quad \forall m,n \geq 1, p \in [0,1]$
 	$$\Prim^{X^\prime + Y^\prime} = \Prim^{X+Y}$$
 \end{proof}
 
+\chapter{Varianz, Kovarianz, Korrelation}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum.
+
+\section{Definition}
+Falls $X$ Zufallsvariable und $\E X^2 < \infty$, so heißt
+$$V(X)\equiv Var(X) := \E (X - \E X)^2$$
+\textbf{Varianz} von $X$.
+
+\section{Bemerkungen}
+\label{bem112}
+\begin{enumerate}
+	\item Wegen $$|X| \leq 1 + X^2$$
+		$$(X-a)^2 \leq X^2 + 2 |a| |X| + a^2$$
+		ist $V(X)$ wohldefiniert.
+	\item Gilt $\sum\limits_{i=1}^\infty{\Prim(X=x_i)} = 1$, so ist
+		$$V(X) = \sum{(x_i - \E X)^2 \Prim(X=x_i)} \quad \text{(Transformationsformel)}$$
+	\item Es gilt 
+		$$V(X) = \E (X^2-2 \underbrace{(\E X)}_{\mu} X + \underbrace{(\E X)^2}_{\mu ^2})$$
+		$$= \E X^2 - 2 \mu \E X + \mu ^2 \quad \text{(Linearität des Erwartungswertes)}$$
+		$$= \E X^2 - \mu ^2 = \E X^2 - (\E X)^2$$
+	\item Varianz kann als Trägheitsmoment interpretiert werden.
+\end{enumerate}
+
+\section{Satz}
+Sei $\E X^2 < \infty$.
+\begin{enumerate}
+	\item $V(X) = \E(X-c)^2 - (\E X - c)^2, \quad c \in \R \text{ (Steiner-Formel)}$
+	\item $V(X) = \min\limits_{c}{ \E(X-c)^2}$
+	\item $V(aX + b) = a^2 V(X)$
+	\item $V(X) = 0 \Leftrightarrow \exists a \in \R \colon \Prim(X=a) = 1.$
+\end{enumerate}
+
+\begin{proof}
+	(1) $V(X)=$
+		$$= \E ( \underbrace{X-c} + \underbrace{c-\E X})^2$$
+		$$= \E(X-c)^2 + 2 \underbrace{\E (X-c)(c- \E X)} + (c - \E X)^2$$ \footnote{$\E c = c$}
+		$$= \E(X-c)^2 - 2 \E (c - \E X)^2 + (c - \E X)^2$$
+	(2) (1) $\leadsto \E (X-c)^2 = V(X) + (\E X -c)^2$
+	\newline
+	(3) $\E (aX+b - \E (aX + b))^2$
+	$$= \E (aX + b - a \E X - b)^2$$
+	$$= a^2 \E (X - \E X)^2$$
+	(4) Bemerkung \ref{bem112}.(2) $\leadsto$ 
+	$$V(X) = 0 \Leftrightarrow (x_i - \E X)^2 \Prim(X=x_i)=0$$
+	$$\Leftrightarrow \forall i \text{ mit } \Prim(X= x_i) \text{ gilt } x_i = \E X$$
+	$$\Leftrightarrow \text{ Es gibt nur ein $i_0$ mit } \Prim(X=x_{i_0})>0$$
+	$$ \text{ Dann ist } \Prim(X=x_{i_0}) = 1, \text{ und } x_{i_0} = \E X.$$
+\end{proof}
+
+\section{Beispiel}
+\begin{enumerate}
+	\item $X = 1_A, \quad A \subset \Omega$.
+		$$Var X = \E 1_A^2 - (\E 1_A)^2 = \E 1_A - (\E 1_A)^2$$
+		$$= \Prim(A)-\Prim(A)^2 = \Prim(A) (1 - \Prim(A))$$
+	\item $X= \sum\limits_{i=1}^n{1_{A_i}}, \quad A_i \subset \Omega_i, i=1, \ldots, n$
+		$$V(X) = \E \left(\sum\limits_{i=1}^n{1_{A_i}}\right) \cdot \left(\sum\limits_{j=1}^n{1_{A_j}}\right) - (\E \sum{1_{A_i}})^2$$
+		$$ = \sum\limits_{i=1}^n{\Prim(A_i)} + \sum\limits_{i \neq j}{\Prim(A_i \cap A_j)} - (\sum\limits_{i=1}^n{\Prim(A_i)})^2$$
+		Es gelte etwa (für ein $c \geq -r, r, s \in \N$)
+		$$\Prim(A_i) = \frac{r}{r+s} =: p$$
+		$$\Prim(A_i \cap A_j) = \frac{r}{r+s} \frac{r+c}{r+s+c}, \quad i \neq j$$
+		($c=-1$: Ziehen ohne Zurücklegen, $c=0 \hat{=}$ Ziehen mit Zurücklegen, $c>0$: Polyasches Urnenschema). Dann
+		$$V\left(\sum\limits_{i=1}^n{X_i}\right) = n p (1-p) \cdot \left(1 + \frac{(n-1) \cdot c}{r+s+c}\right)$$
+		(3) $X \sim Bin(n,p): V(x) = n p (1-p) \quad (c=0)$ \newline
+		(4) $X \sim Hyp (n,r,s): V(X) = n p (1-p) \left(1 - \frac{(n-1)}{r+s-1}\right) \quad (c=-1)$
+\end{enumerate}
+
+\section{Definition}
+$X$ heißt \underline{standardisiert}, wenn $\E X = 0$ und $V(X)=1$. Ist $X$ eine beliebige Zufallsvariable $( \E X^2 < \infty)$, so heißt (falls $V(X)>0$)
+$$X^* = \frac{X - \E X}{\sqrt{V(X)}}$$
+\textbf{Standardisierung von $X$}. (Es gilt $\E X^* = 0, V(X^*) = 1$)
+
+\paragraph{Bemerkung}
+$X \sim Bin(n,p),\quad X^* = \frac{X-np}{\sqrt{n p (1-p)}}$
+
+\section{Satz (Tschebyschov-Ungleichung)}
+Für jede Zufallsvariable $X$ mit $\E X^2 < \infty$ gilt
+$$\Prim(|X-\E X| \geq c) \leq \frac{V(X)}{c^2}), \quad c > 0.$$
+
+\begin{proof}
+	Es sei (für gegebenes $c>0$)
+	$$g(t) = \begin{cases} 1, & \text{falls } |t - \E X | \geq c \\ 0, & \text{sonst}\end{cases}, \quad t \in \R$$
+	Ferner sei 
+	$$h(t)= \frac{(t - \E X)^2}{c^2}$$
+	(TODO: Bild)
+	\newline
+	Wegen $g \leq h$ ist $g(X) \leq h(X)$, also
+	$$\underbrace{\E g(X)}_{= \Prim(|X - \E X| \geq c)} \leq \underbrace{\E h(X)}_{= \underbrace{\E \frac{(X- \E X)^2}{c^2}}_{= \frac{1}{c^2} V(X)}}$$
+\end{proof}
+
+\section{Definition}
+Es gelte $\E X^2 < \infty, \E Y^2 < \infty$. Die Zahl
+$$(Cov(X,Y)=) C(X,Y) := \E (X - \E X) (Y - \E Y)$$
+heißt \textbf{Kovarianz zwischen $X$ und $Y$}.
+Gilt $C(X,Y)=0$, so heißen $X$ und $Y$ \textbf{unkorreliert}.
+Gilt $V(X)>0, V(Y)>0$, so heißt
+$$\rho(X,Y):= \frac{C(X,Y)}{\sqrt{V(X)}\sqrt{V(Y)}}$$
+\textbf{Korrelationskoeffizient zwischen $X$ und $Y$}.
+(Wegen $|a \cdot b| \leq \frac{1}{2} (a^2 + b^2)$ ist $(X-\E X) (Y - \E Y) \in L^1(\Prim)$)\footnote{$L^1(\Prim) \leadsto$ integrierbar}.
+
+\section{Satz}
+\begin{enumerate}
+	\item $C(X,Y) = \E X Y - (\E X \E Y)$
+	\item $C(X,Y) = C(Y,X), \quad C(X,X)=V(X)$
+	\item $C(aX+b,cY+d) = a \cdot c \cdot C(X,Y)$
+	\item $X,Y$ unabhängig $\Rightarrow C(X,Y) = 0$
+	\item $V(X,Y) = V(X)+ V(Y) + 2 C(X,Y)$
+	\item $V(\sum\limits_{j=1}^n{X_j}) = \sum{V(X_j)} + \sum\limits_{i \neq j}{C(X,Y)}$
+	\item $C(1_A, 1_B) = \Prim(A \cap B) - \Prim(A) \Prim(B)$
+	\item $C(\sum\limits_{i=1}^n{X_i}, \sum\limits_{j=1}^m{Y_j}) = \sum\limits_{i,j}{C(X_i, Y_j)}$
+	\item $\rho(aX+b, cY+d) = sgn(a \cdot c)\rho(X,Y)$
+\end{enumerate}
+
+\begin{proof}
+	a),b),c) stimmt.
+	\newline
+	d) Satz 10.8.
+	$$C(X,Y)=\E X \cdot Y - \E X \E Y = 0.$$
+	\newline
+	e) folgt aus f, f folgt aus h
+	\newline
+	h) linke Seite
+	$$\E (\sum\limits_ {i}{X_i} - \sum\limits_{i} {\E X_i}, \sum\limits_{j}{X_j} - \sum\limits_{j}{\E X_j})$$
+	$$= \E ( \sum\limits_{i}{(X_i - \E X_i)}) (\sum\limits_{j}{(X_j - \E X_j)})$$
+	$$= \sum\limits_{i,j}{\E (X_i - \E X_i) \cdot (Y_j - \E Y_j)}$$
+	i)
+für $a,b \in \R, c, d \in \R$
+$$\rho(aX+b, cY+d)$$
+$$\overset{Def}{=} \frac{cov(aX+b,cY+d)}{\sqrt{Var(aX+b)\cdot Var(cY+d)}}$$
+$$\overset{11.8.c}{=}\frac{ac Cov(X,Y)}{\sqrt{a^2 c^2}\sqrt{Var(X)\cdot Var(Y)}}$$
+$$=sgn(ac) \cdot \rho(X,Y)$$
+\end{proof}
+
+\section{Folgerung}
+Sind $X_1,\ldots,X_n$ unabhängig, so folgt
+$$V(\sum\limits_{i=1}^n{X_i}) = \sum\limits_{i=1}^n{V(X_i)} \quad \text{(aus iv+vi(d+f))}$$
+
+\section{Beispiel}
+Für $X \sim Bin(n,p)$ gilt (nach Satz 9.6)
+$$X \overset{d}{=} X_1 + \ldots + X_n$$
+mit $X_1, \ldots, X_n$ unabhängig und identisch verteilt mit 
+$$\Prim(X_i=1)=1-\Prim(X_i=0)=p \quad \text{für } i = 1, \ldots, n$$
+Also ist nach 11.9 und 11.4.i
+$$V(X)= \sum\limits_{i=1}^n{V(X_i)}$$
+$$= n \cdot V(X_1) = n p (1-p)$$
+in Übereinstimmmung mit 11.4.iii (siehe auch Übung).
+Das folgende Resultat ist analog zu 1.6:
+
+\section{Satz}
+Gilt $\E X ^2 < \infty, \E Y^2 < \infty$ und $V(X) V(Y) > 0$, so folgt
+$$\min\limits_{a,b}{\E (Y-a-bX)^2} = V(Y) (1- \rho ^2 (X,Y))$$
+Die Minimalstelle $(a^*, b^*)$ ist gegeben durch 
+$$b^* = \frac{C(X,Y)}{V(X)}, \quad a^* = \E Y - b^* \E X$$
+
+\begin{proof}
+	$\left(\text{allg. }\inf\limits_{x,y}{f(x,y)} = \inf\limits_{x}{\inf\limits_{y}{f(x,y)}} = \inf\limits_{y}{\inf\limits_{x}{f(x,y)}}\right)$
+	\newline
+	Es seien $a,b \in \R$ und $Z:= Y-bX$.
+	Dann ist
+	$$\E (Y-bX-a)^2 = \E (Z-a)^2$$
+	$$\overset{11.3.i, Steiner}{=} V(Z) + \underbrace{(\E Z - a)^2}_{\geq 0}$$
+	Also ist $a^* = \E Z = \E Y - b^* \E X$.
+	\newline
+	Es verbleibt die Aufgabe
+	$$\min\limits_{b}{\underbrace{\E (Y - \E Y - b (X - \E X))^2}_{=: f(b)}}$$
+	$$f(b) = Var(Y) - 2 b C(X,Y) + b^2 Var(X)$$
+	$$=\footnote{\text{quadratische Ergänzung}}V(X) \underbrace{\left(b - \frac{C(X,Y)}{V(X)}\right)^2}_{\geq 0} + V(Y) - \frac{C(X,Y)^2}{V(X)}$$
+	$$\Rightarrow b^* = \frac{C(X,Y)}{V(X)}$$
+\end{proof}
+
+\section{Folgerung}
+\begin{enumerate}
+	\item $C(X,Y)^2 \leq V(X) \cdot V(Y)$ (Cauchy-Schwarz-Ungleichung)
+	\item $|\rho(X,Y)| \leq 1$
+	\item $|\rho(X,Y)| = 1$
+		$$\Leftrightarrow \exists a,b \in \R \colon \E (Y-a-bX)^2 = 0$$
+		$$\Leftrightarrow \exists a,b \in \R \colon \Prim(Y-a-bX=0)=1$$
+		$$(\Leftrightarrow Y=a+bX \quad \Prim-\text{fast sicher})$$
+		insbesondere $\rho(X,Y)=1 \Rightarrow b>0$
+		$$(b^* = \frac{C(X,Y)}{V(X}) = \rho(X,Y) \cdot \underbrace{\sqrt{\frac{V(Y)}{V(X)}}}_{>0}$$
+		und $\rho(X,Y)=-1 \Rightarrow b < 0.$
+\end{enumerate}
+
+\section{Bemerkung}
+Falls $\Prim(X=x_j, Y=y_j) = \frac{1}{n} \quad (1 \leq j \leq n)$ so
+$$\E(Y - a -bX)^2 = \sum\limits_{j=1}^n{\frac{1}{n} \cdot (y_j - a - b x_j)^2}$$
+$\leadsto$ Methode der kleinsten Quadrate $\leadsto$ Kapitel 1 (empirischer Korrelationskoeffizient)
+
+\chapter{Wichtige diskrete Verteilungen}
+\begin{enumerate}
+	\item Binomialverteilung $Bin(n,p) \leadsto$ Kapitel 6, 9.6
+	\item Hypergeometrische Verteilung $Hyp(n,r,s) \leadsto$ Kapitel 6
+	\item Poisson-Verteilung $Po(\lambda)$
+	\item Geometrische Verteilung $G(p)$
+	\item Negative Binomialverteilung $Nb(r,p)$
+	\item Multinomialverteilung $Mult(n,p_1, \ldots, p_s)$
+\end{enumerate}
+
+\section{Satz (Gesetz seltener Ereignisse)}
+Sei $(p_n)_{n \geq 1}, 0 \leq p_n \leq 1$ eine Folge mit
+$$n p_n \overset{n \rightarrow \infty}{\rightarrow} \lambda \quad (0 < \lambda < \infty)$$
+Dann gilt
+$$\underbrace{{n \choose k} p_n^k (1-p_n)^{n-k}}_{=\Prim(X_n = k)\text{ für }X_n \sim Bin(n, p_n)} \overset{n \rightarrow \infty}{\rightarrow} e^{-\lambda} \frac{\lambda^k}{k!}$$
+
+\begin{proof}
+	linke Seite:
+	$$\frac{n!}{k!(n-k)!} \frac{1}{n^k} \cdot (n \cdot p_n)^k (1- \frac{n \cdot p_n}{n})^{n-k}$$
+	$$\frac{1}{k!} \underbrace{\frac{n^k}{n^k}}_{\rightarrow 1} \underbrace{(n, p_n)^k}_{\rightarrow \lambda^k} \underbrace{(1- \frac{n \cdot p_n}{n})^{n-k}}_{\rightarrow e^{- \lambda}}$$
+	$$\frac{n^k}{n^k} = \frac{n}{n} \cdot \frac{(n-1)}{n} \cdot \frac{(n-2)}{n} \cdot \ldots \cdot \frac{(n-k+1)}{n}$$
+	und allgemein für $a_n \rightarrow 1$ gilt
+	$$(1 + \frac{a_n}{n})^n \rightarrow e^a$$
+\end{proof}
+
+\section{Definition}
+$$X \sim Po(\lambda) \Leftrightarrow \Prim(X=k)= e^k \frac{\lambda^k}{k!}, \quad k \in \N_0$$
+(Poisson-Verteilung mit Parameter $\lambda, \lambda \in (0, \infty)$)
+Also, falls $n \cdot p_n \rightarrow \lambda,$
+$$Bin(n,p_n) \rightarrow Po(\lambda) \text{ im Sinne von 12.1}$$
+
+\section{Satz}
+\begin{enumerate}
+	\item $X \sim Po(\lambda) \Rightarrow \E X = V(X) = \lambda$
+	\item $X,Y$ unabhängig, $X \sim Po(\lambda), Y \sim Po(\mu)$
+		$$\Rightarrow X+Y \sim Po(\lambda + \mu) \text{(Additivgesetz)}$$
+\end{enumerate}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $$\E X = \sum\limits_{k=1}^\infty {k \cdot e^{- \lambda} \frac{\lambda^k}{k!}} = e^{-\lambda} \cdot \lambda \underbrace{\sum\limits_{k=1}^\infty{\frac{\lambda^{k-1}}{(k-1)!}}}_{= \sum\limits_{j=0}^\infty{\frac{\lambda^{j}}{j!}} = e^\lambda} = \lambda$$
+		$$\E (X (X-1)) = \sum\limits_{k=2}^\infty{k(k-1)e^{-\lambda} \frac{\lambda^k}{k!}} = e^{-\lambda} \lambda^2 e^\lambda = \lambda^2$$
+		
+		$$Var(X) = \E X^2 - (\E X)^2$$
+		$$= \E(X (X-1)) + \E X - \E X^2$$
+		$$= \lambda^2 + \lambda - \lambda^2 = \lambda$$
+		\item Faltungsformel (Übung!)
+	\end{enumerate}
+\end{proof}
+
+\section{Definition und Satz}
+Sei $0 < p < 1$.
+$$X \sim G(p) :\Leftrightarrow \Prim(X=k) = (1-p)^k \cdot p, \quad k \in \N_0$$
+(geometrische Verteilung mit Parameter $p$)
+\newline
+Es gilt
+\begin{enumerate}
+	\item $\E X = \frac{1}{p} -1$
+	\item $V(X) = \frac{1-p}{p^2}$
+\end{enumerate}
+$X$ modelliert \underline{Anzahl der Nieten vor dem ersten Treffer} in einer unendlichen Bernoulli-Kette mit Trefferwahrscheinlichkeit $p$.
+
+\begin{proof}
+	$$\sum\limits_{k=0}^\infty{X^k} \equiv \frac{1}{1-x} \text{ auf } (-1,1)$$
+	$$\Rightarrow \sum\limits_{k=1}^\infty{k \cdot x^{k-1}} = \frac{1}{(1-x)^2} \text{ für } |x|<1$$
+	$$\Rightarrow \sum\limits_{k=2}^\infty{k(k-1)x^{k-2}} = \frac{2}{(1-x)^3}$$
+	$$\E X = \sum\limits_{k=1}^\infty{k (1-p)^{k} \cdot p} = p (1-p) \sum\limits_{k=1}^\infty {k (1-p)^{k-1}}$$
+	$$p (1-p) \frac{1}{(1-(1-p))^2}$$
+	$$= \frac{1-p}{p}$$
+
+	$$\E X (X-1) = p(1-p)^2 \underbrace{\sum\limits_{k=2}^\infty{k (k-1) (1-p)^{k-2}}}_{= \frac{2}{p^3}}$$
+	$$= 2\left(\frac{(1-p)}{p}\right)^2$$
+
+	$$\Rightarrow Var(X) = 2 \left(\frac{1-p}{p}\right)^2 + \frac{1-p}{p} - \left(\frac{1-p}{p}\right)^2$$	
+	$$= \left(\frac{1-p}{p}\right)^2 + \frac{1-p}{p} = \left( \frac{1-p}{p} \right) \underbrace{\left(\frac{1-p}{p}+1\right)}_{=\frac{1}{p}}= \frac{1-p}{p^2}$$
+\end{proof}
+
+\section{Definition und Satz}
+$X$ hat eine negative Binomialverteilung mit Parametern $r$ und $p$ ($r \in \N$ und $0 < p < 1$), falls gilt:
+$$\Prim(X=k) = {k+r-1 \choose k} p^r (1-p)^k, \quad k \in \N_0$$
+Es gilt 
+$$\E X = r \cdot \frac{1-p}{p}$$
+$$V(X) = r \cdot \frac{1-p}{p^2},$$
+Notation: $X \sim Nb(r,p)$
+
+\section{Satz}
+$X_1, \ldots, X_r$ $\overset{u.i.v.}{\sim}$\footnote{unabhängig identisch verteilt} $G(p)$
+$$\Rightarrow X_1 + \ldots + X_r \sim Nb(r,p)$$
+
+\begin{proof}
+	Faltungsformel (Übung)
+\end{proof}
+
+\section{Bemerkung}
+\begin{enumerate}
+	\item $X \sim Nb(r,p)$
+		$$\Prim(X=k) = \frac{(k+r-1)^{k_\_}}{k!} p^r (1-p)^k$$
+		$$= \frac{-r \cdot (-r-1) \cdot \ldots \cdot (-r-k+1)}{k!} (-1)^k p^r (1-p)^k$$
+		$$= {-r \choose k} \cdot p^r (-(1-p))^k$$
+		wobei ${-r \choose k} = \frac{-r^k}{k!} \quad \forall r \in \R$
+\end{enumerate}
+
 \end{document}
