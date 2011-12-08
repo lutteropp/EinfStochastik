@@ -95,7 +95,7 @@
 \tableofcontents
 
 \section*{Vorwort}
-Dies ist ein Mitschrieb der Übung “Einführung in die Stochastik” vom Wintersemester 2011/2012 am Karlsruher Institut für Technologie.
+Dies ist ein sporadischer Mitschrieb der Übung “Einführung in die Stochastik” vom Wintersemester 2011/2012 am Karlsruher Institut für Technologie.
 
 \chapter{24.11.11}
 
@@ -167,4 +167,128 @@ $$p_1(0):=\frac{s}{r+s}, p_1(1)=\frac{r}{r+s}$$
 $$p_2(0|0) = \frac{s+c}{r+s+c}, p_2(1|0) = \frac{r}{r+s+c}$$
 $$p_2(0|1)= \frac{s}{r+s+c}, p_2(1|1)=\frac{r+c}{r+s+c}$$
 $$z.B. P\left((0,1)\right) = p_1(0) \cdot p_2(1|0)= \frac{s}{r+s}\frac{r}{r+s+c}$$
+
+\chapter{08.12.2011}
+\section{A17}
+Aufgabe in anschaulich: \url{http://www.mister-mueller.de/mathe/beispiele/ziege/ziege5.html}
+\newline
+Dreistufiges Experiment. \newline
+$\Omega_1=\{1,2,3\}$ \newline
+$S_1$ ZV, die die erste Wahl des Spielers angibt. \newline
+Es gilt $\Prim(S_1 = i) = \frac{1}{3} (i = 1,2,3)$. \newline
+oBdA sei der Gewinn hinter Tür 1. \newline
+$\Omega_2 = \{2,3\}, \Omega_3 = \{1,2,3\}$ \newline
+$M$ bezeichne die Wahl des Moderators (welche Tür er öffnet). \newline
+$S_2$ bezeichne die zweite Auswahl ds Spielers.
+\begin{enumerate}
+	\item die bedingte Verteilung von $M$ unter $S_1$ ist gegeben durch
+	$$\Prim(M=2 | S_1 = 1) = \Prim(M=3|S_1 = 1) = \frac{1}{2}$$
+	$$\Prim(M=3 | S_1 = 2) = 1, \Prim(M=2| S=2) = 0$$
+	$$\Prim(M=2 | S_1=3) = 1, \Prim(M=3| S=3)=0$$
+	% 8 Uhr morgens Z2 tut
+	Dies ergibt die gemeinsame Verteilung von $M$ und $S_1$:
+	allgemein: $\Prim(M=j|S_1 = k) = \frac{\Prim(M=j, S_1 = k)}{\Prim(S_1=k)}$
+	$$\Rightarrow \Prim(M=2,S=2) = \Prim(M=3,S=3) = 0$$
+	$$\Prim(M=2, S_1 = 1) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6}$$
+	$$\Prim(M=3, S_1 = 1) = \frac{1}{6}$$
+	$$\Prim(M=3, S_1 = 2) = 1 \cdot \frac{1}{3} = \frac{1}{3}$$
+	$$\Prim(M=2, S_1 = 3) = \frac{1}{3}$$
+	Die bedingte Verteilung von $S_2$ unter $(S_1,M)$ ist gegeben durch 
+	$$\Prim(S_2 = 3| S_1 = 1, M=2) = \Prim(S_2 = 2| S_1 = 1, M=3)$$
+	$$= \Prim(S_2 = 1 | S_2 = 2, M=3) = \Prim(S_2 = 1 | S_1 = 3, M = 2)$$
+	$$= 1$$
+	$$\Rightarrow \Prim(S_2 = 1)$$ $$= \Prim(S_2 = 1 | S_1 = 2, M = 3) \cdot \Prim(S_1 = 2, M= 3) + \Prim(S_2 = 1 | S_1 = 3, M = 2) \cdot \Prim(S_1 = 3, M= 2)$$
+	(Formel der totalen Wahrscheinlichkeit)
+	$$\Rightarrow \Prim(S_2=1) = 1 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = \frac{2}{3}$$
+	Wahrscheinlichkeit, dass der Spieler gewinnt.
+	\item jetzt
+		$$\Prim(M=2| S_1 = i)$$
+		$$= \Prim(M=3 | S_1 = i) = \frac{1}{2} (i=1,2,3)$$
+		$$\Rightarrow \Prim(M=k, S_1 = i)$$
+		$$= \Prim(M=k|S_1 = i) \cdot \Prim(S_1 = i)$$
+		$$= \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6} \qquad (k=1,2; \quad i = 1,2,3)$$
+		$$\Prim(S_2 = j | M=k, S_1 = i) \text{ wie oben}$$
+		und zusätzlich
+		$$\Prim(S_2 = 1 | M= 2, S_1 = 2)$$
+		$$= \Prim(S_2 = 3 | M=2, S_1 = 2) = \frac{1}{2}$$ 
+		$$\Prim(S_2 = 1 | M=3, S_1 = 3)$$
+		$$= \Prim(S_2 = 2 | M = 3, S_1 = 3) = \frac{1}{2}$$
+		$$\Rightarrow \Prim(S_2 = 1)$$
+		$$= \Prim(S_2 = 1 | S_1 = 2, M = 3) \cdot \Prim(S_1 = 2, M = 3)$$ $$+ \Prim(S_2 = 1 | S_1 = 3, M = 2) \cdot \Prim(S_1 = 3, M = 2)$$ $$+ \Prim(S_2 = 1 | S_1 = 2, M = 2) \cdot \Prim(S_1 = 2, M = 2)$$ $$+ \Prim(S_2 = 1 | S_1 = 3, M = 3) \cdot \Prim(S_1 = 3, M = 3)$$
+		$$= 1 \cdot \frac{1}{6} + 1 \cdot \frac{1}{6} + \frac{1}{2} \cdot \frac{1}{6} + \frac{1}{2} \cdot \frac{1}{6} = \frac{1}{2}$$
+\end{enumerate}
+
+\section{A18}
+Die Ereignisse $W_1, \ldots, W_6$ seien definiert durch
+$$W_i = \text{"i wird geworfen"}$$
+$$A = \text{"im ersten Zug wird eine rote Kugel gezogen"}$$
+$$\Rightarrow \Prim(A | W_i) = \begin{cases} \frac{r-i}{r+s}, & i \text{ gerade} \\ \frac{r+i}{r+s}, & i \text{ ungerade} \end{cases}$$
+$$= \frac{r- (-1)^i i}{r+s}, i = 1, \ldots, 6$$ 
+
+Es gilt 
+$$\Prim(A) = \sum\limits_{i=1}^6{\Prim(A|W_i) \cdot \Prim(W_i)}$$
+$$ = \frac{2r-1}{2(r+s)}$$
+
+$$B = \text{"im zweiten Zug wird eine rote Kugel gezogen"}$$
+$$\Rightarrow \Prim(B) = \frac{2r-1}{2(r+s)}$$
+und $$\Prim(A \cap B) = \Prim(A) \cdot \Prim(B) \text{ (Ziehen mit Zurücklegen)}$$
+$$\Rightarrow \Prim(A \cap B) = \left(\frac{2r-1}{2(r+s)}\right)^2$$
+die Wkt, dass beide gezogenen Kugeln rot sind.
+$$C = \text{"im 2. Zug wird schwarz gezogen"}$$
+$$\Rightarrow C = B^c$$
+d.h. $A$ und $C^c$ sind unabhängig.
+$$\Rightarrow A \text{ und } C \text{ sind unabhängig}$$
+
+\newpage
+
+\section{A19}
+$$G_k = \text{"$I_k$ wurde gesendet"}$$
+$$E_k = \text{"$I_k$ wurde empfangen"}$$
+\begin{enumerate}
+	\item $$\Prim(\text{"es wird eine Information empfangen, die nicht gesendet wurde"})$$
+	$$=\sum\limits_{k=1}^4{\Prim(E_k^c | _k) \cdot \Prim(G_k)}$$
+	$$= \sum\limits_{k=1}^4{\Prim(G_k^c | E_k) \cdot \Prim(E_k)}$$
+	$$\Prim(E_k^c|G_k) = 1- \Prim(E_k | G_k) = \frac{k}{k+1}$$
+	$$\Prim(G_k) = \frac{1}{4}$$
+	$$\Rightarrow p = \frac{1}{4} \sum\limits_{k=1}^4{\frac{k}{k+1}} = \frac{1}{4} \cdot \left (\frac{1}{2} + \frac{2}{3} + \frac{3}{4} + \frac{4}{5} \right )$$
+	$$= \frac{1}{4} \cdot \left( \frac{30+40+45+48}{60} \right ) = \frac{163}{240} \approx 68 \%$$
+	\item $$\Prim(G_k | E_k)$$
+	$$= \frac{\Prim(G_k, E_k)}{\Prim(E_k)} = \frac{\sum\limits_{i=1}^4{\Prim(G_k, E_k | G_i) \cdot \Prim(G_i)}}{\sum\limits_{k=1}^4{\Prim(E_k | G_i) \cdot \Prim(G_i)}}$$
+
+$$= \frac{\Prim(E_k | G_k) \Prim(G_k)}{\sum\limits_{i=1}^4{\Prim(E_k|G_i) \cdot \Prim(G_i)}}$$
+$$= \frac{\frac{1}{4} \cdot \frac{1}{k+1}}{\sum\limits_{i\neq k, i = 1, \ldots, 4}{\Prim(E_k|G_i) \cdot \Prim(G_i) + \Prim(E_k | G_i) \Prim(G_k)}}$$
+$$= \frac{\frac{1}{4(k+1)}}{\sum\limits_{i \neq k}{\frac{i}{3(i+1)} \cdot \frac{1}{4} + \frac{1}{k+1} \cdot \frac{1}{4}}}$$
+d.h.
+$$\Prim(G_1 | E_1) = \frac{\frac{1}{4 \cdot 2}}{(\frac{3}{9} + \frac{3}{12} + \frac{4}{15}) \cdot \frac{1}{4} + \frac{1}{2} \cdot \frac{1}{4}}$$
+$$= \frac{\frac{1}{2}}{\frac{1}{2}+\frac{2}{3}+\frac{3}{12}+\frac{4}{15}} = \frac{90}{223} \approx 40,4 \%$$
+analog ergibt sich
+$$\Prim(G_2|E_2) = \frac{20}{61}$$
+$$\Prim(G_3 | E_3) = \frac{45}{163}$$
+$$\Prim(G_4 | E_4) = \frac{36}{151}$$
+\end{enumerate}
+
+\section{A20}
+$X_1, X_2 \overset{u.i.v.}{\sim} U(\{-1,1\})$
+$$Z:= X_1 X_2$$
+\begin{enumerate}
+	\item $$\Prim(Z=1) = \Prim(X_1 = X_2 = 1) + \Prim (X_1 = X_2 = -1)$$
+	$$= \Prim(X_1 = 1) \cdot \Prim(X_2 = 1) + \Prim(X_1 = 1) \cdot \Prim(X_2 = -1)$$
+	$$= \frac{1}{2} \cdot \frac{1}{2} + \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{2}$$
+	$$\Prim(Z=-1) = \frac{1}{2}$$
+	$$\Prim(Z=1, X_1 = 1) = \Prim(X_1 X_2 = 1, X_1 = 1)$$
+	$$= \Prim(X_2 = 1, X_1 = 1) = \frac{1}{4}$$
+	$$= \Prim(Z=1) \cdot \Prim(X_1 = 1)$$
+	analog $\Prim(Z=-1, X_1 = 1) = \Prim(Z = -1) \Prim(X_1 = -1)$
+	$$\Prim(Z=1, X_1 = -1) = \frac{1}{4} = \Prim(Z=1) \Prim( X_1 = -1)$$
+	$$\Prim(Z=-1, X_1 = -1) = \Prim(Z=-1) \cdot \Prim(X_1 = -1)$$
+	$$\Rightarrow Z \text{ und } X_1 \text{ sind unabhängig.}$$
+	analog: $Z$ und $X_2$ sind unabhängig.
+	\item $$\Prim(X_1 = 1, X_2 = 1, Z=1)$$
+	$$= \Prim(X_1 = 1, X_2 = 1)$$
+	$$= \frac{1}{4}$$
+	aber $\Prim(X_1 = 1) \cdot \Prim(X_2 = 1) \cdot \Prim(Z=1) = \frac{1}{8}$
+	$$\Rightarrow X_1, X_2 \text{ und } Z \text{ sind \underline{nicht} unabhängig.}$$
+	\item $$\E(X_1 \cdot X_ 2\cdot Z)= \E (Z^2) = 1$$
+\end{enumerate}
+
 \end{document}
