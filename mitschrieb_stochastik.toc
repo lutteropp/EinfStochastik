@@ -148,4 +148,15 @@
 \contentsline {section}{\numberline {12.4}Definition und Satz}{53}{section.12.4}
 \contentsline {section}{\numberline {12.5}Definition und Satz}{54}{section.12.5}
 \contentsline {section}{\numberline {12.6}Satz}{54}{section.12.6}
-\contentsline {section}{\numberline {12.7}Bemerkung}{54}{section.12.7}
+\contentsline {paragraph}{Bemerkung}{54}{section*.43}
+\contentsline {section}{\numberline {12.7}Bemerkungen}{55}{section.12.7}
+\contentsline {section}{\numberline {12.8}Beispiel (Multinomiales Versuchsschema)}{55}{section.12.8}
+\contentsline {paragraph}{Modell:}{55}{section*.44}
+\contentsline {section}{\numberline {12.9}Definition}{55}{section.12.9}
+\contentsline {section}{\numberline {12.10}Folgerung}{56}{section.12.10}
+\contentsline {chapter}{\numberline {13}Bedingte Erwartungswerte und bedingte Verteilungen}{57}{chapter.13}
+\contentsline {section}{\numberline {13.1}Definition}{57}{section.13.1}
+\contentsline {section}{\numberline {13.2}Bemerkungen}{57}{section.13.2}
+\contentsline {section}{\numberline {13.3}Beispiel}{58}{section.13.3}
+\contentsline {section}{\numberline {13.4}Satz (Formel vom totalen Erwartungswert)}{58}{section.13.4}
+\contentsline {section}{\numberline {13.5}Beispiel}{58}{section.13.5}

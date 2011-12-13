@@ -1057,7 +1057,7 @@ $$\sigma(B_1, \ldots, B_k):=\{B \subset \Omega \colon \exists U \subset \{0,1\}^
 	$$B_1, \ldots, B_k \in \sigma(B_1, \ldots, B_k), \emptyset \in \sigma(B_1, \ldots, B_k), \Omega \in \sigma(B_1, \ldots, B_k).$$
 \end{remark}
 
-\section{Satz (Blockungslemma)}
+\section{Satz (Blockungslemma)} \label{block}
 Seien $A_1, \ldots, A_k, A_{k+1}, \ldots, A_n$ stochastisch unabhängig und \newline $B \in \sigma(A_1, \ldots, A_k), C \in \sigma(A_{k+1}, \ldots, A_n)$. Dann sind $B$ und $C$ stochastisch unabhängig.
 
 \begin{proof}
@@ -1538,7 +1538,7 @@ $$\Rightarrow X_1 + \ldots + X_r \sim Nb(r,p)$$
 	Faltungsformel (Übung)
 \end{proof}
 
-\section{Bemerkung}
+\paragraph{Bemerkung}
 \begin{enumerate}
 	\item $X \sim Nb(r,p)$
 		$$\Prim(X=k) = \frac{(k+r-1)^{k_\_}}{k!} p^r (1-p)^k$$
@@ -1547,4 +1547,143 @@ $$\Rightarrow X_1 + \ldots + X_r \sim Nb(r,p)$$
 		wobei ${-r \choose k} = \frac{-r^k}{k!} \quad \forall r \in \R$
 \end{enumerate}
 
+$X \sim Nb(r,p)$, falls
+$$\Prim(X=k)= {k+r-1 \choose k} p^r (1-p)^k$$
+$$= \boxed{{-r \choose k} p^r (-(1-p))^k}$$
+$k = 0,1,2,\ldots$
+$({x \choose k} := \frac{x^{\underline{k}}}{k!} = \frac{x(x-1)\cdots (x-k+1)}{k!})$
+Wkt. für $k$ Fehlversuche bis zum $r$-ten Erfolg in einer ("unendlichen" Bernoulli-Kette) $r = 1: \Prim(X=k) = p (1-p)^k$
+
+\section{Bemerkungen}
+\begin{enumerate}
+	\item Siehe Box oben.
+	\item $X \sim Nb(r,p), Y \sim Nb(r,p), X$ und $Y$ unabhängig $$\Leftarrow X+Y \sim Nb(r+s,p)$$
+\end{enumerate}
+
+\begin{proof}
+	Faltungsformel.
+	Inhaltlich folgt das aus der Interpretation der negativen Binomialverteilung.
+\end{proof}
+
+\section{Beispiel (Multinomiales Versuchsschema)}
+
+$n$ unabhängige Experimente mit Ausgängen in $\{1,\ldots,s\}$ mit $s \geq 2$. (Ausgang $k \hat{=}$ Treffer der $k$-ten Art) \newline
+$p_k = \text{Wkt. für Treffer der $k$-ten Art}$ \newline
+$p_1 + \ldots + p_s = 1$
+\paragraph{Modell:} $(\Omega, \Prim) = (\bigotimes\limits_{j=1}^n{\Omega_j}, \bigotimes\limits_{j=1}^n{\Prim_j})$
+\newline
+$\Omega = \{1,\ldots,s\}, \Prim_j(\{k\}) = p_k$
+\newline
+$$A_j^{(k)}:= \{\omega = (\omega_1, \ldots, \omega_n) \in \Omega \mid \omega_j = k \}$$
+$$X_k:= \sum\limits_{j=1}^n{1_{A_j^{(k)}}} \quad \text{Anzahl der Treffer $k$-ter Art}$$
+$$X_1 + \ldots + X_s = n$$
+Es gilt für $i_1, \ldots, l_s \in \N_0, i_1 + \ldots + i_s = n$
+
+$$|\{X_1 = i_1, \ldots, X_s = i_s\}|$$
+$$= {n \choose i_1} {n-i_1 \choose i_2} \cdots {n - i_1 \ldots - i_{s-1} \choose i_s}$$
+$$= \frac{n!}{i_1! i_2! \ldots i_s!} =: {n \choose i_1 \ldots i_s}$$
+
+($p_1^{i_1} \cdot p_2^{i_2} \cdots p_s^{i_s}$)
+
+\section{Definition}
+$(X_1, \ldots, X_s) \sim Mult(n,p_1,\ldots,p_s)$, falls
+$$\Prim(X_1 = i_1, \ldots, X_s = i_s) = {n \choose i_1 \cdots i_s} p_1^{i_1} \cdots p_s^{i_s}$$
+$i_1, \ldots, i_s \in \N_0, i_1 + \ldots + i_s = n.$
+
+\section{Folgerung}
+Es gelte $(X_1, \ldots, X_s) \sim Mult(n, p_1, \ldots, p_s)$
+\begin{enumerate}
+	\item $X_k \sim Bin(n, p_k)$
+	\item $X_{i_1} + \ldots + X_{i_0} \sim Bin(n, p_{i_1} + \ldots + p_{i_\nu}), \quad (\{i_1, \ldots, i_\nu\} \subset \{1, \ldots, s\})$
+	\item $C(X_i, X_j) = - n p_i p_j, \quad i \neq j.$
+	\item $\rho(X_i, X_j) = - \sqrt{\frac{p_i p_j}{(1-p_i) (1-p_j)}}, \quad i \neq j, p_i < 1, p_j < 1.$
+\end{enumerate}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Ist Spezialfall von (2) ($\nu=1$).
+		\newline
+		Bildung der Randverteilung von $(X_1, \ldots, X_s)$
+		\newline
+		Benutze Multinomialformel
+		$$(X_1 + \ldots + X_s)^n = \sum\limits_{j_1, \ldots, j_s}{{n \choose j_1 \cdots j_s} X_1^{j_1} X_2^{j_2} \cdots X_s^{i_s}}$$
+		\underline{$n=2$} ${n \choose j_1 j_2} = {n \choose j_1} = {n \choose j_2}, \quad j_1 + j_2 = n$
+		 
+		 \item $B_j := \bigcup\limits_{k=1}^{\nu} {A_j^{(i,k)}}$ = im $j$-ten Versuch liegt Erfolg mit Typ in $\{i_1, \ldots, i_\nu\}$ vor
+		 \newline
+		 $B_1, \ldots, B_n$ sind unabhängig (!) und es gilt
+		 $$\Prim(B_j) = p_{i_1} + \ldots + p_{i_\nu} =: q$$
+		 Satz \ref{block} $\leadsto$
+		 	$$X_{i_1} + \ldots + X_{i_\nu} \overset{d}{=} \sum\limits_{j=1}^n{1_{B_j}} \sim Bin(n, q)$$
+		 \item $Var(X_i + X_j) \overset{(2)}{=} n (p_i + p_j) (1- p_i - p_j)$
+		 $$= Var(X_i) + Var(X_j) + 2 Cov(X_i, X_j)$$
+		 $$= n p_i (1-p) + n p_j (1-p_j)$$
+		 $$\leadsto 2 Cov(X_i, X_j) = -2 n p_i p_j$$
+		 
+		 \item $$\rho(X_i, X_j) = \frac{Cov(X_i,X_j)}{\sqrt{var(X_i)} \sqrt{Var(X_j)}} = \frac{-n p_i p_j}{\sqrt{n p_i (1 - p_i)} \sqrt{n p_j (1-p_j)}}$$
+		 $$= - \frac{\sqrt{p_i} \sqrt{p_j}}{\sqrt{1-p_i} \sqrt{1-p_j}}$$
+	\end{enumerate}
+\end{proof}
+
+\chapter{Bedingte Erwartungswerte und bedingte Verteilungen}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum, $X \colon \Omega \rightarrow \R$ mit $\E (X) < \infty.$
+
+\section{Definition}
+\begin{enumerate}
+	\item Für $A \subset \Omega$ mit $\Prim(A)>0$ heißt 
+	$$\E[X|A] := \frac{1}{\Prim(A)} \cdot \sum\limits_{\omega \in A}{X(\omega) \Prim(\{\omega\})}$$
+	\textbf{bedingter Erwartungswert} von $X$ unter (der Bedingung) $A$.
+	\item Ist speziell $A = \{Z=z\}, z \in \R^k,$ für einen Zufallsvektor $Z \colon \Omega \rightarrow \R^k$, so heißt 
+	$$\E [X|Z=z] := \E [X | \{Z = z \}] = \frac{1}{\Prim(Z = z)} \cdot \sum\limits_{\omega \colon Z(\omega) = z}{X(\omega) \Prim(\omega)}$$
+	bedingter Erwartungswert von $X$ unter der Bedingung $Z=z$. (Annahme: $\Prim(Z = z) > 0$)
+\end{enumerate}
+
+\section{Bemerkungen}
+\begin{enumerate}
+	\item Sei $\Prim_A(B) = \Prim(B | A) = \frac{\Prim(A \cap B)}{\Prim(A)}.$
+	Dann ist $\Prim_A$ ein Wahrscheinlichkeits-Maß.
+	\newline
+	\underline{Denn:} $\E [X|A] = \sum\limits_{\omega \in \Omega}{X(\omega) \Prim_A(\{\omega\})}$
+	\item $\E [X | A] \Prim(A) = \E X 1_A$
+	$\quad \left(X=1_B, \E [X|A] = \frac{\Prim(A \cap B)}{\Prim(A)} = \Prim(B|A)\right)$
+\end{enumerate}
+
+\section{Beispiel}
+$X_1, X_2$ unabhängig, $\Prim(X_i = k) = \frac{1}{6}, k = 1, \ldots, 6$ ($\Omega = \{1, \ldots, 6\}^2, \Prim= $ Gleichverteilung)
+\newline
+$\E [X_1 | X_1 + X_2 = 10] = ?$
+\newline
+$A = \{X_1 + X_2 = 10\} = \{(4,6),(5,5),(6,4)\}$
+\newline
+$\Prim(A) = \frac{3}{36} = \frac{1}{12}$
+\newline
+$\E [X_1 | A] = 12 (4 \cdot \frac{1}{36} + 5 \cdot \frac{1}{36} + 6 \cdot \frac{1}{36})$
+\newline
+$= \frac{1}{3} (15) = 5$
+\newline
+Übung: $\E [X_1 | X_1 + X_2 \geq 10]$
+
+\section{Satz (Formel vom totalen Erwartungswert)} \label{13.4}
+Es gelte $\Omega = \bigcup\limits_{j}{A_j}$ mit $A_i \cap A_j = \emptyset$
+Für $i \neq j$ und $\Prim(A_j) > 0, j = 1, 2, \ldots$. Dann
+$$\E X = \sum\limits_{j}{\E [X | A_j] \Prim(A_j)}$$
+($X=1_B \leadsto $ Formel der totalen Wahrscheinlichkeit)
+
+\begin{proof}
+	Analog zur Formel der totalen Wahrscheinlichkeit!
+\end{proof}
+
+\section{Beispiel}
+"Unendliche" Bernoulli-Kette. \newline
+Beobachte bis erstmalig "1 1" auftritt. Sei $X$ die Anzahl der Versuche.
+$$\E X = ?$$
+Sei $A_1 = \{\text{Kette beginnt mit $0$}\}$.
+$$\E [X|A_1] = 1 + \E X$$
+$A_2 := \{\text{Kette beginnt "1,0"}$
+$$\E [X|A_2] = 2 + \E X$$
+$A_3 = \{\text{Kette beginnt mit "1,1"}\}$
+$$\E [X | A_3] = 2$$
+\ref{13.4} $\leadsto$ $\E X = (1-p) (\E X + 1) + p (1-p) (2 + \E X) + p^2 \cdot 2$
+$$\E X \big(1 - (1-p) - p (1-p)\big) = 1-p + 2 p (1-p) + 2 p^2$$
+$$(\E X) p^2 = 1+p $$
 \end{document}
