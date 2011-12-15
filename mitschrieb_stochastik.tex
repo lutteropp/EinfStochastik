@@ -625,6 +625,7 @@ Seien $A_1, \ldots, A_n \subset \Omega$ und $X := \sum\limits_{j=1}^{n}{1_{A_j}}
 (Gilt auch für $\infty$ viele Ereignisse.)
 
 \section{Satz (Transformationsformel)}
+\label{5.4}
 Seien $X \colon \Omega \Rightarrow \R$ und $g \colon \R \rightarrow \R$. Definiere $g(X) \colon \Omega \rightarrow \R$ durch $$g(X)(\omega) = g(X(\omega)).$$ Dann ist $g(X) \in L^1(\Prim)$ genau dann, wenn
 $$\sum\limits_{x \colon \Prim(X=x)>0}{|g(x)| \Prim(X=x)} < \infty$$\footnote{$\Prim(X=x) = \Prim(\{\omega \in \Omega \colon X(\omega)=x\})$}
 
@@ -1639,6 +1640,7 @@ $(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum, $X \colon \Omega \rightarro
 \end{enumerate}
 
 \section{Bemerkungen}
+\label{13.2}
 \begin{enumerate}
 	\item Sei $\Prim_A(B) = \Prim(B | A) = \frac{\Prim(A \cap B)}{\Prim(A)}.$
 	Dann ist $\Prim_A$ ein Wahrscheinlichkeits-Maß.
@@ -1686,4 +1688,135 @@ $$\E [X | A_3] = 2$$
 \ref{13.4} $\leadsto$ $\E X = (1-p) (\E X + 1) + p (1-p) (2 + \E X) + p^2 \cdot 2$
 $$\E X \big(1 - (1-p) - p (1-p)\big) = 1-p + 2 p (1-p) + 2 p^2$$
 $$(\E X) p^2 = 1+p $$
+
+
+\paragraph{Erinnerung}
+$\E [X | A] = \frac{1}{\Prim(A)} \sum\limits_{\omega \in A}{X(\omega) \Prim(\{\omega\})}$
+\newline
+$\E X = \sum\limits_{j}{\E [A|A_j] \Prim(A_j)}$
+
+\section{Satz (Eigenschaften)}
+$\E |X| < \infty, \E |Y| < \infty, Z \colon \Omega \rightarrow \R^n, z \in \R^n$ mit $\Prim(Z=z)>0$.
+\begin{enumerate}
+	\item $\E [X+Y | A] = \E [X|A] + \E[Y | A]$
+	\item $\E [aX | A] = a \E [X|A]$
+	\item $X \leq Y \Rightarrow \E [X|A] < \E [Y|A]$
+	\item $\E [1_A | B] = \Prim(A|B)$
+	\item $\E [X| A] = \sum\limits_{j}{x_j \Prim(X= x_j | A)} \qquad \sum\limits_{j}{\Prim(X=x_j)}=1$
+	\item $\E [X | Z=z] = \sum\limits_j{x_j \Prim(X=x_j | Z=z)}$
+	\item $\E [X| Z=z] = \E X$ falls $X$ und $Z$ stochastisch unabhängig
+\end{enumerate}
+
+\begin{proof}
+\ref{13.2} und Satz \ref{5.4}
+\end{proof}
+
+\section{Satz (Substitutionsformel)}
+Sei $X \colon \Omega \rightarrow \R^n, Z \colon \Omega \rightarrow \R^k, g \colon \R^n \rightarrow \R^k$ mit $\E |g(X,Z)| < \infty$. Dann gilt für $z \in \R^k$ mit $\Prim(Z=z>0)$
+$$\E [g(X,Z)| Z = z ] = \E [g(X,z) | Z=z]$$
+
+\begin{proof}
+	$$\E [g(X,Z)| Z = z ] = \frac{1}{\Prim(Z=z)} \sum\limits_{\omega \in \Omega \colon Z(\omega) = z}{g(X(\omega), Z(\omega)) \Prim(\{\omega\})}$$
+	$$ = \frac{1}{\Prim(Z=z)} \sum\limits_{\omega \in \Omega \colon Z(\omega) = z}{g(X(\omega), z) \Prim(\{\omega\})} = \text{ rechte Seite der Behauptung.}$$
+\end{proof}
+
+\newpage
+
+\section{Beispiel (Würfelwurf)}
+\label{13.8}
+Falls $k$ auftritt, wird noch $k$ mal gewürfelt.
+\newline
+Sei $X$ die Gesamtaugensumme.
+\newline
+$\E X = ?$
+\paragraph{Modell:} $\Omega = \{1,\ldots,6\}^7, \Prim = \text{ Gleichverteilung}$
+\newline
+$X_j(\omega) = \omega_j \quad \omega = (\omega_0, \ldots, \omega_6) \in \Omega$
+\newline
+$X_0, \ldots, X_6$ stochastisch unabhängig. Dann
+$$X = X_0 + \sum\limits_{j=1}^{X_0}{X_j}$$ 
+$$\E [X | X_0 = k] = \E [X_0 + \sum\limits_{j=1}^{X_0}{X_j}|X_0 =k]$$
+$$= \E [k + \sum\limits_{j=1}^k{X_j} | X_0 = k]$$
+$$= k + \sum\limits_{j=1}^k{\E [X_j | X_0 = k]}$$
+$$\overset{g}{=} k + \sum\limits_{j=1}^k{\E X_j} = k + k \cdot 3,5 = 4,5 k$$
+$$\E X = \sum\limits_{j=1}^6{\E [X | X_0 = k] \Prim(X_0 = k)}$$
+$$= 4,5 \cdot \frac{1}{6} \cdot \sum\limits_{k=1}^6{k} = \frac{9}{2} + \frac{1}{6} \cdot \frac{42}{2} = \frac{63}{4}$$
+
+\section{Definition}
+\label{13.9}
+Es sei $Z \colon \Omega \rightarrow \R^k$ mit $\Prim(Z=z_j)>0, j \geq 1, \sum\limits_j{\Prim(Z=z_j)}=1$.
+\newline
+Es sei $X$ Zufallsvariable mit $\E(X)< \infty$. Dann heißt die durch
+$$\E [X|Z](\omega) := \begin{cases} \E [X| Z = z_j], & \text{falls } Z(\omega) = z_j \\ 0, & \text{sonst.} \end{cases}$$
+definierte \underline{Zufallsvariable} $\E[X|Z]$ die \textbf{bedingte Erwartung} von $X$ bei gegebenem $Z$.
+
+\section{Beispiel}
+In Bsp. \ref{13.8} gilt
+$$\E [X|X_0] = \frac{9}{2} X_0$$
+
+\section{Satz}
+Sei $\E X^2 < \infty$, $Z \colon \Omega \rightarrow \R^k$ (wie in \ref{13.9}), $h \colon \R^k \rightarrow \R$ mit $\E h(Z)^2 < \infty$. Dann wird 
+$$\E (X - h(Z))^2$$
+minimal für $h(Z) = \E [X|Z]$.
+
+\begin{proof} Beweis durch Verwirrung und Klammerchaos. (Ohne Gewähr)
+	$$\E (X - h(Z))^2$$
+	$$\overset{13.4}{=} \sum\limits_j{\E [(X-h(Z))^2 | Z=z_j] \Prim(Z=z_j)}$$
+	$$= \sum\limits_j{\E [(X-h(z_j))^2 | Z=z_j] \Prim(Z=z_j)}$$
+	$$= \sum\limits_j{(\E [(X- \E[X | Z=z_j]) + (\E [X | Z = z_j] - h(z_j))^2 | Z = z_j] \Prim(Z=z_j)}$$ TODO: Rauskriegen, was das heißen soll
+	$$\sum\limits_j{\E [(X-\E [X|Z=z_j]))^2 | Z = z_j] \Prim(Z=z_j)}$$
+	$$2 \sum\limits_j{\E [(\underbrace{\E [X|Z=z_j] - h(z_j))]}_{\text{Vor den EW ziehen}} (X-\E[X|Z=z_j]) | Z = z_j) \Prim(Z=z_j)}$$
+	$$ + \sum\limits_j{(\E [X|Z=z_j]- h(z_j))^2 \Prim(Z=z_j)}$$
+	Nebenrechnung: $\E[X - \E [X | Z = z_j]| Z = z_j] = 0$
+	$$\leadsto \text{Minimierer: } h(z_j) = \E [X | Z = z_j]$$
+\end{proof}
+
+\chapter{Grenzwertsätze}
+
+\section{Satz (Schwache Gesetz der großen Zahlen, SGGZ)}
+
+Seien $X_1, X_2, \ldots$ unabhängige Zufallsvariablen mit gleicher Verteilung und $\E X_1 ^2 < \infty$. Sei
+$$\bar{X_n} := \frac{1}{n} \sum\limits_{j=1}^n{X_j}$$
+Dann gilt
+$$\Prim(|\bar{X_n} - \E X_1| > \epsilon) \rightarrow 0$$
+$\lim n \rightarrow \infty, \epsilon > 0$
+
+\begin{proof}
+	$$\E \bar{X_n} = \frac{1}{n} (\E X_1 + \ldots + \E X_n) = \E X_1$$
+	$$V(\bar{X_n}) = \frac{1}{n^2} V(X_1 + \ldots + X_n) = \frac{1}{n^2} (V(X_1) + \ldots + V(X_n)) = \frac{1}{n} V(X_1)$$
+	Tschebyschevsche Ungleichung (Satz 11.6)
+	$$\Prim(|\bar{X_n}- \E \bar{X_n}| > \epsilon) \leq \frac{V(\bar{X_n})}{\epsilon^2} = \frac{V(X_1)}{n \epsilon^2}$$
+\end{proof}
+
+\section{Definition}
+Sind $Y_1, Y_2, Y_3, \ldots$ Zufallsvariablen, so schreibt man
+$$Y_n \overset{\Prim}{\rightarrow} Y \text{ für } n \rightarrow \infty$$
+$$\Prim(|Y_n - Y| > \epsilon) \rightarrow 0 \text{ für } n \rightarrow \infty \quad \forall \epsilon > 0.$$
+(SGGZ: $\bar{X_n} \overset{\Prim}{\rightarrow} \E X_1)$
+
+\paragraph{Bemerkung} Auf einem diskreten Wahrscheinlichkeitsraum gibt es keine unendlichen Folgen von unabhängigen Zufallsvariablen. Lösung: 
+$$\Prim \rightarrow \Prim_n$$ $\leadsto $ Wahrscheinlichkeitstheorie-Vorlesung
+
+\section{Folgerung (SGGZ von Jakob Bernoulli)}
+Seien $A_1, A_2, \ldots$ unabhängige Ereignisse mit $\Prim(A_j) = p, j \geq 1.$ Dann
+$$R_n = \frac{1}{n} \sum\limits_{j=1}^n{1_{A_j}} \overset{\Prim}{\rightarrow} p$$
+
+\paragraph{Bemerkung} $\forall \epsilon > 0 \forall \delta \in (0,1) \exists n \in \N \colon \Prim (|R_n-p| \leq \epsilon) \geq 1- \delta$
+
+Das bedeutet nicht
+$$\Prim(\bigcap\limits_{n >= n_0}{\{ |R_n - p| \leq \epsilon\}}) \geq 1- \delta !$$
+$\leadsto$ Starkes GGZ (Wahrscheinlichkeitstheorie)
+
+\paragraph{}
+Es seien $X_1, X_2, \ldots$ unabhängige $Bern(p)$-verteilte Zufallsvariablen. 
+Setze \footnote{Random Walk}
+$$S_n := X_1 + \ldots + X_n, n > 1 \quad \text{Irrfahrt, } X_i \in \{-1,1\} \text{ besser!}$$
+
+\paragraph{Frage} Wie stark schwankt $S_n$ um seinen Erwartungswert $np$?
+(TODO: Bild)
+
+\section{Satz}
+Es sei $(a_n)$ eine reelle Zahlenfolge. Dann gilt 
+$$\lim_{n \rightarrow \infty}{\Prim(|S_n-np|\leq a_n)} = \begin{cases}  1, & \text{falls } \frac{a_n}{\sqrt{n}} \rightarrow \infty \\ 0 & \text{falls } \frac{a_n}{\sqrt{n}} \rightarrow 0  \end{cases}$$
+
 \end{document}
