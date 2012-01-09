@@ -1909,7 +1909,22 @@ Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^y \leq h)} = \phi(h), \quad h \i
 
 \paragraph{Anwendung:}
 Sei $S_n \sim Bin(n,p)$. \newline
-Nun sei $\Prim(a \leq S_n \leq b)$
+Nun sei $\Prim(a \leq S_n \leq b) = \frac{a - np^{ \textcolor{blue}{+ \frac{1}{2}}}}{\sqrt{n p (1-p)}} \leq \frac{S_n - np}{\underbrace{\sqrt{n p (1-p)}}_{S_n^*}} \leq \frac{b - np ^{\textcolor{blue}{+\frac{1}{2}}}}{\sqrt{n p (1-p)}} $
+$= \phi\left(\frac{b-np}{\sqrt{n p (1-p)}}\right) - \phi\left(\frac{a-np}{\sqrt{n p (1-p)}}\right)$
+\newline
+erst standardisieren, dann approximieren
+\newline
+\textcolor{blue}{Stetigkeitskorrekturen}
+\newline
+$\limsup \colon \quad n = 600, p = \frac{1}{6} \quad a = 90, b = 110$
+\newline
+\underline{Exakter Wert}: $0.7531$
+\newline
+\underline{Approx. Wert}: $0.7264$ mit Stetigkeitskorrektur $0.7498$
+
+\chapter{Statistik - Schätzprobleme}
+
+\section{Schätzung der Erfolgswahrscheinlichkeit einer Bernoulli-Kette} (als Motivation)
 
 (TODO: Rest texen)
 
