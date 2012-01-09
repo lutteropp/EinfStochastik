@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2011.10.9)  9 JAN 2012 21:35
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2011.10.9)  9 JAN 2012 21:44
 entering extended mode
  %&-line parsing enabled.
 **mitschrieb_stochastik.tex
@@ -1048,8 +1048,8 @@ Kapitel 15.
 
 ] (./mitschrieb_stochastik.aux) ) 
 Here is how much of TeX's memory you used:
- 9262 strings out of 256216
- 135101 string characters out of 1917072
+ 9265 strings out of 256216
+ 135126 string characters out of 1917072
  212641 words of memory out of 1500000
  11921 multiletter control sequences out of 10000+200000
  29039 words of font info for 77 fonts, out of 1200000 for 2000
@@ -1082,9 +1082,9 @@ type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb><
 r/share/texmf/fonts/type1/bluesky/latex-fonts/line10.pfb></usr/share/texmf/font
 s/type1/bluesky/ams/msam10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10
 .pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm7.pfb>
-Output written on mitschrieb_stochastik.pdf (67 pages, 570212 bytes).
+Output written on mitschrieb_stochastik.pdf (67 pages, 572027 bytes).
 PDF statistics:
- 1808 PDF objects out of 2073 (max. 8388607)
- 339 named destinations out of 1000 (max. 131072)
+ 1811 PDF objects out of 2073 (max. 8388607)
+ 342 named destinations out of 1000 (max. 131072)
  1041 words of extra memory for PDF output out of 10000 (max. 10000000)
 

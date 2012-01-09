@@ -1926,6 +1926,25 @@ $\limsup \colon \quad n = 600, p = \frac{1}{6} \quad a = 90, b = 110$
 
 \section{Schätzung der Erfolgswahrscheinlichkeit einer Bernoulli-Kette} (als Motivation)
 
+$k$-Treffer in einer B-Kette im Umfang $n$ mit \underline{unbekannter} Erfolgswahrscheinlichkeit $p$.
+\newline
+Wie groß ist $p$?
+
+\paragraph{Modell}
+Annahme einer zufälligen Trefferzahl mit $S_n \sim Bin(n,p)$ \footnote{auch ohne es zu kennen}.
+\newline
+Ereignis $S_n = k$ sei eingetreten.
+$$\Prim_p (S_n = k) = {n \choose k} p^k (1-p)^{n-k}$$ \footnote{abhängig vom Parameter $p$}
+
+Plausibler "Schätzer" für $p$:
+$$\hat{p} := \frac{k}{n} \text{ (relative Häufigkeit)}$$
+$\hat{p}$ ist Realisierung einer Zufallsvariable $R_n := \frac{1}{n} S_n$
+
+\begin{enumerate}
+	\item
+	\item
+\end{enumerate}
+
 (TODO: Rest texen)
 
 \end{document}

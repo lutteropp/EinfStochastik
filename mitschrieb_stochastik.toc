@@ -188,3 +188,4 @@
 \contentsline {paragraph}{Anwendung:}{66}{section*.58}
 \contentsline {chapter}{\numberline {15}Statistik - Sch\IeC {\"a}tzprobleme}{67}{chapter.15}
 \contentsline {section}{\numberline {15.1}Sch\IeC {\"a}tzung der Erfolgswahrscheinlichkeit einer Bernoulli-Kette}{67}{section.15.1}
+\contentsline {paragraph}{Modell}{67}{section*.59}
