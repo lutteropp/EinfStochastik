@@ -1819,4 +1819,98 @@ $$S_n := X_1 + \ldots + X_n, n > 1 \quad \text{Irrfahrt, } X_i \in \{-1,1\} \tex
 Es sei $(a_n)$ eine reelle Zahlenfolge. Dann gilt 
 $$\lim_{n \rightarrow \infty}{\Prim(|S_n-np|\leq a_n)} = \begin{cases}  1, & \text{falls } \frac{a_n}{\sqrt{n}} \rightarrow \infty \\ 0 & \text{falls } \frac{a_n}{\sqrt{n}} \rightarrow 0  \end{cases}$$
 
+%hier beginnt der 20.12.11
+
+\paragraph{Wiederholung}
+$S_n := X_1 + \ldots + X_n, X_i$ unabhänbh. $Bern(p) = \underbrace{Bin(1,p)}_{\text{entweder } p \text{ oder } 1-p}$
+\newline
+(TODO: Bild) \newline
+absolute Häufigkeiten!
+
+\section*{Satz} $\lim_{n \rightarrow \infty} {\Prim(|S_n - np| \leq a_n)} = \begin{cases} 1 & \frac{a_n}{\sqrt{n}} \rightarrow \infty \\ 0 & \frac{a_n}{\sqrt{n}} \rightarrow 0 \end{cases}$
+
+\begin{proof}
+	Sterlingsche Formel (Ausblick/Exkurs)
+	\newline
+	$n! = \sqrt{2 \pi n} n^n e^{-n} (1 + R(n))$ mit $R(n) \rightarrow 0$ für $n \rightarrow \infty, n \in \N$
+	\newline
+	Genauer $R(n) = e^{\eta(n)} - 1, 0 \leq \eta(n) \leq \frac{1}{12n}$
+	\newline
+	Insbesondere $n! \sim \sqrt{2 \pi n} n^n e^{-n}$ für $n \rightarrow \infty$
+	\newline
+	($(c_n) \sim (d_n) \Leftrightarrow \frac{c_n}{d_n} \rightarrow 1$)
+
+\paragraph{Nun:}
+\begin{itemize}
+	\item Tschebyschevsche Ungleichung
+	\newline
+	$\Prim(|S_n - n p | \leq a_n) = 1 - \Prim(|S_n - n p | > a_n) \geq 1 - \frac{V(S_n)}{a_n^2} = 1 - \frac{n p (1-p)}{a_n^2}$
+	\newline
+	Im Fall $a_n/\sqrt{n} \rightarrow \infty$ strebt das gegen $1$.
+	\item Für den anderen Fall setzen wir $p= \frac{1}{2}$ (der Einfachheut halber!)
+	\newline
+	$\Prim(|S_n - np| \leq a_n) = \sum\limits_{n \colon |K - \frac{n}{2}| \leq a_n} \underbrace{{n \choose k}}_{\text{max. wenn $k$ halb so groß wie $n$}} \underbrace{2^{-n}}_{\text{Konstante}} \leq \underbrace{(2 a_n + 1){n \choose \lfloor \frac{n}{2} \rfloor}}_{\text{nach unten abgeschätzt}} 2^{-n}$
+	\newline
+	Für $n = 2m$ gilt ${2m \choose m} \cdot 2^{-n} = \frac{(2m)!}{m!m!} \cdot 2^{-2m} \overset{\text{Asymm., äquiv.}}{\approx} \frac{\sqrt{2 \pi \cdot 2m} (2m)^{2m} e^{-2m}}{2 \pi m \cdot m^n \cdot m^m e^{-m} e^{-m}} \cdot 2^{-2n} \approx \frac{1}{\sqrt{\pi m}}$
+	\newline
+	Es folgt 
+	$$\limsup_{m \rightarrow \infty} {\Prim(|S_{2m}-2mp| \leq a_{2m})} \leq \limsup_{m \rightarrow \infty} {\frac{2 a_{2m} +1}{\sqrt{\pi} \cdot \sqrt{m}}}$$
+	$$= \frac{\sqrt{2}2}{\sqrt{\pi}} \lim_{m \rightarrow \infty}{\frac{a_{2m}}{\sqrt{2m}}} = 0, \text{ falls } \frac{a_n}{\sqrt{n}} \rightarrow 0$$
+	Analog für $m = 2n+1$!
+\end{itemize}
+\end{proof}
+
+\paragraph{Fazit:}
+Die Abweichungen von $S_n$ vom Erwartungswert weichen "typischerweise" wie $\sqrt{n}$.
+
+\paragraph{Beachte:}
+$S_n^*$ \footnote{standardisiert} $:= \frac{S_n - np}{\sqrt{n p (1-p)}}, \E S_n^* = 0, V(S_n^*) = 1$
+
+\paragraph{Fragen:}
+$\Prim(|S_n^*| \leq a) \underset{n \rightarrow \infty}{\rightarrow} ? \quad (a \in \R)$
+
+\section{Definition}
+\begin{enumerate}
+	\item Sei $l(x) = \frac{1}{\sqrt{2 \pi}} e^{\frac{-x^2}{2}}, x \in \R$ ($l(x)$ = Gaußsche Glockenkurve)
+	\newline
+	heißt \textbf{Dichte der standardisierten Normalverteilung}.
+	\item $\phi(x) := \int_{-\infty}^{\infty}{l(t) d t}, x \in \R$ \footnote{uneigentliches Riemann-Integral} heißt \textbf{Verteilungsfunktion der standardisierten Normalverteilung}.
+\end{enumerate}
+
+\section*{Bemerkung}
+$\int_{-\infty}^{\infty}{l(t) d t} = 1$ (Analysis 3).
+\newline
+Dann ist $\lim_{x \rightarrow \infty}{\phi(x)} = 1$
+\newline
+(TODO: Bild)
+
+\section{Satz}
+Immernoch in der Bernoullikette gilt
+\begin{enumerate}
+	\item $\lim_{n \rightarrow \infty}{\Prim(a \leq S_n^*\leq b)} = \underbrace{\phi(b)}_{= \int_a^b{l(t)dt}} - \phi(a)$ und $\lim_{n \rightarrow -\infty} {\Prim(\ldots)} = 0$
+	\item  $\lim_{n \rightarrow \infty}{\Prim(S_n^*\leq b)} = \phi(b) \quad \rightarrow$ (Moivre-Laplace)
+\end{enumerate}
+
+\begin{proof}
+	Sterlingsche Formel! (2 Seiten Rechnung) $\leadsto$ Wahrscheinlichkeitstheorie-Vorlesung im Sommersemester
+	\newline
+	(TODO: Bild)
+\end{proof}
+
+\section{Satz (ZGWS Lindeberg-Levy)}
+Seien $X_1, X_2, \ldots$ unabhängig auf gleicher Verteilung mit $\E X_1^2 < \infty$.
+Setze $$S_n := X_1 + \ldots + X_n, \quad n \in \N$$
+$$S_n^* = \frac{S_n - n \E X_1}{\sqrt{n \cdot V(X_1)}}, \quad n \in \N$$
+Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^y \leq h)} = \phi(h), \quad h \in \R$
+
+\begin{proof}
+	Wahrscheinlichkeitstheorie im Sommersemester.
+\end{proof}
+
+\paragraph{Anwendung:}
+Sei $S_n \sim Bin(n,p)$. \newline
+Nun sei $\Prim(a \leq S_n \leq b)$
+
+(TODO: Rest texen)
+
 \end{document}

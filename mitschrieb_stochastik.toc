@@ -177,3 +177,12 @@
 \contentsline {paragraph}{}{63}{section*.49}
 \contentsline {paragraph}{Frage}{63}{section*.50}
 \contentsline {section}{\numberline {14.4}Satz}{63}{section.14.4}
+\contentsline {paragraph}{Wiederholung}{63}{section*.51}
+\contentsline {paragraph}{Nun:}{64}{section*.53}
+\contentsline {paragraph}{Fazit:}{64}{section*.54}
+\contentsline {paragraph}{Beachte:}{64}{section*.55}
+\contentsline {paragraph}{Fragen:}{65}{section*.56}
+\contentsline {section}{\numberline {14.5}Definition}{65}{section.14.5}
+\contentsline {section}{\numberline {14.6}Satz}{65}{section.14.6}
+\contentsline {section}{\numberline {14.7}Satz (ZGWS Lindeberg-Levy)}{65}{section.14.7}
+\contentsline {paragraph}{Anwendung:}{65}{section*.58}
