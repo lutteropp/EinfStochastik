@@ -1947,4 +1947,117 @@ $\hat{p}$ ist Realisierung einer Zufallsvariable $R_n := \frac{1}{n} S_n$
 
 (TODO: Rest texen)
 
+
+%hier beginnt der 10.01.12
+
+\paragraph{Erinnerung}
+$S_n \sim Bin(n,p) \quad (S_n := X_1 + \ldots + X_n)$
+$$\Prim_p (S_n = k) = {n \choose k} p^k (1-p)^{n-k}$$
+$$S_n = k \text{ Realisierung}$$
+$$p = ?$$
+natürliche Idee: $\hat{p} = \frac{k}{n}$
+\newline
+$\hat{p}$ ist Realisierung der Zufallsvariable $R_n = \frac{1}{n} S_n$
+\newline
+Die Funktion
+$$p \mapsto L_k(p) = \Prim(S_n = k)$$
+heißt \textbf{Likelyhood-Funktion}.
+\newline
+$\hat{p}$ maximiert $L_k$!
+
+\section{Allgemeiner Modellrahmen}
+
+Daten $x \in \mathcal{X}$ = "Stichprobenraum" gegeben. \newline
+Oft: $x = (x_1, \ldots, x_n) \in \R^n \quad (\mathcal{X} \subset \R^n)$
+
+\paragraph{Annahme:}
+$x = X(\omega)$ Realisierung einer $\mathcal{X}$-wertigen Zufallsvariable $X \colon \Omega \rightarrow \mathcal{X}$
+
+Gesucht: Verteilung $\Prim^X$ von $X$!
+\newline
+$\Omega$ spielt "keine Rolle".
+\newline
+Wichtig ist das (unbekannte) $\Prim^X$.
+
+\paragraph{Oft:} $\Omega = \mathcal{X}, X = id_{\Omega}, \Prim= \Prim^X$
+\paragraph{Annahme:} $\Prim \in \{\Prim_\vartheta \colon \vartheta \in \Theta\}$ wobei $\Theta \neq \emptyset$ Parameterraum (A priori- Informationen!)
+\newline
+$(\mathcal{X}, \{\Prim_\vartheta \colon \vartheta \in \Theta\})$ heißt \textbf{statistisches Modell}.
+\newline
+Falls $\Prim = \Prim_\vartheta$, so schreiben wir $\Prim_\vartheta (X=x), \E_\vartheta X, V_\vartheta(X), \ldots$
+
+\section{Beispiel (Binomialverteilung)}
+$\mathcal{X} = \{0,1\}^n, \quad X = (X_1, \ldots, X_n), \quad X_1, \ldots, X_n$ unabhängig, $Bern(p)$\footnote{$= Bin(1,p)$}
+\newline
+$\vartheta \in \Theta = (0,1)$
+\newline
+$\Prim_\vartheta (X= (x_1, \ldots, x_n)) = \vartheta^k (1- \vartheta)^{n-k}, \quad k = x_1 + \ldots + x_n$.
+\newline
+\footnote{Unabhängig verteilt: $\Prim(X_1 = i_1, \ldots, X_n = i_n) = \Prim(X_1 = i_1) \cdot \ldots \cdot \Prim(X_n = i_n)$}
+\newline
+$\Prim_\vartheta(X_1 + \ldots + X_n = k) = {n \choose k} \vartheta^k (1-\vartheta)^{n-k}$
+
+\section{Beispiel}
+Warensendung vom Umfang $N$ mit $\vartheta$ defekten und $N-\vartheta$ intakten Exemplaren. $n$-maliges Ziehen ohne Zurücklegen.
+$$X_j :=  \begin{cases} 1 & j-\text{te entnommene Exemplar ist defekt} \\ 0 & \text{ sonst} \end{cases}$$
+$$X = (X_1, \ldots, X_n) \quad (n \leq N)$$
+$$\Theta = \{0, \ldots, N\}, \quad \vartheta \hat{=} \text{ Anzahl der defekten Exemplare}$$
+$$\Prim_\vartheta (X= (x_1, \ldots, x_n)) = (*) \quad k = \sum\limits_{i=1}^n{x_i}$$
+(*) $\frac{\vartheta}{N} \cdot \frac{\vartheta - 1}{N-1} \cdot \ldots \cdot \frac{\vartheta - k + 1}{N - k + 1} \cdot \frac{N - \vartheta}{(N-k)} \cdots \frac{N - \vartheta - (n-k) +1}{(N-k+1)} = \frac{\vartheta^{\underline{k}} (N-\vartheta)^{n-\underline{k}}}{N^{\underline{n}}}$
+
+$X_1 + \ldots + X_n \sim Hyp(\underbrace{n, N}_{\text{fix}} - \vartheta, \underbrace{\vartheta}_{\text{= ?}})$
+Qualitätskontrolle
+
+\section{Definition}
+Sei $(\mathcal{X}, \{\Prim_\vartheta \colon \vartheta \in \Theta\})$ ein statistisches Modell.
+\newline
+Ein (Punkt)\textbf{Schätzer} (für den unbekannten Parameter $\vartheta$) ist eine Abbildung $$T \colon \mathcal{X} \rightarrow \widetilde{\Theta} \supset \Theta$$ (oft $\widetilde{\Theta} = \Theta$)
+\newline
+$T(x)$ heißt \textbf{konkreter Schätzwert}\footnote{auf der Grundlage der Daten}.
+
+\section{Bemerkungen}
+\begin{enumerate}
+	\item Allgemein heißt eine Abbildung auf $\mathcal{X}$ \textbf{Stichprobenfunktion}.
+	\item $\Prim_\vartheta$ "steuert" Auftreten von $x$ und damit $T(x)$. $T$ ist eine auf $\mathcal{X}$ definierte Zufallsvariable! Ist $T$ eine Schätzfunktion, so definiert $$\Prim_\vartheta(T = t) := \Prim_\vartheta(\{x \in \mathcal{X} \colon T(x) = t \})$$
+	Wünschenswert: $\Prim_\vartheta (T= \vartheta) \approx 1 \footnote{\text{nicht erreichbar}}, \vartheta \in \Theta$
+	\newline
+	$\Prim_\vartheta (|T- \vartheta| \leq 1) \approx 1, \vartheta \in \Theta$
+\end{enumerate}
+
+\section{Definition}
+Sei $T \colon \mathcal{X} \rightarrow \widetilde{\Theta} \supset \Theta \quad (\widetilde{\Theta} \subset \R)$. Dann 
+$$\E_\vartheta T^2 = \sum\limits_{x \in \underbrace{\mathcal{X}}_{\text{diskret!}}}{T(x)^2 \Prim_\vartheta(\{x\})} < \infty, \quad \vartheta \in \widetilde{\Theta} \subset \R$$
+\begin{enumerate}
+	\item $MQA_T(\vartheta) := \E_\vartheta (T - \vartheta)^2 = \sum\limits_{x \in \mathcal{X}}{(T(x) - \vartheta)^2 \Prim_\vartheta(\{x\})}$ heißt \textbf{mittlere quadratische Abweichung} von $T$ an der Stelle $\vartheta$.
+	\item $b_T(\vartheta) = \E_\vartheta T - \vartheta$ heißt \textbf{Verzerrung} (Bias) von $T$ an der Stelle $\vartheta$.
+	\newline
+	Gilt $b_T(\vartheta) = 0$, so heißt $T$ \textbf{erwartungstreu}.\footnote{In dem Fall ist die mittlere quadratische Abweichung nichts anderes als die Varianz.}
+\end{enumerate}
+
+\section{Bemerkung}
+Es gilt $MQA_T(\vartheta) = V_\vartheta(T) + b_T(\vartheta)^2$ (Steiner-Formel)
+\newline
+Wünschenswert: $\sup\limits_{\vartheta \in \Theta}{MQA_T(\vartheta)} = \min\limits_T (*)$
+\newline
+(*) ist nicht erfüllbar, da $T^*(x) = \vartheta^*, \quad x \in \mathcal{X} \quad (\vartheta^* \in \Theta)$
+\newline
+Es gilt $V_\vartheta (T^*) = 0$ \footnote{Zufallsvariable konstant, Varianz 0} und deswegen:
+$$b_T(\vartheta)^2 = (\vartheta^* - \vartheta)^2$$ (TODO: Bild: Parabel)
+
+\section{Definition}
+
+Gegeben sei eine Folge $(\mathcal{X}_n, \{\Prim^{(n)}_\vartheta \colon \vartheta \in \Theta\})$ von statistischen Modellen. Die Zufallsvariablen seinen von der Form $X^{(n)}$ ($n \hat{=}$ Stichprobenumfang).
+\newline
+Eine Folge $T_n \colon \mathcal{X}_n \rightarrow \widetilde{\Theta}$ heißt \textbf{Schätzfolge}.
+
+\begin{enumerate}
+	\item $(T_n)$ heißt \textbf{konsistent}, wenn $\Prim_\vartheta^{(n)} (|T_n - \vartheta| \geq \epsilon) \underset{n \rightarrow \infty}{\rightarrow} 0$.
+	\item $(T_n)$ heißt \textbf{asymptotisch erwartungstreu}, wenn $\lim\limits_{n \rightarrow \infty}{\E_\vartheta T_n = \vartheta, \quad \vartheta \in \Theta}$.
+\end{enumerate}
+
+\section{Beispiel}
+$X_1, \ldots, X_n$ unabhängig, $Bern(p)$.
+%\newline
+$T_n := (x_1, \ldots, x_n) = \frac{1}{n} (x_1 + \ldots + x_n)$
+$(\E_\vartheta T_n = \vartheta)$ ist konsistent!
 \end{document}
