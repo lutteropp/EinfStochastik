@@ -2037,7 +2037,7 @@ $$\E_\vartheta T^2 = \sum\limits_{x \in \underbrace{\mathcal{X}}_{\text{diskret!
 \section{Bemerkung}
 Es gilt $MQA_T(\vartheta) = V_\vartheta(T) + b_T(\vartheta)^2$ (Steiner-Formel)
 \newline
-Wünschenswert: $\sup\limits_{\vartheta \in \Theta}{MQA_T(\vartheta)} = \min\limits_T (*)$
+Wünschenswert: $MQA_T(\vartheta) \leq MQA_{T^*}(\vartheta), \quad \forall \vartheta \forall T^*$
 \newline
 (*) ist nicht erfüllbar, da $T^*(x) = \vartheta^*, \quad x \in \mathcal{X} \quad (\vartheta^* \in \Theta)$
 \newline
@@ -2060,4 +2060,116 @@ $X_1, \ldots, X_n$ unabhängig, $Bern(p)$.
 %\newline
 $T_n := (x_1, \ldots, x_n) = \frac{1}{n} (x_1 + \ldots + x_n)$
 $(\E_\vartheta T_n = \vartheta)$ ist konsistent!
+
+%hier beginnt der 12.01.2012
+
+\paragraph{Wiederholung}
+$(\mathcal{X}, \{ \Prim_\vartheta \colon \vartheta \in \Theta \})$ statistisches Modell
+\newline
+$x = X(\omega)$ Beobachtung (Daten)
+\newline
+$T \colon \mathcal{X} \rightarrow \widetilde{\Theta} \supset \Theta$ Schätzfunktion
+\newline
+Idee: $T(x)$ schätzt den unbekannten Parameter 
+\newline
+$MQA_T(\vartheta) := \E_\vartheta (T- \vartheta)^2 \quad (\Theta \subset \R)$
+
+\paragraph{Bemerkung 15.8:}
+$$MQA_T(\vartheta) = V_\vartheta(T) + b_T(\vartheta)^2$$
+nicht erfüllbarer Wunsch für $T$: $MQA_T(\vartheta) \leq MQA_{T^*}(\vartheta), \quad \forall \vartheta \forall T^*$
+
+\section{Definition}
+$(\mathcal{X}, \{ \Prim_\vartheta \colon \vartheta \in \Theta\})$ statistisches Modell
+\newline
+$x \in \mathcal{X}$. Definiere $L_x \colon \Theta \rightarrow [0,1]$
+$$L_x(\vartheta) = \Prim_\vartheta (X=x), \quad \vartheta \in \Theta.$$
+Diese Funktion heißt \textbf{Likelihood-Funktion} zu gegebenen $x$. Existiert ein $\hat{\vartheta}(x) \in \Theta$ (manchmal: $\widetilde{\vartheta} \in \widetilde{\Theta}$) mit
+$$L_x(\hat{\vartheta}(x)) = \sup\limits_{\vartheta \in \Theta}{L_x(\vartheta)} \quad (*)$$
+so heißt $\hat{\vartheta}(x)$ ML-Schätzwert (von $\vartheta$) zu $x$.
+\newline
+Ein Schätzer $\hat{\vartheta} \colon \mathcal{X} \rightarrow \Theta$ mit (*) für jedes $x \in \mathcal{X}$ heißt ML-Schätzer.
+\footnote{Zu geg. Datum wähle mir den Parameterwert, welcher das Datum am wahrscheinlichsten macht.}
+
+\section{Beispiel}
+$L_\vartheta(x) = \vartheta^k (1-\vartheta)^{n-k}$
+\newline
+$X=(x_1, \ldots, x_n), k = \sum\limits_{i=1}^n{x_i}$
+\newline
+$\hat{\vartheta}(x) = \frac{k}{n}$
+
+\section{Beispiel (vgl. 15.4)}
+$\Prim_\vartheta (X=x) = L_x(\vartheta)$
+$$= \frac{\vartheta^{\underline{k}} (N-\vartheta)^{\underline{n-k}}}{N^{\underline{n}}}$$
+ML-Schätzer? $x_1 + \ldots + x_n = k$
+\begin{enumerate}
+	\item $k=0 \quad L_x(\vartheta) = \frac{(N-\vartheta)^{\underline{n}}}{N^{\underline{n}}} \leadsto \hat{\vartheta}(x) = 0.$
+	\item $k = n \quad L_x(\vartheta) = \frac{\vartheta^{\underline{n}}}{N^{\underline{n}}} \leadsto \hat{\vartheta}(x) = N$
+	\item $0 < k < n:$
+	$$\frac{L_x(\vartheta + 1)}{L_x(\vartheta)} \overset{!}{=} \frac{\vartheta +1}{\vartheta - k + 1} \frac{N- \vartheta + k - n}{N - \vartheta} > 1$$
+	$$\Leftrightarrow \vartheta < \frac{k(N+1)}{n} - 1$$
+	$$\Rightarrow \hat{\vartheta}(x) : \begin{cases} \lfloor \frac{k(N+1)}{n} \rfloor & \text{falls } \frac{k(N+1)}{n} \notin \N \\ \in \{ \frac{k(N+1)}{n} - 1, \frac{k(N+1)}{n}\} & \text{sonst} \end{cases}$$
+	
+	Vergleich mit heur. Schätzer:
+	$$\frac{k}{n} = \frac{\vartheta}{N} \Rightarrow \hat{\vartheta} = \frac{Nk}{n}$$
+\end{enumerate}
+
+\chapter{Konfidenzbereiche}
+\section{Beispiel}
+Sei $S_n \sim Bin(n,p), \quad p \in [0,1]$ unbekannt.
+$$\E_p S_n = np, \quad V_p (S_n) = n p (1-p)$$
+Für $R_n = \frac{1}{n} S_n$
+$$\E_p R_n = p, \quad V_p (R_n) = \frac{p (1-p)}{n} \overset{!}{\leq} \frac{1}{4n}$$
+
+Sei $\alpha \in (0,1) \quad (\text{z.B. } \alpha = 0.05)$. Dann:
+$$\Prim_p(R_n - \frac{1}{2 \sqrt{\alpha n}} \leq p \leq R_n + \frac{1}{2 \sqrt{\alpha n}})$$
+$$= \Prim_p(|R_n - p| \leq \frac{1}{2 \sqrt{\alpha n}}) \geq 1 - \frac{V_p(R_n)}{(\frac{1}{2 \sqrt{\alpha n}})^2} = 1 - \frac{p (1-p) 4 \alpha n}{n} \geq 1 - \alpha$$ \footnote{Hier wurde die Tschebyschew- Ungl. benutzt.}
+
+Mit 
+$$I_n := [\max\{0, R_n - \frac{1}{2 \sqrt{\alpha n}}, \min \{1, R_n + \frac{1}{2 \sqrt{\alpha n}}\}]$$
+gilt
+$$\Prim_p(I_n \ni p) \geq 1 - \alpha \quad (\text{z.B. } \geq 0.95)$$
+
+\section{Definition}
+Sei $(\mathcal{X}, \{\Prim_\vartheta \colon \vartheta \in \Theta \})$ statistisches Modell
+\newline
+$\alpha \in (0,1)$. Eine Abbildung 
+$$C \colon \mathcal{X} \rightarrow \mathcal{P}(\Theta)$$ heißt \textbf{Konfidenzbereich} (für $\vartheta$) zum Konfidenzwert $1- \alpha$, falls
+$$\Prim_\vartheta(\{x \in \mathcal{X} \colon C(x) \ni \vartheta\}) \geq 1- \alpha \quad
+\vartheta \in \Theta$$
+Falls $\Theta \subset \R$ und $C(x)$ Intervall $(\forall x)$, so heißt $C$ \textbf{Konfidenzintervall}.
+
+\section{Bemerkungen}
+\begin{enumerate}
+	\item $C$ ist $\mathcal{P}(\Theta)$-wertige Zufallsvariable. 
+	\item $C(x) = \Theta, x \in \mathcal{X},$ ist ein Konfidenzbereich. Sinnlos! (Ziel: $C(x)$ "klein")
+	\item $C(x)$ \underline{konkreter} Konfidenzbereich. Die Tatsache, dass $\vartheta \in C(x)$ gilt, hat keine Wahrscheinlichkeit.
+	\item Es sei $\Theta \subset \R$ und $\beta \in (0,1)$. Dann heißt
+	\begin{itemize}
+	\item
+	$$O \colon \mathcal{X} \rightarrow \Theta$$ \textbf{obere Konfidenzschranke} (für $\vartheta$) zum Konfidenzniveau $1- \beta$, falls
+	$$\Prim_\vartheta(\{x \in \mathcal{X} \colon \vartheta \leq O(x)\}) \geq 1- \beta$$
+	\item 
+	$$U \colon \mathcal{X} \rightarrow \Theta$$ \textbf{untere Konfidenzschranke} (für $\vartheta$) zum Konfidenzniveau $1- \beta$, falls
+	$$\Prim_\vartheta(\{x \in \mathcal{X} \colon U(x) \leq \vartheta \}) \geq 1- \beta$$
+	\end{itemize}
+\end{enumerate}
+
+\section{Beispiel (Konfidenzschranken für $p$ in $Bin(n,p)$)}
+	Sei $S_n \sim Bin(n,p)$. Gesucht $p_u, p_o \colon \{0, \ldots, n\} \rightarrow [0,1]$ mit
+	$$\Prim_p(p \leq p_o(S_n) \geq 1 - \beta), \quad p \in [0,1] \quad (2)$$
+	$$\Prim_p(p_u(S_n) \leq p) \geq 1- \beta), \quad p \in [0,1] \quad (3)$$
+	
+	\begin{enumerate}
+		\item $k=0: \quad p_u(0) := 0 \quad p_o(0) := 1-\beta^{\frac{1}{n}}$
+		\newline
+		Dann gilt $\beta = \left(1 - p_o(0) \right)^n \geq (1-p)^n$, falls $p \geq p_o(0)$
+		
+		\item $k=n: \quad p_o(n):= 1, \quad p_u(n) := \beta^{\frac{1}{n}}$
+		\newline
+		Dann gilt $p_u(n)^n = \beta \geq p^n, \quad p \leq p_u(n)$
+		
+		\item $0 < k < n: \quad p_o(k)$ ist Lösung von $P(S_n \leq k) = \beta$
+		\paragraph{Behauptung} Dann gilt (2)!
+	\end{enumerate}
+
 \end{document}

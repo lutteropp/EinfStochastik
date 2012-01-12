@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2011.10.9)  10 JAN 2012 12:58
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2011.10.9)  12 JAN 2012 12:45
 entering extended mode
  %&-line parsing enabled.
 **mitschrieb_stochastik.tex
@@ -821,16 +821,16 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 \tf@toc=\write5
 \openout5 = `mitschrieb_stochastik.toc'.
 
- [5]
+ [5] [6]
 Kapitel 1.
-[6
+[7
 
-] [7]
+] [8]
 Underfull \hbox (badness 10000) in paragraph at lines 210--212
 
  []
 
-[8] [9]
+[9] [10]
 Kapitel 2.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 237.
 
@@ -844,18 +844,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 252--268
 
  []
 
-[10
+[11
 
-] [11]
+] [12]
 Underfull \hbox (badness 3291) in paragraph at lines 318--318
 []\T1/cmr/bx/n/14.4 Bemerkungen (Re-chen-re-geln für In-di-ka-tor-
  []
 
-[12] [13]
+[13] [14]
 Kapitel 3.
-[14
+[15
 
-] [15] [16]
+] [16] [17]
 Underfull \hbox (badness 10000) in paragraph at lines 452--460
 
  []
@@ -865,7 +865,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--483
 
  []
 
-[17]
+[18]
 Kapitel 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 518--518
@@ -902,7 +902,7 @@ Overfull \hbox (45.86407pt too wide) in paragraph at lines 514--521
 [] 
  []
 
-[18
+[19
 
 ]
 
@@ -910,7 +910,7 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 534.
 
-[19]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 577--577
 []|$\OML/cmm/m/it/10.95 Per[]$ []\T1/cmr/m/n/10.95 Maxwell-
  []
@@ -930,24 +930,24 @@ Overfull \hbox (2.67453pt too wide) in paragraph at lines 575--581
 [][]
  []
 
-[20]
+[21]
 Kapitel 5.
-[21
+[22
 
-] [22]
+] [23]
 Underfull \hbox (badness 3792) in paragraph at lines 654--655
 []\T1/cmr/m/n/10.95 Zweifacher Wür-fel-wurf, $\OML/cmm/m/it/10.95 X$\T1/cmr/m/n
 /10.95 =Maximum der Au-gen-zah-len ($\OT1/cmr/m/n/10.95 
  =
  []
 
-[23]
+[24]
 Kapitel 6.
-[24
+[25
 
-] [25] [26]
+] [26] [27]
 Kapitel 7.
-[27
+[28
 
 ]
 Overfull \hbox (1.05623pt too wide) detected at line 806
@@ -956,20 +956,20 @@ Overfull \hbox (1.05623pt too wide) detected at line 806
  []
  []
 
-[28] [29]
+[29] [30]
 Kapitel 8.
 
 Underfull \hbox (badness 1460) in paragraph at lines 861--861
 []\T1/cmr/bx/n/14.4 Bemerkung (Zu-sam-men-hang zu Über-gangs-
  []
 
-[30
+[31
 
-] [31] [32] [33]
+] [32] [33] [34]
 Kapitel 9.
-[34
+[35
 
-] [35]
+] [36]
 Overfull \hbox (5.3274pt too wide) detected at line 1047
 \OML/cmm/m/it/10.95 ^^[\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B[]; [] ; B[]\OT
 1/cmr/m/n/10.95 ) := \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 B \OMS/cmsy/m/n/1
@@ -980,7 +980,7 @@ Overfull \hbox (5.3274pt too wide) detected at line 1047
 mm/m/it/10.95 :
  []
 
-[36] [37]
+[37] [38]
 
 Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 (hyperref)                removing `math shift' on input line 1088.
@@ -989,9 +989,9 @@ Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 (hyperref)                removing `math shift' on input line 1088.
 
-[38]
+[39]
 Kapitel 10.
-[39
+[40
 
 ]
 Underfull \hbox (badness 1389) in paragraph at lines 1170--1172
@@ -1000,26 +1000,26 @@ L/cmm/m/it/10.95 ; \U/msb/m/n/10.95 P[]$ \T1/cmr/m/n/10.95 die ge-mein-sa-me Ve
 r-tei-lung
  []
 
-[40] [41] [42] [43]
+[41] [42] [43] [44]
 Kapitel 11.
-[44
+[45
 
-] [45] [46] [47] [48] [49] [50]
+] [46] [47] [48] [49] [50] [51]
 Kapitel 12.
-[51
+[52
 
-] [52] [53] [54]
+] [53] [54] [55]
 Underfull \hbox (badness 10000) in paragraph at lines 1574--1578
 
  []
 
-[55] [56]
+[56] [57]
 Kapitel 13.
-[57
+[58
 
-] [58] [59] [60] [61]
+] [59] [60] [61] [62]
 Kapitel 14.
-[62
+[63
 
 ]
 Underfull \hbox (badness 1383) in paragraph at lines 1825--1829
@@ -1029,36 +1029,63 @@ Underfull \hbox (badness 1383) in paragraph at lines 1825--1829
 95 (\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 ) =
  []
 
-[63]
+[64]
 Underfull \hbox (badness 2359) in paragraph at lines 1850--1857
 \T1/cmr/m/n/10.95 Für $\OML/cmm/m/it/10.95 n \OT1/cmr/m/n/10.95 = 2\OML/cmm/m/i
 t/10.95 m$ \T1/cmr/m/n/10.95 gilt $[] \OMS/cmsy/m/n/10.95 ^^A \OT1/cmr/m/n/10.9
 5 2[] = [] \OMS/cmsy/m/n/10.95 ^^A \OT1/cmr/m/n/10.95 2[] []
  []
 
-[64]
+[65]
 Overfull \hbox (18.63599pt too wide) in paragraph at lines 1895--1898
 []\T1/cmr/m/n/10.95 Sterlingsche For-mel! (2 Sei-ten Rech-nung) $\U/msa/m/n/10.
 95  $ \T1/cmr/m/n/10.95 Wahrscheinlichkeitstheorie-
  []
 
-[65] [66]
+[66] [67]
 Kapitel 15.
-[67
+[68
 
-] [68] [69]
+] [69] [70]
 Overfull \hbox (23.55466pt too wide) in paragraph at lines 2055--2056
 []$\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 T[]\OT1/cmr/m/n/10.95 )$ \T1/cmr/m/n
 /10.95 heiÿt \T1/cmr/bx/n/10.95 asym-pto-tisch er-war-tungs-treu\T1/cmr/m/n/10.
 95 , wenn $[] []$. 
  []
 
-[70] (./mitschrieb_stochastik.aux) ) 
+[71] [72] [73]
+Kapitel 16.
+[74
+
+]
+Overfull \hbox (3.5859pt too wide) in paragraph at lines 2157--2157
+[]\T1/cmr/bx/n/14.4 Beispiel (Kon-fi-denz-schran-ken für $\OML/cmm/m/it/14.4 p$
+ \T1/cmr/bx/n/14.4 in $\OML/cmm/m/it/14.4 Bin\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/1
+4.4 n; p\OT1/cmr/m/n/14.4 )$\T1/cmr/bx/n/14.4 ) 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 2157.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 2157.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 2157.
+
+
+Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
+(hyperref)                removing `math shift' on input line 2157.
+
+[75] (./mitschrieb_stochastik.aux) ) 
 Here is how much of TeX's memory you used:
- 9295 strings out of 256216
- 135454 string characters out of 1917072
+ 9330 strings out of 256216
+ 135817 string characters out of 1917072
  212641 words of memory out of 1500000
- 11929 multiletter control sequences out of 10000+200000
+ 11938 multiletter control sequences out of 10000+200000
  29039 words of font info for 77 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  45i,13n,43p,407b,686s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -1080,18 +1107,19 @@ bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr
 /share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bl
 uesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/sha
 re/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesky
-/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/tex
-mf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr
-9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fon
-ts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pf
-b></usr/share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/ty
-pe1/public/cmex/fmex8.pfb></usr/share/texmf/fonts/type1/public/cmex/fmex9.pfb><
-/usr/share/texmf/fonts/type1/bluesky/latex-fonts/line10.pfb></usr/share/texmf/f
-onts/type1/bluesky/ams/msam10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msb
-m10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm7.pfb>
-Output written on mitschrieb_stochastik.pdf (70 pages, 597030 bytes).
+/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/te
+xmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
+r8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/font
+s/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pf
+b></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/ty
+pe1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cmex/fmex8.pfb></
+usr/share/texmf/fonts/type1/public/cmex/fmex9.pfb></usr/share/texmf/fonts/type1
+/bluesky/latex-fonts/line10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msam1
+0.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texmf/fo
+nts/type1/bluesky/ams/msbm7.pfb>
+Output written on mitschrieb_stochastik.pdf (75 pages, 621442 bytes).
 PDF statistics:
- 1898 PDF objects out of 2073 (max. 8388607)
- 364 named destinations out of 1000 (max. 131072)
- 1105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1989 PDF objects out of 2073 (max. 8388607)
+ 390 named destinations out of 1000 (max. 131072)
+ 1177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
