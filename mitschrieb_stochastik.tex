@@ -2172,4 +2172,155 @@ Falls $\Theta \subset \R$ und $C(x)$ Intervall $(\forall x)$, so heißt $C$ \tex
 		\paragraph{Behauptung} Dann gilt (2)!
 	\end{enumerate}
 
+%17.01.2012
+\paragraph{Wiederholung}
+$(\mathcal{X}, \{\Prim_\vartheta \colon \vartheta \in \Theta \}), \quad x \mapsto C(x) \subset \Theta$
+\newline
+$\Prim_\vartheta(\{x \in \mathcal{X} \colon C(x) \ni \vartheta\}) \geq 1 - \alpha$
+\newline
+$\Theta \subset \R:$
+\newline
+$\Prim_\vartheta(\{x \in \mathcal{X} \colon \vartheta \leq O(x)\}) \geq 1 - \beta$ obere Konfidenzschranke
+\newline
+$\Prim_\vartheta(\{x \in \mathcal{X} \colon U(x) \leq \vartheta\}) \geq 1 - \beta$ untere Konfidenzschranke
+
+\section*{Beispiel}
+$S_n \sim Bin(n,p)$ \footnote{$n$ bekannt, $p$ unbekannt}, $S_n = k$
+$$(*) \quad \Prim_p(S_n \leq k) = \beta$$ (stetige Funktion von $p$) \footnote{$\beta$ ist vorgegeben}
+\newline
+$p_o(k)$ Lösung von (*)
+\newline
+$p_u(k)$ Lösung von
+$$\Prim_p(S_n \geq k) = \beta \quad (**)$$
+
+Es gelte $p \in (0,1)$. Setze
+$$M:= \{j \in \{0, \ldots, n\} \colon p > p_o(j)\}$$
+
+\paragraph{zu zeigen:}
+$\Prim_p(p > p_o(S_n)) \leq \beta$,! d.h.
+$$\Prim_p(S_n \in M) \leq \beta.$$
+
+\paragraph{Nebenrechnung}
+$M \neq \emptyset$ \newline
+$k_0 := \max M$ \newline
+$M \subset \{0, \ldots, k_0\}$
+
+\paragraph{}
+Es folgt
+$$\Prim_p(S_n \in M) \leq \Prim_p(S_n \leq k_0)$$ \footnote{Wegen der Monotonie der Wahrscheinlichkeitsmaße}
+Fällt in $p$! (Übung)
+\newline
+$p_o(k_0) < p$
+$$\leq \Prim_{p_o(k_0)}(S_n \leq k_0) \underset{*}{=} \beta$$ \footnote{benutzt: Monotonie und Tatsache, dass $k$ in $M$ ist}
+
+Analog folgt
+$$\Prim_p(p < p_u(S_n)) \leq \beta.$$
+
+\section{Allgemeines Konstruktionsprinzip}
+Wähle zu jedem $\vartheta \in \Theta$ eine Menge $A(\vartheta) \subset \mathcal{X}$ mit
+$$\Prim_\vartheta(A(\vartheta)) \geq 1 - \alpha$$
+Setze
+$$C(x):= \{ \vartheta \in \Theta \colon x \in A(\vartheta)\}$$\footnote{Konfidenzbereich}
+Dann gilt
+$$x \in A(\vartheta) \Leftrightarrow \vartheta \in C(x)$$
+\begin{center}
+	\includegraphics[scale=1]{drawing.pdf}
+\end{center}
+$$\widetilde{C}:= \{(x, \vartheta) \colon x \in A(\vartheta)\}$$
+Ziel: $C(x)$ "möglichst klein", d.h. $A(\vartheta)$ möglichst klein
+
+\section{Bemerkung}
+Setzt man in 16.4
+$$\mathcal{X} = \{0, \ldots, n\}, \Theta = [0,1]$$
+$$A(\vartheta) := \{x \in \mathcal{X} \colon u(\vartheta) \leq x \leq o(\vartheta= \},$$
+wobei
+$$u(\vartheta) := \max \left \{k \in \mathcal{X} \colon \sum\limits_{j=0}^{k-1}{{n \choose j} \vartheta^j (1-\vartheta)^{n-j} \leq \frac{\alpha}{2}} \right \},$$
+$$o(\vartheta) := \min \left \{ k \in \mathcal{X} \colon \sum\limits_{j=k+1}^n{{n \choose j} \vartheta^j (1-\vartheta)^{n-j}} \leq \frac{\alpha}{2} \right \}$$
+Dann folgt 16.5 auf den in 16.4 angegebenen Konfidenzbereich $[p_u(k), p_o(k)]$.
+
+\section{Definition}
+Betrachte Folge $(\mathcal{X}_n, \{\Prim_\vartheta \colon \vartheta \in \Theta\})$ von stochastischen Modellen. Eine Folge $C_n \colon \mathcal{X}_n$ heißt \textbf{asymptotischer Konfidenzbereich zum Niveau $1 - \alpha$}, falls
+$$\lim\limits_{n \rightarrow \infty} \Prim_\vartheta(\{x \in \mathcal{X}_n\ \colon C_n(x) \ni \vartheta\}) \geq 1- \alpha$$
+
+\section{($Bin(n,p), S_n:= X_1 + \ldots + X_n$)}
+$X_1 + \ldots + X_n$ unabhängig, $Bin(1,p) = Bern(p)$ verteilt.
+$$R_n := \frac{1}{n} S_n.$$
+Dann gilt für $h > 0$
+$$\Prim_\vartheta \left(-h \leq \frac{S_n - n \vartheta}{\sqrt{n \vartheta (1-\vartheta)}} \leq h \right) \overset{\textcolor{red}{ZGWS}}{\underset{n \rightarrow \infty}{\rightarrow}} \phi(h) - \phi(-h) = 2 \phi(h)-1$$ \footnote{nach dem Zentralen Grenzwertsatz}
+
+$$A_n(\vartheta) "\Leftrightarrow" \frac{|S-n - n \vartheta|}{\sqrt{n \vartheta (1-\vartheta)}} \leq h$$
+$$\Leftrightarrow \sqrt{n} |R_n - n \vartheta| \leq h \sqrt{\vartheta (1-\vartheta)}$$
+$$\Leftrightarrow (n+h^2) \vartheta^2 - (2n R_n + h^2) \vartheta + n R_n^2 \leq 0$$
+$$\Leftrightarrow U_n \leq \vartheta \leq O_n,$$
+wobei $$O_n = \frac{R_n + \frac{h^2}{2n} + \frac{h}{\sqrt{n}}\sqrt{R_n (1-R_n) + \frac{h^2}{4n}}}{1+\frac{h^2}{n}}$$
+$$U_n = \frac{R_n + \frac{h^2}{2n} - \frac{h}{\sqrt{n}}\sqrt{R_n (1-R_n) + \frac{h^2}{4n}}}{1+\frac{h^2}{n}}$$
+Damit ist
+$$\Prim_\vartheta(U_n \leq \vartheta \leq O_n) \underset{n \rightarrow \infty}{\rightarrow} 2 \phi(h) - 1$$
+$h : 2 \phi(h) - 1 = \alpha$
+
+\chapter{Testtheorie: fällt weg}
+
+\chapter{Allgemeine Modelle}
+\paragraph{Bisher:} $\Omega$ diskret, $\Prim \colon \mathcal{P}(\Omega) \rightarrow [0,1]$
+\paragraph{Aber:} Im Fall $\Omega = \R^k$ ist die Wahl $\mathcal{P}(\Omega)$ keine gute Idee! Zum Beispiel gibt es dann\footnote{im Fall $k=1$} kein Wahrscheinlichkeitsmaß (vgl. unten folgende Definition) mit
+$$\Prim([a,b]) = b - a \quad 0 \leq a \leq b \leq 1$$
+
+\section{Definition}
+Sei $\Omega \neq \emptyset$. Eine Menge $\mathcal{A} \subset \mathcal{P}(\Omega)$ heißt \textbf{$\sigma$-Algebra (über $\Omega$)}, falls
+\begin{enumerate}
+	\item $\emptyset \in \mathcal{A}$
+	\item $A \in \mathcal{A} \Rightarrow A^c = \Omega \backslash A \in \mathcal{A}$ \footnote{Abgeschlossenheit unter Komplementbildung}
+	\item $A_n \in \mathcal{A}, n \in \N \Rightarrow \bigcup\limits_{n=1}^{\infty}{A_n \in \mathcal{A}}$
+\end{enumerate}
+
+\section{Bemerkungen}
+$\mathcal{A}$ sei $\sigma$-Algebra
+\begin{enumerate}
+	\item $\Omega \in \mathcal{A}$ ($\emptyset = \Omega^c \in \mathcal{A}$)
+	\item $A,B \in \mathcal{A} \Rightarrow A \cup B \in \mathcal{A}$
+		\newline
+		$A \cap B = (A^c \cup B^c)^c \in \mathcal{A}$ \footnote{Eine $\sigma$-Algebra ist abgeschlossen unter abzählbaren Vereinigungen und Durchschnitten.}
+	\item $A_n, B_n \in \mathcal{A}, n \in \N \Rightarrow \bigcap\limits_{n=1}^{\infty}{A_n} = (\bigcup A_n^c)^c \in \mathcal{A}$
+	\item $\mathcal{P}(\Omega)$ ist eine $\sigma$-Algebra.\newline Wie auch $\{\emptyset, \Omega\}$. 
+\end{enumerate}
+
+\section{Lemma}
+Seien $I \neq \emptyset, \mathcal{A}_i$ $\sigma$-Algebren über $\Omega, i \in I.$ \newline
+Dann ist
+$$\bigcap\limits_{i \in I}{\mathcal{A}_i}$$ eine $\sigma$-Algebra.
+
+\begin{proof}
+	klar!
+\end{proof}
+
+\section{Satz und Definition}
+Sei $\mathcal{M} \subset \mathcal{P}(\Omega)$. Dann existiert genau eine $\sigma$-Algebra $\sigma(\mathcal{M})$ über $\Omega$ mit
+\begin{enumerate}
+	\item $\mathcal{M} \subset \sigma(\mathcal{M})$
+	\item Für alle $\sigma$-Algebren $\mathcal{A}$ mit $\mathcal{M} \subset \mathcal{A}$, dann ist $\sigma(\mathcal{M}) \subset \mathcal{A}$.
+\end{enumerate}
+Man nennt $\sigma(\mathcal{M})$ die \textbf{von $\mathcal{M}$ erzeugte $\sigma$-Algebra} und $\mathcal{M}$ \textbf{Erzeuger von $\sigma(\mathcal{M})$}.
+
+\begin{proof}
+	$$\bigcap\limits_{\mathcal{A} \text{ $\sigma$-Algebren}, \mathcal{M} \subset \mathcal{A}} \mathcal{A}$$
+	q.e.d. (Lemma 18.3)
+\end{proof}
+
+\section{Folgerung: fällt weg}
+
+\section{Folgerung und Definition}
+Seien $k \in \N$ und
+$$\mathcal{O}^k := \{ A \subset \R^n \colon A \text{ offen }\},$$
+$$\mathcal{A}^k := \{ A \subset \R^n \colon A \text{ abgeschlossen }\},$$
+$$\mathcal{K}^k := \{ A \subset \R^n \colon A \text{ kompakt }\},$$
+$$\mathcal{I}^k := \{ (x,y] \colon x,y \in \R^k, x < y\}$$ \footnote{halboffene Quader}
+wobei $x \leq y := x_i \leq y_i, \quad i = 1, \ldots, k$, \newline $x < y := x_i < y_i, \quad i = 1, \ldots, k$
+$$\mathcal{B}^k := \sigma(\mathcal{O}^k)$$ heißt \textbf{$\sigma$-Algebra der Borelmengen} \footnote{Die kleinste $\sigma$-Algebra, die alle offenen Mengen enthält.}
+Es gilt 
+\begin{enumerate}
+	\item $\mathcal{B}^k = \sigma(\mathcal{A}^k)$
+	\item $\mathcal{B}^k = \sigma(\mathcal{K}^k)$
+	\item $\mathcal{B}^k = \sigma(\mathcal{I}^k)$
+\end{enumerate}
 \end{document}
+
