@@ -291,4 +291,115 @@ $$Z:= X_1 X_2$$
 	\item $$\E(X_1 \cdot X_ 2\cdot Z)= \E (Z^2) = 1$$
 \end{enumerate}
 
+\chapter{19.01.2012}
+SGGZ
+\newline
+$X_1, X_2, \ldots$ unabhängig mit gleicher Verteilung, wobei $\E X_1^2 < \infty$.
+$$\bar{X_n}:= \frac{1}{n} \sum\limits_{i=1}^{n}{X_i}$$
+Dann gilt:
+$$\lim\limits_{n \rightarrow \infty}{\Prim(|\bar{X_n}-\E X_1| \geq \epsilon)} = 0 \quad \forall \epsilon > 0$$
+
+\section{A27}
+a) $X_1, X_2, \ldots$ Folge von ZVen mit $V(X_j) \leq M < \infty \quad \forall j \in \N, \E(X_j) = m \quad \forall j \in \N.$
+$$\exists k \in \N \quad \forall i,j \in \N \colon (|i-j| \geq k \Rightarrow C(X_i, X_j) = 0)$$
+nach Vorlesung gilt:
+$$C(X_i, X_j) \leq \sqrt{\underbrace{Var(X_i)}_{\leq M} \underbrace{Var(X_j)}_{\leq M}} \leq M$$
+$V(\bar{X_n})$
+$$= V(\frac{1}{n} \sum\limits_{i=1}^n{X_i}) = \frac{1}{n^2} \cdot \sum\limits_{i=1}^n{V(X_i)} + \frac{1}{n^2 \sum\limits_{i,j = 1, i \neq j}^n{Cov(X_i, X_j)}}$$
+$$\overset{symm.}{=} \frac{1}{n^2} \sum\limits_{i=1}^n{V(X_i) + \frac{2}{n^2}\sum\limits_{i,j=1, i > j}^n{Cov(X_i,X_j)}}$$
+$$\sum\limits_{j=1}^n{\sum\limits_{i=j+1}^n{Cov(X_i,X_j)}}$$
+$$= \sum\limits_{j=1}^n{\sum\limits_{i=j+1}^{\min \{n,j+k-1\}}{\underbrace{Cov(X_i,X_j)}_{\leq M}}}$$
+da für $i \geq j+k: Cov(X_i, X_j) = 0$
+$$\Rightarrow V(\bar{X_n}) \leq \frac{1}{n^2}n \cdot M + \frac{2}{n^2} n \cdot (k-1) \cdot M$$
+$$= \frac{(2k-1)M}{n}$$
+Sei $\epsilon > 0.$
+$$\Rightarrow \Prim(|\bar{X_n}-m| \geq \epsilon) \overset{Tsch.}{\leq} \frac{V(\bar{X_n})}{\epsilon^2} \leq \frac{(2k-1)M}{n \epsilon^2} \overset{n \rightarrow \infty}{\rightarrow} 0$$
+b) $Y_1, Y_2, \ldots$ Folge unabh. Würfelwürfe.
+$$A_j := \{Y_j < Y_{j+1}\}$$
+
+wir betrachten $X_j := 1_{\{A_j\}}$.
+\newline
+Es gilt $Var(X_j) \leq 1 < \infty$
+$$\E(X_j) = \underline{\Prim(A_j)}$$
+es gilt:
+$$1 = \Prim(Y_j < Y_{j+1}) + \underbrace{\Prim(Y_j > Y_{j+1})}_{\overset{symm.}{=} \Prim(Y_j < Y_[j+1}) + \underbrace{\Prim(Y_j = Y_{j+1})}_{ = \sum\limits_{i=1}^6{\Prim(Y_j = Y_{j+1}|Y_j = i) \cdot \Prim(Y_j = i)} = \sum\limits_{i=1}^6{\underbrace{\Prim(Y_{j+1}=i|Y_j = i)}_{\overset{unabh.}{=} \underbrace{\Prim(Y_{j+1}=i)}_{= \frac{1}{6}}}} \cdot \underbrace{\Prim(Y_j = i)}_{= \frac{1}{6}} = \frac{1}{6}}$$
+
+$$\Rightarrow \Prim(A_j) = \frac{5}{12}$$
+und für $|i-j| \geq 2$ gilt:
+$$1_{A_j} = 1_{\{Y_j < Y_{j+1}\}}$$ und
+$$1_{A_i} = 1_{\{Y_i < Y_{i+1}\}}$$ sind unabh. (nach Blockungslemma)
+
+$$\overset{a)}{\Rightarrow} \Prim(|\bar{X_n} - \frac{5}{12}| \geq \epsilon) \overset{n \rightarrow \infty}{\rightarrow} 0. \qed$$
+
+\section{A28}
+Für $n \in \N$
+$$K_n = Y_1 \cdot \ldots \cdot Y_n$$ mit $\Prim(Y_i = \frac{5}{3}) = \frac{1}{2} = \Prim(Y_i = \frac{1}{2})$
+\newline
+a) es gilt $\E(Y_i) = \frac{1}{2} \cdot \frac{5}{3} + \frac{1}{2} \cdot \frac{1}{2} = \frac{13}{12}$
+$$\E(K_n) = \E (Y_1 \cdot \ldots \cdot Y_n) \overset{unabh.}{=} \E(Y_1) \cdot \ldots \cdot \E(Y_n) = \left(\frac{13}{12} \right)^n \underset{(n \rightarrow \infty)}{\rightarrow} \infty$$
+
+b) $Z_i := ln(Y_i)$
+$$\Rightarrow \E(Z_i) = \frac{1}{2} \cdot ln \left(\frac{5}{3} \right) + \frac{1}{2} ln \left( \frac{1}{2} \right ) = \underbrace{ln \left (\frac{5}{6} \right)^{\frac{1}{2}}}_{=: \mu} < 0$$
+es gilt $ln(K_n) = \sum\limits_{i=1}^n{Z_i}$
+$$\Rightarrow \frac{1}{n} ln(K_n) \overset{p}{\rightarrow} \mu$$ (SGGZ für $Z_1, Z_2, \ldots$)
+\newline
+d.h. $\Prim(|\frac{1}{n} ln(K_n) - \mu| \geq \delta) \overset{n \rightarrow \infty}{\rightarrow} 0 \quad \forall \delta > 0$
+$$\Rightarrow \Prim(\frac{1}{n}ln(K_n) - \mu \geq \delta) \overset{n \rightarrow \infty}{\rightarrow} 0$$
+Sei nun $\epsilon > 0$ und $\delta \in (0, |\mu|)$
+\newline
+Dann gilt $e^{n \delta + n \mu} = e^{n(\delta - |\mu|)}$
+\newline
+d.h. $\exists m \in \N \quad \forall n \geq m \quad e^{n(\delta - |\mu|)} \leq \epsilon$
+$$\Rightarrow \lim\limits_{n \rightarrow \infty}{\Prim(K_n \geq \epsilon)} \leq \lim\limits_{n \rightarrow \infty}{\Prim(K_n \geq e^{n(\delta - |\mu|)})} = \lim\limits_{n \rightarrow \infty}{\Prim(\frac{1}{n} ln(K_n)- \mu \leq \delta)} = 0$$
+$$K_n > 0 \Rightarrow \lim\limits_{n \rightarrow \infty}{\Prim(|K_n - 0| \geq \epsilon)} = 0$$
+d.h. $K_n \overset{p}{\rightarrow} 0.$
+
+\section{A29}
+a) $a,c > 0$
+$$\Prim(X \leq c) \overset{X \geq 0}{=} \E[1_{[0,c]}(X)]$$
+es gilt
+$$1_{[0,c]}(x) \leq e^{a(c-x)}$$
+
+\begin{itemize}
+	\item $x \notin [0,c] \colon 1_{[0,c]}(x) = 0 \leq e^{a(c-x)}$
+	\item $x \in [0,c] \colon 1_{[0,c]}(x) = 1 \leq e^{a(c-x)}$, da $a(c-x) \geq 0.$
+\end{itemize}
+
+Aus der Monotonie des Erwartungswertes folgt
+$$\E[1_{[0,c]}(X)] \leq \E[e^{a(c-X)}] = e^{ac} \E[\underbrace{e^{-aX}}_{\leq 1}] \leq e^{ac}$$
+$\Rightarrow e^{-aX}$ ist integrierbar + Beh.
+\newline
+b) $$\E (X) \geq \E(X \cdot 1_{\{X \geq c\}})$$ \footnote{wegen Monotonie}
+$$\geq \E(c \cdot 1_{\{X \geq c\}}) = c \cdot \Prim(X \geq c)$$
+$\Rightarrow$ Beh.
+
+\section{Ergänzung zur Vorlesung}
+Sei $S_n \sim Bin(n,p)$. Dann gilt
+$$\Prim(S_n \leq k) = 1- \frac{n!}{k! (n-k-1)!} \int\limits_{0}^p{t^k (1-t)^{n-k-1} dt.}$$
+
+\begin{proof}
+	Beweis per vollständiger Induktion über $k = 0, \ldots, n$.
+	\begin{enumerate}
+		\item $k=0$:
+		$$\Prim(S_n \leq 0) = (1-p)^n$$
+		$$1- \frac{n!}{\underbrace{0!(n-1)!}_{n}} \underbrace{\int\limits_{0}^p{(1-t)^{n-1} dt}}_{[-\frac{1}{n}(1-t)^n]_0^p} = 1-n(-\frac{1}{n} (1-p)^n + \frac{1}{n}) = (1-p)^n$$
+		\item $k \leadsto k+1$ für $k \leq n-1$
+		$$\Prim(S_n \leq k+1) = \Prim(S_n \leq k) + \underbrace{\Prim(S_n = k+1)}_{{n \choose k+1} p^{k+1} (n-p)^{n-k-1}}$$
+		$$1- \frac{n!}{k+1!(n-k-2)!} \underbrace{\int\limits_{0}^p{\underbrace{t^{k+1}}_{u(t)} \underbrace{(1-t)^{n-k-2}}_{v^\prime(t)} dt}}_{I_{k+1}}$$ \footnote{partielle Integration}
+		$$\Rightarrow I_{k+1} = [- \frac{1}{n-k-1} t^{k+1} (1-t)^{n-k-1}]_0^p - \int\limits_0^p{(k+1)t^k(- \frac{1}{n-k-1}) (1-t)^{n-k-1} dt.}$$
+		$$\Rightarrow I_{k+1} = - \frac{1}{n-k-1}p^{k+1}(1-p)^{n-k-1} + \frac{k+1}{n-k-1} \int\limits_0^p{t^k (1-t)^{n-k-1} dt}$$
+		d.h. die rechte Seite der Gleichung
+		$$1 + \frac{n!}{(k+1)!(n-k-1)!} p^{k+1} (1-p)^{n-k-1} - \frac{n!}{k!(n-k-1)!} \int\limits_0^p{t^k (1-t)^{n-k-1} dt}$$
+		$$= \Prim(S_n \leq k) + \Prim(S_n = k+1)$$
+	\end{enumerate}
+\end{proof}
+
+D.h. $S_n^{(p)} \sim Bin(n,p)$ ist stochastisch monoton (wachsend) in $p$, also $\Prim(S_n^{(p_1)} \geq k) \leq \Prim(S_n^{(p_2)} \geq k)$ für $p_1 \leq p_2.$
+
+\section{A26}
+a) $\Omega_k := \{ \omega \in (a_1, \ldots, a_r) \in Kom_{r, \neq}^s \colon a_1 = k\}, \widetilde{p}$ Gleichverteilung auf $\Omega_k$
+$$\Rightarrow |\Omega_k| = {s-k \choose r-1} \quad (a_2 < \ldots < a_r \text{ aus } k+1, \ldots,s \text{ ziehen})$$
+$$|\{X_{(r)} = j\}| = {j-k-1 \choose r-2} \quad (a_2 < \ldots < a_{r-1} \text{ aus } k+1, \ldots, j-1 \text{ ziehen})$$
+$\Rightarrow \text{Beh.}$
+
 \end{document}
