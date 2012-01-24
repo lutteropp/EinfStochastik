@@ -2306,7 +2306,12 @@ Man nennt $\sigma(\mathcal{M})$ die \textbf{von $\mathcal{M}$ erzeugte $\sigma$-
 	q.e.d. (Lemma 18.3)
 \end{proof}
 
-\section{Folgerung: fällt weg}
+\section{Folgerung}
+\begin{enumerate}
+	\item $\mathcal{M}_1 \subset \mathcal{M}_2 \Rightarrow \sigma(\mathcal{M}_1 \subset \sigma(\mathcal{M}_2))$
+	\item $\sigma(\sigma(\mathcal{M})) \subset \sigma(\mathcal{M})$
+	\item $\mathcal{M}_1 \subset \sigma(\mathcal{M}_2)$ und $M_2 \subset \sigma(\mathcal{M}_1) \Rightarrow \sigma(\mathcal{M}_1) = \sigma(\mathcal{M}_2)$ Übungsaufgabe
+\end{enumerate}
 
 \section{Folgerung und Definition}
 Seien $k \in \N$ und
@@ -2322,5 +2327,149 @@ Es gilt
 	\item $\mathcal{B}^k = \sigma(\mathcal{K}^k)$
 	\item $\mathcal{B}^k = \sigma(\mathcal{I}^k)$
 \end{enumerate}
+
+\paragraph{Wiederholung}
+$\Omega \neq \emptyset, \mathcal{A} \subset \mathcal{P}(\Omega)$ $\sigma$-Algebren
+$$\mathcal{A} = \sigma(\mathcal{M}) := \bigcap\limits_{\mathcal{a}^\prime \sigma-Algebra, \mathcal{a}^\prime \supset \mathcal{M}}{\mathcal{a}^\prime}$$
+$$\mathcal{B}^k := \sigma(\{U \subset \R^k \colon U \text{ offen})$$
+Borelsche $\sigma$-Algebra
+
+\begin{enumerate}
+	\item $\mathcal{B}^k = \sigma(\mathcal{A}^k)$
+\begin{proof}
+	Sei $A \subset \R^k$ abgeschlossen.
+	Dann ist $\R^k \backslash A$ offen, also in $B^k$. Also ist $A \in \mathcal{B}^k$, d.h. $\mathcal{A}^k \subset \mathcal{B}^k$. Also ist $\sigma(\mathcal{A}^k) \subset \mathcal{B}^k$. Umgekehrt analog.
+\end{proof}
+	\item $\mathcal{B}^k = \sigma(\mathcal{K}^k)$
+	\begin{proof}
+		($\subset$) klar nach (1).
+		\newline
+		Sei $A \in \mathcal{A}^k$. Dann gilt
+		$$A \cap [-n,n]^k \uparrow_{n \rightarrow \infty} A,$$
+		d.h. $\bigcup\limits_{n=1}^{\infty}{A \cap [-n,n]^k} = A.$
+		\newline
+		Damit ist $A \in \sigma(\mathcal{K}^k)$, d.h.
+		$$\mathcal{B}^k = \sigma(\mathcal{A}^k) \subset \sigma(\mathcal{K}^k)$$
+	\end{proof}
+	\item $\mathcal{B}^k = \sigma(\mathcal{I}^k)$
+	\begin{proof}
+		Übungsaufgabe
+	\end{proof}
+\end{enumerate}
+
+\section{Definition (Axiomensystem von Kolmogrov)}
+Ein Wahrscheinlichkeitsraum ist ein Tripel $(\Omega, \mathcal{A}, \Prim)$ mit $\Omega \neq \emptyset, \mathcal{A} \subset \mathcal{P}(\Omega)$ ist $\sigma$-Algebra und einem Wahrscheinlichkeitsmaß (auf $(\Omega, \mathcal{A})$, auf $\mathcal{A}$, auf $\Omega$) $\Prim \colon \mathcal{A} \rightarrow \R$ mit:
+\begin{enumerate}
+	\item $\Prim(A) \geq 0, \quad A \in \mathcal{A}$
+	\item $\Prim(\Omega) = 1$
+	\item $\Prim(\bigcup\limits_{j=1}^{\infty}{A_j}) = \sum\limits_{j=1}^{\infty}{\Prim(A_j)}, \quad A_j \in \mathcal{A}, \quad A_i \cap A_j = \emptyset, i \neq j$. ($\sigma$-Additivität)
+\end{enumerate}
+Die Elemente von $\mathcal{A}$ heißen \textbf{Ereignisse}.
+
+\section{Bemerkung}
+Alle bisherigen Definitionen und Resultate (Stetigkeit von oben bzw. unten, Bayes' Formel, Unabhängigkeit) bleiben erhalten.
+
+\section{Definition und Satz}
+$\Prim$ sei Wahrscheinlichkeitsmaß auf $\mathcal{B}^1$.
+\newline
+Die Funktion $F \colon \R \rightarrow [0,1]$ definiert durch
+$$F(x) := \Prim((-\infty, x]), x \in \R,$$
+heißt \textbf{Verteilungsfunktion} (VF) von $\Prim$. Es gilt
+\begin{enumerate}
+	\item $x \leq y \Rightarrow F(x) \leq F(y)$
+	\item $F$ ist rechtsseitig stetig.
+	\item $F(-\infty) := \lim\limits_{x \rightarrow - \infty}{F(x)} = 0,$
+	\item $F(\infty) := \lim\limits_{x \rightarrow \infty}{F(x)} = 1.$
+\end{enumerate}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $(- \infty, x] \subset (- \infty, y] \quad (x \leq y)$.
+		$\Prim$ monoton $\leadsto F(x) \leq F(y)$
+		\item Es gelte $x_n \downarrow x$. Dann ist $\bigcap\limits_{n=1}^{\infty}{(- \infty, x_n]} = (- \infty, x]$
+		\newline
+		$\Prim$ ist stetig von oben $\leadsto$ 
+		$$\lim\limits_{n \rightarrow \infty}{\Prim((- \infty, x_n])} = \Prim((- \infty, x])$$
+		\item $$\emptyset = \bigcap\limits_{n=1}^{\infty}{(-\infty, -n]},$$
+		$$\R = \bigcup\limits_{n=1}^{\infty}{(- \infty, n]}$$
+		\begin{center}
+			\includegraphics[scale=0.4]{bild.jpg}
+		\end{center}
+	\end{enumerate}
+\end{proof}
+
+\section{Existenz- und Eindeutigkeitssatz}
+Sei $F \colon \R \rightarrow [0,1]$ eine Verteilungsfunktion, d.h.
+es gelte (1)-(3). Dann existiert genau ein Wahrscheinlichkeitsmaß $\Prim$ auf $\mathcal{B}^1$ mit
+$$F(x) = \Prim((- \infty, x]), \quad x \in \R.$$
+
+\begin{proof}
+	WT.
+\end{proof}
+
+\section{Satz}
+Sei $F$ Verteilungsfunktion eines Wahrscheinlichkeitsmaßes $\Prim$ auf $\mathcal{B}^1.$
+\begin{enumerate}
+	\item $\Prim((a,b]) = F(b) - F(a), \quad a \leq b$
+	\item $\Prim(\{x\}) = F(x) - F(\underbrace{x-}_{\text{linksseitiger Grenzwert}})$
+	\item $\Prim(\{x\}) = 0 \Leftrightarrow$ $F$ ist stetig in $x$
+	\item $F$ besitzt höchstens abzählbar unendlich viele Unstetigkeitsstellen.
+\end{enumerate}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Für $a \leq b$ gilt $(- \infty, a] \cup (a,b] = (- \infty, b]$ also
+		$$F(a) + \Prim((a,b]) = F(b).$$
+		\item Sei $x_n \uparrow x$ mit $x_n < x$. Dann
+		$$(- \infty, x) = \bigcup\limits_{n=1}^\infty{(- \infty, x_n]}$$
+		also
+		$$\Prim((- \infty, x)) = \lim\limits_{n \rightarrow \infty}{F(x_n)} = F(x-)$$
+		Damit
+		$$F(x) - F(x-) = \Prim((- \infty, x]) - \Prim((- \infty, x))$$
+		$$= \Prim((- \infty, x] \backslash (- \infty, x)) = \Prim(\{x\}).$$
+		\item klar.
+		\item $\{x \colon F(x) \neq F(x-) \} \subset \bigcup\limits_{n = 1}^{\infty}{ \underbrace{\{x \colon \Prim(\{x\}) \geq \frac{1}{n} \}}_{\text{hat höchstens $n$ Punkte}}}$
+	\end{enumerate}
+\end{proof}
+
+\section{Beispiel}
+Sei $\Prim$ \underline{diskretes Wahrscheinlichkeitsmaß} auf $\mathcal{B}^1$ mit \underline{Träger}
+$$T = \{ t_1, t_2, t_3, \ldots \},$$
+d.h. $\Prim(\{t_j\}) > 0, \sum\limits_{j=1}^\infty{\Prim(\{t_j\})} = 1$
+\newline
+Dann gilt (nach Definition)
+$$F(x) = \sum\limits_{j \colon t_j \leq x}{\Prim(\{t_j\})}$$
+\begin{center}
+\includegraphics[scale=0.4]{bild2.jpg}
+\end{center}
+
+\section{Beispiel}
+$$F(x) = \begin{cases} 0, & x \leq 0 \\ x, & 0 \leq x \leq 1 \\ 1, & x \geq 1. \end{cases}$$
+\begin{center}
+	\includegraphics[scale=0.4]{bild3.jpg}
+\end{center}
+
+Das zugehörige Wahrscheinlichkeitsmaß $\Prim$ auf $\mathcal{B}^1$ heißt \textbf{Gleichverteilung} auf $[0,1]$ ($\Prim = U([0,1])$). Der Wahrscheinlichkeitsraum
+$(\R, \mathcal{B}^1, \Prim)$ modelliert einen "rein zufälligen" Punkt in $[0,1]$.
+
+\section{Definition}
+$f \colon \R \rightarrow \R$ heißt \textbf{(Lebesque)Dichte} (über $\R$), falls
+\begin{enumerate}
+	\item $f(x) \geq 0, x \in \R$
+	\item $\{x \colon f(x) \geq c\} \in \mathcal{B}^1, c \in \R$. ($f$ ist Borel-messbar)
+	 \item $\int\limits_{- \infty}^{+ \infty}{f(x) dx} = 1$ (Lebesque-Integral)
+\end{enumerate}
+Die durch 
+$$F(x) := \int\limits_{- \infty}^{x}{f(y) dy}, x \in \R$$
+definiterte Funktion $F \colon \R \rightarrow [0,1]$ ist stetig und ist eine Verteilungsfunktion im Sinne von 18.9(1),(2),(3). Das nach 18.10 zu $F$ gehörende Wahrscheinlichkeitsmapß $\Prim$ auf $\mathcal{B}^1$ erfüllt
+$$\Prim(a,b]) = \int\limits_{a}^{b}{f(y)dy}$$
+\begin{center}
+	\includegraphics[scale=0.4]{bild4.jpg}
+\end{center}
+Ist $f$ in $x$ stetig, dann ist $F$ in $x$ stetig differenzierbar und $F^\prime(x) = (x)$.
+
+Das bedeutet 
+$$"\Prim((x, x+dx]) \approx f(x) dx"$$
+
 \end{document}
 
