@@ -2471,5 +2471,82 @@ Ist $f$ in $x$ stetig, dann ist $F$ in $x$ stetig differenzierbar und $F^\prime(
 Das bedeutet 
 $$"\Prim((x, x+dx]) \approx f(x) dx"$$
 
+(TODO: Rest texen)
+
+\section{Beispiel} %18.19
+Seien $f_1, \ldots, f_k$ Dichten auf $\R$. Setze
+$$f(x_1, \ldots, x_k) = \prod\limits_{j=1}^k{f_j(x_j)}, \quad x_1, \ldots, x_k \in \R$$
+Diese Funktion ist messbar und
+$$\int{f(x) dx} = \int \ldots \int f_1(x_1) \ldots f_k(x_k) dx_1 \ldots d x_k = \prod\limits_{j=1}^k{\int f_j(x_j) dx_j} = 1$$
+
+\section{Beispiel} %18.20
+$f_j(t) = f(t) = \frac{1}{\sqrt{2 \pi}} exp[-\frac{t^2}{2}]$
+\newline
+Dann ist
+$$f(x_1, \ldots, x_k) = \prod\limits_{j=1}^k{f_j(x_j)} = \frac{1}{(2 \pi)^{\frac{k}{2}}} exp[-\frac{1}{2} \sum\limits_{j=1}^k{x_j^2}]$$ die Dichte der k-dimensionalen Normalverteilung.
+
+\section{Definition und Bemerkung}
+Sei $\Prim$ ein Wahrscheinlichkeitsmaß auf $\R^k$. Für $j \in \{1, \ldots, k\}$ sei
+$$\Prim_j(B) := \Prim(\R^{j-1} \times B \times \R^{k-j}), B \in \mathcal{B}^1$$
+Das ist ein Wahrscheinlichkeitsmaß. Man nennt es $j$-te Randverteilung von $\Prim$. Hat $\Prim$ die Dichte $f$, so hat $\Prim_j$ die Dichte 
+$$f_j(t) = \int \ldots \int f(x_1, \ldots, x_{i-1}, t, x_{i+q}, \ldots, x_k) d x_1 \ldots d x_{j-1} \ldots d x_k$$ (Fubini)
+
+\chapter{Zufallsvariablen}
+Sei $(\Omega, \mathcal{A}, \Prim)$ Wahrscheinlichkeitsraum.
+\newline
+Früher: $X \colon \Omega \rightarrow \R, \Prim^X(B) := \Prim(X^{-1}(B))$
+
+\section{Definition und Satz}
+Sei $\Omega^\prime \neq \emptyset, \mathcal{A}^\prime \subset \mathcal{P}(\Omega^\prime)$ $\sigma$-Algebra.
+
+Eine Abbildung $X \colon \Omega \rightarrow \Omega^\prime$ heißt \textbf{$(\mathcal{A}, \mathcal{A}^\prime)$-messbar}, falls
+$$X^{-1}(B) \in \mathcal{A}, \quad B \in \mathcal{A}^\prime.$$
+Dann heißt $X$ \textbf{$\Omega^\prime$-wertige Zufallsvariable}.
+
+Die Verteilung 
+$\Prim^{X} (\Prim (X_{\ldots}), \mathcal{L}(x), \Prim X^{-1}, \ldots)$ von $X$ ist definiert als
+$$\Prim^X(B):= \Prim(X^{-1}(B)), B \in \mathcal{A}^\prime$$
+Das ist ein Wahrscheinlichkeitsmaß auf $(\Omega^\prime, \mathcal{A}^\prime)$.
+(ÜA). Ist $(\Omega^\prime, \mathcal{A}^\prime) = (\R^k, \mathcal{B}^k)$, nennt man $X$ einen $k$-dimensionalen Zufallsvektor. Im Fall $k=1$ spricht man von einer Zufallsvariable.
+
+\section{Bemerkung}
+
+\begin{enumerate}
+	\item Sei $\mathcal{M}^\prime \subset \mathcal{A}^\prime$ mit $\sigma(\mathcal{M}^\prime) = \mathcal{A}^\prime$. Dann gilt
+$$X^{-1}(A^\prime) \in \mathcal{A}^\prime, A^\prime \in \mathcal{M}^\prime \Leftrightarrow X^{-1}(A^\prime) \in \mathcal{A}^\prime, A^\prime \in \mathcal{U}^\prime.$$
+Zu zeigen ist ($\Rightarrow$). Setze
+$$\mathcal{G}:= \{ A ^\prime \subset \Omega^\prime \colon X^{-1}(A^\prime) \in \mathcal{A} \}$$
+Das ist eine $\sigma$-Algebra (ÜA). \newline
+
+Also gilt (wegen $\mathcal{M}^\prime \subset \mathcal{G}$)
+$$\mathcal{A}^\prime = \sigma(\mathcal{M}^\prime) \subset \sigma(\mathcal{G}) = \mathcal{G}$$
+	\item Sei $g \colon \R^k \rightarrow \R^l$ stetig.
+	Dann gilt
+	$$g^{-1}(A^\prime) \in \mathcal{O}^k \subset \mathcal{B}^k, A^\prime \in \mathcal{O}^l$$
+	Wegen $\sigma(\mathcal{O}^l) = \mathcal{B}^l$ folgt aus (i)
+	$$g^{-1}(A^\prime) \in \mathcal{B}^k, A^\prime \in \mathcal{B}^l.$$
+	Also ist $g$ messbar.
+	
+	\item $g \colon \R^k \rightarrow \R$ messbar (d.h. $(\mathcal{B}^k, \mathcal{B}^1)$-messbar) $\Leftrightarrow$
+	$$\{x \colon g(x) \geq c \} \in \mathcal{B}^k.$$
+	\begin{proof}
+		Das System
+		$$\{[c, \infty) \colon c \in \R\}$$
+		ist ein Erzeuger von $\mathcal{B}^1$.
+		\newline
+		Man benutze jetzt $(i)$.
+	\end{proof}
+	\item Sei $X \colon \Omega \rightarrow \Omega^\prime$ $(\mathcal{A}, \mathcal{A}^\prime)$-messbar. \newline
+	Sei $h \colon \Omega^\prime \rightarrow \Omega^{\prime\prime}$ $(\mathcal{A}^\prime, \mathcal{A}^{\prime\prime})$-messbar, wobei $\mathcal{A}^{\prime\prime} \subset \mathcal{P}(\Omega^{\prime\prime})$ eine $\sigma$-Algebra ist.
+	\newline
+	Dann ist die Abbildung $h \circ X \colon \Omega \rightarrow \Omega^{\prime\prime}$ $(\mathcal{A}, \mathcal{A}^{\prime\prime})$-messbar. Für $A^{\prime\prime} \in \mathcal{A}^{\prime\prime}$
+	$$(h \circ X)^{-1}(A^{\prime\prime}) = X^{-1}(\underbrace{h^{-1}(A^{\prime\prime})}_{\in \mathcal{A}^\prime}) \in \mathcal{A}.$$
+	\item Sei $\mathcal{D}$ ein Wahrscheinlichkeitsmaß auf $(\R^k, \mathcal{B}^k)$. Dann existiert ein Wahrscheinlichkeitsraum $(\Omega, \mathcal{A}, \Prim)$ mit $\Prim^X = \mathcal{D}$.
+	\newline
+	Dazu: $(\Omega, \mathcal{A}, \Prim) = (\R^k, \mathcal{B}^k, \mathcal{D})$,
+	$$X = id_{\R^k}$$ 
+\end{enumerate}
+
+
 \end{document}
 
