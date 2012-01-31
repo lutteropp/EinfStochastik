@@ -2547,6 +2547,149 @@ $$\mathcal{A}^\prime = \sigma(\mathcal{M}^\prime) \subset \sigma(\mathcal{G}) = 
 	$$X = id_{\R^k}$$ 
 \end{enumerate}
 
+%31.01.12
+\paragraph{Erinnerung}
+$(\Omega, \mathcal{A}, \Prim) \quad X \colon \Omega \rightarrow \Omega^\prime$
+$\mathcal{A}^\prime$
+
+\paragraph{Messbarkeit:}
+$X^{-1}(B) \in \mathcal{A}, B \in \mathcal{A}^\prime$ \newline
+$\Prim^X$ Wahrscheinlichkeitsmaß auf $(\Omega^\prime, \mathcal{A}^\prime)$
+$$\Prim^X(B) = \Prim(X^{-1}(B)) =: \Prim(X \in B)$$ ($= \Prim(\{X \in B\}) = \Prim(\{ \omega \in \Omega \colon X(\omega) \in B\})$) \newline
+
+$\Omega^\prime = \R^k \quad \mathcal{B}^k$ Zufallsvektor
+\newline
+$k=1$ Zufallsvariable
+
+\section{Bemerkung}
+Sei $\Q$ Wahrscheinlichkeitsmaß auf $\R^k$. \newline
+$X \colon \Omega \rightarrow \R^k$ mit Verteilung $\Q$.
+Man schreibt
+$$X \sim \Q$$ ("$X$ ist nach $\Q$ verteilt.") \newline
+
+\underline{z.B.:} $X \sim U[a,b]$ \footnote{$X$ auf dem Intervall $[a,b]$ gleichverteilt.} \newline
+$X \sim Exp(\lambda), X \sim N(\mu, \sigma^2)$
+\newline
+Hat $\Q$ die Dichte $f$, so sagt man "$X$ hat Dichte $f$". \newline
+Man sagt $X$ ist eine (absolut) stetige Zufallsvariable. \footnote{Das bedeutet: $X$ hat eine Dichte.}
+\newline
+$$\Prim(a \leq X \leq b) = \int\limits_a^b{f(x)dx}, \quad a \leq b$$
+$$\Prim(X = t) = 0!$$
+
+\section{Bemerkung}
+Sei $\mathcal{Q}^k := \{ [a,b] \colon a \leq b \}$ \footnote{$a,b \in \R^k$} \newline
+Für $\lambda^k([a,b]) := \prod\limits_{j=1}^k{(b_j - a_j)}$ \footnote{Lebesque-Maß}
+
+$N \in \mathcal{B}^k$ heißt \textbf{Nullmenge}
+$$\Leftrightarrow \forall \epsilon > 0 \quad \exists k_1, k_2, \ldots \in \mathcal{Q}^k$$
+mit $N \subset \bigcup\limits_{i=1}^{\infty}{k_i}$ und $\sum\limits_{j=1}^{\infty}{\lambda^k(k_j)} \leq \epsilon$.
+
+(Hyperebenen $\{ x \colon <x,n> = c \}$ sind Nullmengen) \newline
+
+Sind $f,g \colon \R^k \rightarrow \R$ Dichten eines Wahrscheinlichkeitsmaßes $\Q$, so gilt
+$$f(x) = g(x), \quad x \notin N,$$
+mit einer Nullmenge $N$.
+
+\section{Bemerkung}
+Hat ein $k$-dimensionaler Zufallsvektor die Dichte $f$, so hat die
+$X_j$ die Dichte
+$$f_j(t)= \int \ldots \int f(x_1, \ldots, x_{j-1}, t, x_{j+1}, \ldots, x_k) dx_1 \ldots dx_k$$
+
+\section{Beispiel}
+$(X,Y)$ habe Dichte 
+$$f(x,y) := \frac{1}{\pi} 1_\{x^2 + y^2 \leq 1\} \equiv 1_K(x,y), K = \{(x,y) \colon x^2 + y^2 \leq 1\} )$$
+Dann
+$$f_1(x) = \int{f(x,y) dy} = \int 1_{\{x^2 + y^2 \leq 1\}} dy = \int 1_{\{|y| \leq \sqrt{1-x^2}\}} dy$$
+$$= \begin{cases} 0, & \text{ falls } |x| > 1 \\ \frac{2}{\pi} \sqrt{1-x^2}, & \text{ falls } |x| \leq 1 \end{cases}$$
+
+\begin{center}
+	\includegraphics[scale=0.3]{kreis.jpg}
+\end{center}
+
+Ferner
+$$F_X(t) = \Prim(X \leq t) = \int\limits_{-\infty}^t{f_1(x) dx} = \int\limits_{-1}^t{\frac{2}{\pi} \sqrt{1-x^2} dx}, \quad -1 \leq t \leq 1$$
+$$\overset{!}{=} \frac{1}{2} + \frac{1}{\pi} \arcsin(t) + \frac{1}{\pi} t \sqrt{1-t^2}$$
+(Differentiation und $\frac{\partial}{\partial t} \arcsin(t) = \frac{1}{\sqrt{1-t^2}}$)
+\begin{center}
+	\includegraphics[scale=0.3]{sinus.jpg}
+\end{center}
+
+\section{Definition}
+\begin{enumerate}
+	\item \footnote{Die Ereignisse} $A_1, \ldots, A_n \in \mathcal{A}$ heißen \textbf{stochastisch unabhängig}, falls 
+	$$\Prim(\bigcap\limits_{j \in T}{A_j}) = \prod\limits_{j\in T}{}\Prim(A_j), \quad T \subset \{1, \ldots, n\}, T \neq \emptyset$$
+	\item Zufallsvariablen $X_1, \ldots, X_n$ heißen \textbf{stochastisch unabhängig}, falls
+	$$X_1^{-1}(B_1), \ldots, X_n^{-1}(B_n) \text{ stochastisch unabhängig, für alle } B_1, \ldots, B_n \in \mathcal{B}^1,$$
+	bzw. falls
+	$$\Prim(X_1 \in B_1, \ldots X_n \in B_n) = \prod\limits_{j=1}^n{\Prim(X_j \in B_j)} \text{ für alle } B_1, \ldots, B_n \in \mathcal{B}^1.$$
+\end{enumerate}
+
+\section{Bemerkung}
+Hat $(X_1, \ldots, X_n)$ die Dichte $f$. Dann gilt:
+\begin{enumerate}
+\item $f(x) = \prod\limits_{j=1}^{n}{f_j(x_j)} \Rightarrow X_1, \ldots, X_n \text{ stochastisch unabhängig}$
+\item $X_1, \ldots, X_n \text{ stochastisch unabhängig } \Rightarrow f(x) = \prod\limits_{j=1}^n{f_j(x_j)} \text{ außerhalb einer Nullmenge}$
+\end{enumerate}
+
+
+\begin{proof}
+	$(1): $
+	
+	$$\Prim((X_1, \ldots, X_n) \in B_1 \times \ldots \times B_n)$$
+	$$= \Prim^X(B_1 \times \ldots \times B_n) = \int\limits_{B_1 \times \ldots \times B_n}{f(x)dx}$$
+	$$\overset{(1), Fubuni}{=} \int\limits_{B_1} \int\limits_{B_2} \ldots \int\limits_{B_n}{ f(x_1) \ldots f(x_n) dx_n \ldots dx_1}$$
+	$$= \prod\limits_{j=1}^n{\int\limits_{B_j}{f_j(x)dx}} = \prod\limits_{j=1}^n{\Prim^{X_j}(B_j)} = \prod\limits_{j=1}^n{\Prim(X_j \in B_j)}$$
+	
+	$(2): $
+	WT
+\end{proof}
+
+\chapter{Rechnen mit Dichten}
+$X = (X_1, \ldots, X_k)$ $k$-dimensionaler Zufallsvektor mit Dichte $f$. Sei 
+$$T \colon \R^k \rightarrow \R^s \quad (s \leq k)$$
+Sei $Y := T(X)$.
+($Y$ ist $s$-dimensionaler Zufallsvektor, falls $Z$ messbar ist.)
+
+\section{Satz}
+Sei $K=1$, d.h. $X$ sei reelle Zufallsvariable. Die Dichte $f$ sei stückweise stetig und es gelte 
+$$\Prim(X \in I) = 1$$
+für ein offenes Intervall $I \subset \R$. Die Einschränkung $T \big |_I$ (von $T$ auf $I$) sei stetig differenzierbar, streng monoton und $T^\prime(x) \neq 0, x \in I$.
+Dann hat $Y=T(X)$ die Verteilungsfunktion
+$$G(y) = \begin{cases} F(T^{-1}(y)), y \in T(I), & \text{ falls } T \uparrow \\
+1-F(T(y)), y \in T(I), & \text{ falls } T \downarrow \end{cases}$$
+wobei $F$ die Verteilungsfunktion von $X$ ist. Ferner hat
+$G$ die Dichte
+$$g(y) = \frac{f(T^{-1}(y))}{|T^\prime(T^{-1}(y))|}, \quad y \in T(I)$$
+und $g(y) = 0$ für $y \notin T(I)$.
+
+\begin{proof}
+	Sei $T$ wachsend. Dann
+	$$G(y) = \Prim(Y \leq y) = \Prim(T(X) \leq y)$$
+	$$= \Prim(X \leq T^{-1}(y)) \quad y \in T(I)$$
+	Die Funktion $G$ ist stetig differenzierbar mit Ableitung 
+	$$g(y) = G^\prime(y) = \frac{f(T^{-1}(y))}{T^\prime(T^{-1}(y))}$$
+\end{proof}
+
+\section{Beispiel}
+$T(x) = ax+b, \quad a \neq 0, b \in \R$ \newline
+$T^\prime(x) = a, T^{-1}(y) = \frac{y-b}{a}$ \newline
+$g(y) = \frac{1}{|a|} f(\frac{y-b}{a})$
+
+\section{Beispiel}
+$X \sim N(0,1)$ \footnote{Normalverteilung mit Mittelwert 0 und Standardabweichung 1},
+$T(x) = \sigma x + \mu$ ($\sigma > 0, \mu \in \R$), $Y:= T(X) = \sigma X+\mu$
+
+$$g(y) = \frac{1}{\sigma} \varphi(\frac{y-\mu}{\sigma}) = \frac{1}{\sqrt{2 \pi}} \exp [- \frac{(y-\mu)^2}{\sigma^2}]$$ \footnote{$\varphi$ ist die Dichte der Standardnormalverteilung}
+
+\section{Beispiel}
+$T(x) = x^2, Y = X^2$
+$$G(y) = \Prim(Y \leq y)$$
+$$= \Prim(X^2 \leq y)$$
+$$\overset{y \geq 0}{=} \Prim(- \sqrt{y} \leq X \leq \sqrt{y})$$
+$$= F(\sqrt{y}) - F(-\sqrt{y})$$
+\footnote{$F$ ist die Verteilungsfunktion von $X$.}
+Dichte ($y>0$):
+$$g(y) = f(\sqrt{y}) \cdot \frac{1}{2 \sqrt{y}} + f(-\sqrt{y}) \cdot \frac{1}{2 \sqrt{y}}$$
 
 \end{document}
 

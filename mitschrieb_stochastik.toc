@@ -1,248 +1,261 @@
 \select@language {ngerman}
 \select@language {ngerman}
-\contentsline {chapter}{\numberline {1}Deskriptive Statistik}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Der Grundraum}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Absolute und relative H\IeC {\"a}ufigkeit}{7}{section.1.2}
-\contentsline {paragraph}{Bemerkung}{7}{section*.3}
-\contentsline {paragraph}{Definition}{7}{section*.4}
-\contentsline {section}{\numberline {1.3}Histogramm}{7}{section.1.3}
-\contentsline {section}{\numberline {1.4}Lagema\IeC {\ss }e}{7}{section.1.4}
-\contentsline {paragraph}{Definition}{7}{section*.5}
-\contentsline {subsection}{\numberline {1.4.1}Arithmetisches Mittel}{8}{subsection.1.4.1}
-\contentsline {paragraph}{Fakt}{8}{section*.6}
-\contentsline {paragraph}{Beweis}{8}{section*.7}
-\contentsline {subsection}{\numberline {1.4.2}Median, Quantile}{8}{subsection.1.4.2}
-\contentsline {paragraph}{Definition}{8}{section*.8}
-\contentsline {paragraph}{Fakt}{8}{section*.9}
-\contentsline {paragraph}{Bemerkung}{8}{section*.10}
-\contentsline {paragraph}{Definition}{8}{section*.11}
-\contentsline {paragraph}{Interpretation}{8}{section*.12}
-\contentsline {section}{\numberline {1.5}Streuungsma\IeC {\ss }e}{9}{section.1.5}
-\contentsline {paragraph}{Definition}{9}{section*.13}
-\contentsline {subsection}{\numberline {1.5.1}Empirische Varianz}{9}{subsection.1.5.1}
-\contentsline {subsection}{\numberline {1.5.2}Empirische Standardabweichung}{9}{subsection.1.5.2}
-\contentsline {subsection}{\numberline {1.5.3}Spannweite}{9}{subsection.1.5.3}
-\contentsline {subsection}{\numberline {1.5.4}Quartilsabstand}{9}{subsection.1.5.4}
-\contentsline {section}{\numberline {1.6}Empirischer Korrelationskoeffizient}{9}{section.1.6}
-\contentsline {paragraph}{Definition}{9}{section*.14}
-\contentsline {paragraph}{Definition}{10}{section*.15}
-\contentsline {paragraph}{Folgerung}{10}{section*.16}
-\contentsline {chapter}{\numberline {2}Ereignisse und Zufallsvariablen}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}Definition}{11}{section.2.1}
-\contentsline {paragraph}{Interpretation}{11}{section*.17}
-\contentsline {section}{\numberline {2.2}Beispiele}{11}{section.2.2}
-\contentsline {section}{\numberline {2.3}Bemerkung (Mengentheoretische Operationen)}{11}{section.2.3}
-\contentsline {paragraph}{Abk\IeC {\"u}rzung}{12}{section*.18}
-\contentsline {section}{\numberline {2.4}Definition}{12}{section.2.4}
-\contentsline {paragraph}{Idee}{12}{section*.19}
-\contentsline {paragraph}{Definition}{12}{section*.20}
-\contentsline {paragraph}{Bemerkung}{12}{section*.21}
-\contentsline {paragraph}{Vereinbarung}{12}{section*.22}
-\contentsline {section}{\numberline {2.5}Definition}{12}{section.2.5}
-\contentsline {section}{\numberline {2.6}Definition}{13}{section.2.6}
-\contentsline {section}{\numberline {2.7}Bemerkungen (Rechenregeln f\IeC {\"u}r Indikatorfunktionen)}{13}{section.2.7}
-\contentsline {section}{\numberline {2.8}Definition}{13}{section.2.8}
-\contentsline {paragraph}{Bemerkung}{14}{section*.23}
-\contentsline {chapter}{\numberline {3}Diskrete Wahrscheinlichkeitsr\IeC {\"a}ume}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}Motivation}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Definition}{15}{section.3.2}
-\contentsline {section}{\numberline {3.3}Folgerung}{16}{section.3.3}
-\contentsline {paragraph}{Beweis}{16}{section*.24}
-\contentsline {section}{\numberline {3.4}Satz}{17}{section.3.4}
-\contentsline {paragraph}{Beweisidee f\IeC {\"u}r Siebformel}{17}{section*.25}
-\contentsline {section}{\numberline {3.5}Definition + Satz}{17}{section.3.5}
-\contentsline {paragraph}{Beweis}{17}{section*.26}
-\contentsline {section}{\numberline {3.6}Definition}{17}{section.3.6}
-\contentsline {section}{\numberline {3.7}Definition}{18}{section.3.7}
-\contentsline {paragraph}{Wiederholung}{18}{section*.27}
-\contentsline {section}{\numberline {3.8}Definition}{18}{section.3.8}
-\contentsline {section}{\numberline {3.9}Satz}{18}{section.3.9}
-\contentsline {chapter}{\numberline {4}Kombinatorik}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Grundregeln}{19}{section.4.1}
-\contentsline {section}{\numberline {4.2}Satz}{19}{section.4.2}
-\contentsline {section}{\numberline {4.3}Beispiel (Urnenmodelle)}{19}{section.4.3}
-\contentsline {section}{\numberline {4.4}Definition}{20}{section.4.4}
-\contentsline {section}{\numberline {4.5}Satz}{20}{section.4.5}
-\contentsline {section}{\numberline {4.6}Beispiel (Geburtstagsproblem)}{21}{section.4.6}
-\contentsline {paragraph}{Antwort}{21}{section*.28}
-\contentsline {section}{\numberline {4.7}Beispiel}{21}{section.4.7}
-\contentsline {section}{\numberline {4.8}Beispiel (Besetzungsmodelle)}{21}{section.4.8}
-\contentsline {chapter}{\numberline {5}Der Erwartungswert}{22}{chapter.5}
-\contentsline {section}{\numberline {5.1}Definition}{22}{section.5.1}
-\contentsline {section}{\numberline {5.2}Satz}{22}{section.5.2}
-\contentsline {section}{\numberline {5.3}Folgerung}{23}{section.5.3}
-\contentsline {section}{\numberline {5.4}Satz (Transformationsformel)}{23}{section.5.4}
-\contentsline {section}{\numberline {5.5}Beispiele}{24}{section.5.5}
-\contentsline {chapter}{\numberline {6}Die hypergeometrische Verteilung und die Binomialverteilung}{25}{chapter.6}
-\contentsline {section}{\numberline {6.1}Definition}{25}{section.6.1}
-\contentsline {section}{\numberline {6.2}Satz}{26}{section.6.2}
-\contentsline {section}{\numberline {6.3}Motivation}{26}{section.6.3}
-\contentsline {section}{\numberline {6.4}Definition}{26}{section.6.4}
-\contentsline {section}{\numberline {6.5}Satz}{27}{section.6.5}
-\contentsline {paragraph}{Bemerkung}{27}{section*.29}
-\contentsline {chapter}{\numberline {7}Mehrstufige Experimente}{28}{chapter.7}
-\contentsline {section}{\numberline {7.1}Beispiel}{28}{section.7.1}
-\contentsline {paragraph}{Konstruktion von ${\ensuremath {\mathbb {P}}}$}{28}{section*.30}
-\contentsline {section}{\numberline {7.2}Definition}{28}{section.7.2}
-\contentsline {paragraph}{Mehrstufige Experimente}{28}{section*.31}
-\contentsline {section}{\numberline {7.3}Satz}{29}{section.7.3}
-\contentsline {section}{\numberline {7.4}Beispiel}{29}{section.7.4}
-\contentsline {paragraph}{Unabh\IeC {\"a}ngige Experimente}{29}{section*.32}
-\contentsline {chapter}{\numberline {8}Bedingte Wahrscheinlichkeiten}{31}{chapter.8}
-\contentsline {section}{\numberline {8.1}Definition}{31}{section.8.1}
-\contentsline {section}{\numberline {8.2}Satz}{31}{section.8.2}
-\contentsline {paragraph}{Motivation}{31}{section*.33}
-\contentsline {section}{\numberline {8.3}Bemerkung (Zusammenhang zu \IeC {\"U}bergangswahrscheinlichkeiten)}{32}{section.8.3}
-\contentsline {section}{\numberline {8.4}Satz (Multiplikationsformel)}{32}{section.8.4}
-\contentsline {section}{\numberline {8.5}Satz}{32}{section.8.5}
-\contentsline {section}{\numberline {8.6}Beispiel}{33}{section.8.6}
-\contentsline {paragraph}{Modell}{33}{section*.34}
-\contentsline {section}{\numberline {8.7}Beispiel (Ziegenproblem)}{33}{section.8.7}
-\contentsline {section}{\numberline {8.8}Beispiel (Simpson-Paradoxon)}{34}{section.8.8}
-\contentsline {paragraph}{Erkl\IeC {\"a}rung}{34}{section*.35}
-\contentsline {chapter}{\numberline {9}Stochastische Unabh\IeC {\"a}ngigkeit}{35}{chapter.9}
-\contentsline {section}{\numberline {9.1}Definition}{35}{section.9.1}
-\contentsline {section}{\numberline {9.2}Bemerkung}{35}{section.9.2}
-\contentsline {paragraph}{Wiederholung}{36}{section*.36}
-\contentsline {section}{\numberline {9.3}Bemerkungen}{36}{section.9.3}
-\contentsline {section}{\numberline {9.4}Beispiel (Produktr\IeC {\"a}ume)}{36}{section.9.4}
-\contentsline {paragraph}{Behauptung}{37}{section*.37}
-\contentsline {section}{\numberline {9.5}Satz}{37}{section.9.5}
-\contentsline {paragraph}{Definition}{38}{section*.38}
-\contentsline {section}{\numberline {9.6}Satz (Blockungslemma)}{38}{section.9.6}
-\contentsline {section}{\numberline {9.7}Satz}{39}{section.9.7}
-\contentsline {section}{\numberline {9.8}Beispiel (Bernoulli-Kette der L\IeC {\"a}nge $n$)}{39}{section.9.8}
-\contentsline {chapter}{\numberline {10}Gemeinsame Verteilung}{40}{chapter.10}
-\contentsline {section}{\numberline {10.1}Definition}{40}{section.10.1}
-\contentsline {paragraph}{Wiederholung}{40}{section*.39}
-\contentsline {paragraph}{Bemerkung}{40}{section*.40}
-\contentsline {section}{\numberline {10.2}Beispiel}{41}{section.10.2}
-\contentsline {section}{\numberline {10.3}Beispiel}{41}{section.10.3}
-\contentsline {section}{\numberline {10.4}Definition}{41}{section.10.4}
-\contentsline {section}{\numberline {10.5}Satz}{42}{section.10.5}
-\contentsline {paragraph}{Bemerkung}{42}{section*.41}
-\contentsline {section}{\numberline {10.6}Satz (Blockungslemma)}{42}{section.10.6}
-\contentsline {section}{\numberline {10.7}Satz (allgemeine Transformations-Formel)}{43}{section.10.7}
-\contentsline {section}{\numberline {10.8}Satz}{43}{section.10.8}
-\contentsline {section}{\numberline {10.9}Satz (Faltungsformel)}{43}{section.10.9}
-\contentsline {section}{\numberline {10.10}Satz (Additionsgesetz f\IeC {\"u}r Binomialverteilungen)}{44}{section.10.10}
-\contentsline {chapter}{\numberline {11}Varianz, Kovarianz, Korrelation}{45}{chapter.11}
-\contentsline {section}{\numberline {11.1}Definition}{45}{section.11.1}
-\contentsline {section}{\numberline {11.2}Bemerkungen}{45}{section.11.2}
-\contentsline {section}{\numberline {11.3}Satz}{46}{section.11.3}
-\contentsline {section}{\numberline {11.4}Beispiel}{46}{section.11.4}
-\contentsline {section}{\numberline {11.5}Definition}{47}{section.11.5}
-\contentsline {paragraph}{Bemerkung}{47}{section*.42}
-\contentsline {section}{\numberline {11.6}Satz (Tschebyschov-Ungleichung)}{47}{section.11.6}
-\contentsline {section}{\numberline {11.7}Definition}{48}{section.11.7}
-\contentsline {section}{\numberline {11.8}Satz}{48}{section.11.8}
-\contentsline {section}{\numberline {11.9}Folgerung}{49}{section.11.9}
-\contentsline {section}{\numberline {11.10}Beispiel}{50}{section.11.10}
-\contentsline {section}{\numberline {11.11}Satz}{50}{section.11.11}
-\contentsline {section}{\numberline {11.12}Folgerung}{51}{section.11.12}
-\contentsline {section}{\numberline {11.13}Bemerkung}{51}{section.11.13}
-\contentsline {chapter}{\numberline {12}Wichtige diskrete Verteilungen}{52}{chapter.12}
-\contentsline {section}{\numberline {12.1}Satz (Gesetz seltener Ereignisse)}{52}{section.12.1}
-\contentsline {section}{\numberline {12.2}Definition}{53}{section.12.2}
-\contentsline {section}{\numberline {12.3}Satz}{53}{section.12.3}
-\contentsline {section}{\numberline {12.4}Definition und Satz}{54}{section.12.4}
-\contentsline {section}{\numberline {12.5}Definition und Satz}{55}{section.12.5}
-\contentsline {section}{\numberline {12.6}Satz}{55}{section.12.6}
-\contentsline {paragraph}{Bemerkung}{55}{section*.43}
-\contentsline {section}{\numberline {12.7}Bemerkungen}{56}{section.12.7}
-\contentsline {section}{\numberline {12.8}Beispiel (Multinomiales Versuchsschema)}{56}{section.12.8}
-\contentsline {paragraph}{Modell:}{56}{section*.44}
-\contentsline {section}{\numberline {12.9}Definition}{56}{section.12.9}
-\contentsline {section}{\numberline {12.10}Folgerung}{57}{section.12.10}
-\contentsline {chapter}{\numberline {13}Bedingte Erwartungswerte und bedingte Verteilungen}{58}{chapter.13}
-\contentsline {section}{\numberline {13.1}Definition}{58}{section.13.1}
-\contentsline {section}{\numberline {13.2}Bemerkungen}{58}{section.13.2}
-\contentsline {section}{\numberline {13.3}Beispiel}{59}{section.13.3}
-\contentsline {section}{\numberline {13.4}Satz (Formel vom totalen Erwartungswert)}{59}{section.13.4}
-\contentsline {section}{\numberline {13.5}Beispiel}{59}{section.13.5}
-\contentsline {paragraph}{Erinnerung}{60}{section*.45}
-\contentsline {section}{\numberline {13.6}Satz (Eigenschaften)}{60}{section.13.6}
-\contentsline {section}{\numberline {13.7}Satz (Substitutionsformel)}{60}{section.13.7}
-\contentsline {section}{\numberline {13.8}Beispiel (W\IeC {\"u}rfelwurf)}{61}{section.13.8}
-\contentsline {paragraph}{Modell:}{61}{section*.46}
-\contentsline {section}{\numberline {13.9}Definition}{61}{section.13.9}
-\contentsline {section}{\numberline {13.10}Beispiel}{62}{section.13.10}
-\contentsline {section}{\numberline {13.11}Satz}{62}{section.13.11}
-\contentsline {chapter}{\numberline {14}Grenzwerts\IeC {\"a}tze}{63}{chapter.14}
-\contentsline {section}{\numberline {14.1}Satz (Schwache Gesetz der gro\IeC {\ss }en Zahlen, SGGZ)}{63}{section.14.1}
-\contentsline {section}{\numberline {14.2}Definition}{63}{section.14.2}
-\contentsline {paragraph}{Bemerkung}{64}{section*.47}
-\contentsline {section}{\numberline {14.3}Folgerung (SGGZ von Jakob Bernoulli)}{64}{section.14.3}
-\contentsline {paragraph}{Bemerkung}{64}{section*.48}
-\contentsline {paragraph}{}{64}{section*.49}
-\contentsline {paragraph}{Frage}{64}{section*.50}
-\contentsline {section}{\numberline {14.4}Satz}{64}{section.14.4}
-\contentsline {paragraph}{Wiederholung}{64}{section*.51}
-\contentsline {paragraph}{Nun:}{65}{section*.53}
-\contentsline {paragraph}{Fazit:}{65}{section*.54}
-\contentsline {paragraph}{Beachte:}{65}{section*.55}
-\contentsline {paragraph}{Fragen:}{66}{section*.56}
-\contentsline {section}{\numberline {14.5}Definition}{66}{section.14.5}
-\contentsline {section}{\numberline {14.6}Satz}{66}{section.14.6}
-\contentsline {section}{\numberline {14.7}Satz (ZGWS Lindeberg-Levy)}{66}{section.14.7}
-\contentsline {paragraph}{Anwendung:}{67}{section*.58}
-\contentsline {chapter}{\numberline {15}Statistik - Sch\IeC {\"a}tzprobleme}{68}{chapter.15}
-\contentsline {section}{\numberline {15.1}Sch\IeC {\"a}tzung der Erfolgswahrscheinlichkeit einer Bernoulli-Kette}{68}{section.15.1}
-\contentsline {paragraph}{Modell}{68}{section*.59}
-\contentsline {paragraph}{Erinnerung}{69}{section*.60}
-\contentsline {section}{\numberline {15.2}Allgemeiner Modellrahmen}{69}{section.15.2}
-\contentsline {paragraph}{Annahme:}{69}{section*.61}
-\contentsline {paragraph}{Oft:}{69}{section*.62}
-\contentsline {paragraph}{Annahme:}{69}{section*.63}
-\contentsline {section}{\numberline {15.3}Beispiel (Binomialverteilung)}{69}{section.15.3}
-\contentsline {section}{\numberline {15.4}Beispiel}{70}{section.15.4}
-\contentsline {section}{\numberline {15.5}Definition}{70}{section.15.5}
-\contentsline {section}{\numberline {15.6}Bemerkungen}{70}{section.15.6}
-\contentsline {section}{\numberline {15.7}Definition}{71}{section.15.7}
-\contentsline {section}{\numberline {15.8}Bemerkung}{71}{section.15.8}
-\contentsline {section}{\numberline {15.9}Definition}{71}{section.15.9}
-\contentsline {section}{\numberline {15.10}Beispiel}{71}{section.15.10}
-\contentsline {paragraph}{Wiederholung}{72}{section*.64}
-\contentsline {paragraph}{Bemerkung 15.8:}{72}{section*.65}
-\contentsline {section}{\numberline {15.11}Definition}{72}{section.15.11}
-\contentsline {section}{\numberline {15.12}Beispiel}{72}{section.15.12}
-\contentsline {section}{\numberline {15.13}Beispiel (vgl. 15.4)}{72}{section.15.13}
-\contentsline {chapter}{\numberline {16}Konfidenzbereiche}{74}{chapter.16}
-\contentsline {section}{\numberline {16.1}Beispiel}{74}{section.16.1}
-\contentsline {section}{\numberline {16.2}Definition}{74}{section.16.2}
-\contentsline {section}{\numberline {16.3}Bemerkungen}{75}{section.16.3}
-\contentsline {section}{\numberline {16.4}Beispiel (Konfidenzschranken f\IeC {\"u}r $p$ in $Bin(n,p)$)}{75}{section.16.4}
-\contentsline {paragraph}{Behauptung}{76}{section*.66}
-\contentsline {paragraph}{Wiederholung}{76}{section*.67}
-\contentsline {paragraph}{zu zeigen:}{76}{section*.69}
-\contentsline {paragraph}{Nebenrechnung}{76}{section*.70}
-\contentsline {paragraph}{}{76}{section*.71}
-\contentsline {section}{\numberline {16.5}Allgemeines Konstruktionsprinzip}{77}{section.16.5}
-\contentsline {section}{\numberline {16.6}Bemerkung}{77}{section.16.6}
-\contentsline {section}{\numberline {16.7}Definition}{78}{section.16.7}
-\contentsline {section}{\numberline {16.8}($Bin(n,p), S_n:= X_1 + \ldots + X_n$)}{78}{section.16.8}
-\contentsline {chapter}{\numberline {17}Testtheorie: f\IeC {\"a}llt weg}{79}{chapter.17}
-\contentsline {chapter}{\numberline {18}Allgemeine Modelle}{80}{chapter.18}
-\contentsline {paragraph}{Bisher:}{80}{section*.72}
-\contentsline {paragraph}{Aber:}{80}{section*.73}
-\contentsline {section}{\numberline {18.1}Definition}{80}{section.18.1}
-\contentsline {section}{\numberline {18.2}Bemerkungen}{80}{section.18.2}
-\contentsline {section}{\numberline {18.3}Lemma}{81}{section.18.3}
-\contentsline {section}{\numberline {18.4}Satz und Definition}{81}{section.18.4}
-\contentsline {section}{\numberline {18.5}Folgerung}{81}{section.18.5}
-\contentsline {section}{\numberline {18.6}Folgerung und Definition}{81}{section.18.6}
-\contentsline {paragraph}{Wiederholung}{82}{section*.74}
-\contentsline {section}{\numberline {18.7}Definition (Axiomensystem von Kolmogrov)}{83}{section.18.7}
-\contentsline {section}{\numberline {18.8}Bemerkung}{83}{section.18.8}
-\contentsline {section}{\numberline {18.9}Definition und Satz}{83}{section.18.9}
-\contentsline {section}{\numberline {18.10}Existenz- und Eindeutigkeitssatz}{84}{section.18.10}
-\contentsline {section}{\numberline {18.11}Satz}{84}{section.18.11}
-\contentsline {section}{\numberline {18.12}Beispiel}{85}{section.18.12}
-\contentsline {section}{\numberline {18.13}Beispiel}{86}{section.18.13}
-\contentsline {section}{\numberline {18.14}Definition}{86}{section.18.14}
-\contentsline {section}{\numberline {18.15}Beispiel}{87}{section.18.15}
-\contentsline {section}{\numberline {18.16}Beispiel}{87}{section.18.16}
-\contentsline {section}{\numberline {18.17}Definition und Bemerkung}{88}{section.18.17}
-\contentsline {chapter}{\numberline {19}Zufallsvariablen}{89}{chapter.19}
-\contentsline {section}{\numberline {19.1}Definition und Satz}{89}{section.19.1}
-\contentsline {section}{\numberline {19.2}Bemerkung}{89}{section.19.2}
+\contentsline {chapter}{\numberline {1}Deskriptive Statistik}{8}{chapter.1}
+\contentsline {section}{\numberline {1.1}Der Grundraum}{8}{section.1.1}
+\contentsline {section}{\numberline {1.2}Absolute und relative H\IeC {\"a}ufigkeit}{8}{section.1.2}
+\contentsline {paragraph}{Bemerkung}{8}{section*.3}
+\contentsline {paragraph}{Definition}{8}{section*.4}
+\contentsline {section}{\numberline {1.3}Histogramm}{8}{section.1.3}
+\contentsline {section}{\numberline {1.4}Lagema\IeC {\ss }e}{8}{section.1.4}
+\contentsline {paragraph}{Definition}{8}{section*.5}
+\contentsline {subsection}{\numberline {1.4.1}Arithmetisches Mittel}{9}{subsection.1.4.1}
+\contentsline {paragraph}{Fakt}{9}{section*.6}
+\contentsline {paragraph}{Beweis}{9}{section*.7}
+\contentsline {subsection}{\numberline {1.4.2}Median, Quantile}{9}{subsection.1.4.2}
+\contentsline {paragraph}{Definition}{9}{section*.8}
+\contentsline {paragraph}{Fakt}{9}{section*.9}
+\contentsline {paragraph}{Bemerkung}{9}{section*.10}
+\contentsline {paragraph}{Definition}{9}{section*.11}
+\contentsline {paragraph}{Interpretation}{9}{section*.12}
+\contentsline {section}{\numberline {1.5}Streuungsma\IeC {\ss }e}{10}{section.1.5}
+\contentsline {paragraph}{Definition}{10}{section*.13}
+\contentsline {subsection}{\numberline {1.5.1}Empirische Varianz}{10}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Empirische Standardabweichung}{10}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Spannweite}{10}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}Quartilsabstand}{10}{subsection.1.5.4}
+\contentsline {section}{\numberline {1.6}Empirischer Korrelationskoeffizient}{10}{section.1.6}
+\contentsline {paragraph}{Definition}{10}{section*.14}
+\contentsline {paragraph}{Definition}{11}{section*.15}
+\contentsline {paragraph}{Folgerung}{11}{section*.16}
+\contentsline {chapter}{\numberline {2}Ereignisse und Zufallsvariablen}{12}{chapter.2}
+\contentsline {section}{\numberline {2.1}Definition}{12}{section.2.1}
+\contentsline {paragraph}{Interpretation}{12}{section*.17}
+\contentsline {section}{\numberline {2.2}Beispiele}{12}{section.2.2}
+\contentsline {section}{\numberline {2.3}Bemerkung (Mengentheoretische Operationen)}{12}{section.2.3}
+\contentsline {paragraph}{Abk\IeC {\"u}rzung}{13}{section*.18}
+\contentsline {section}{\numberline {2.4}Definition}{13}{section.2.4}
+\contentsline {paragraph}{Idee}{13}{section*.19}
+\contentsline {paragraph}{Definition}{13}{section*.20}
+\contentsline {paragraph}{Bemerkung}{13}{section*.21}
+\contentsline {paragraph}{Vereinbarung}{13}{section*.22}
+\contentsline {section}{\numberline {2.5}Definition}{13}{section.2.5}
+\contentsline {section}{\numberline {2.6}Definition}{14}{section.2.6}
+\contentsline {section}{\numberline {2.7}Bemerkungen (Rechenregeln f\IeC {\"u}r Indikatorfunktionen)}{14}{section.2.7}
+\contentsline {section}{\numberline {2.8}Definition}{14}{section.2.8}
+\contentsline {paragraph}{Bemerkung}{15}{section*.23}
+\contentsline {chapter}{\numberline {3}Diskrete Wahrscheinlichkeitsr\IeC {\"a}ume}{16}{chapter.3}
+\contentsline {section}{\numberline {3.1}Motivation}{16}{section.3.1}
+\contentsline {section}{\numberline {3.2}Definition}{16}{section.3.2}
+\contentsline {section}{\numberline {3.3}Folgerung}{17}{section.3.3}
+\contentsline {paragraph}{Beweis}{17}{section*.24}
+\contentsline {section}{\numberline {3.4}Satz}{18}{section.3.4}
+\contentsline {paragraph}{Beweisidee f\IeC {\"u}r Siebformel}{18}{section*.25}
+\contentsline {section}{\numberline {3.5}Definition + Satz}{18}{section.3.5}
+\contentsline {paragraph}{Beweis}{18}{section*.26}
+\contentsline {section}{\numberline {3.6}Definition}{18}{section.3.6}
+\contentsline {section}{\numberline {3.7}Definition}{19}{section.3.7}
+\contentsline {paragraph}{Wiederholung}{19}{section*.27}
+\contentsline {section}{\numberline {3.8}Definition}{19}{section.3.8}
+\contentsline {section}{\numberline {3.9}Satz}{19}{section.3.9}
+\contentsline {chapter}{\numberline {4}Kombinatorik}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}Grundregeln}{20}{section.4.1}
+\contentsline {section}{\numberline {4.2}Satz}{20}{section.4.2}
+\contentsline {section}{\numberline {4.3}Beispiel (Urnenmodelle)}{20}{section.4.3}
+\contentsline {section}{\numberline {4.4}Definition}{21}{section.4.4}
+\contentsline {section}{\numberline {4.5}Satz}{21}{section.4.5}
+\contentsline {section}{\numberline {4.6}Beispiel (Geburtstagsproblem)}{22}{section.4.6}
+\contentsline {paragraph}{Antwort}{22}{section*.28}
+\contentsline {section}{\numberline {4.7}Beispiel}{22}{section.4.7}
+\contentsline {section}{\numberline {4.8}Beispiel (Besetzungsmodelle)}{22}{section.4.8}
+\contentsline {chapter}{\numberline {5}Der Erwartungswert}{23}{chapter.5}
+\contentsline {section}{\numberline {5.1}Definition}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}Satz}{23}{section.5.2}
+\contentsline {section}{\numberline {5.3}Folgerung}{24}{section.5.3}
+\contentsline {section}{\numberline {5.4}Satz (Transformationsformel)}{24}{section.5.4}
+\contentsline {section}{\numberline {5.5}Beispiele}{25}{section.5.5}
+\contentsline {chapter}{\numberline {6}Die hypergeometrische Verteilung und die Binomialverteilung}{26}{chapter.6}
+\contentsline {section}{\numberline {6.1}Definition}{26}{section.6.1}
+\contentsline {section}{\numberline {6.2}Satz}{27}{section.6.2}
+\contentsline {section}{\numberline {6.3}Motivation}{27}{section.6.3}
+\contentsline {section}{\numberline {6.4}Definition}{27}{section.6.4}
+\contentsline {section}{\numberline {6.5}Satz}{28}{section.6.5}
+\contentsline {paragraph}{Bemerkung}{28}{section*.29}
+\contentsline {chapter}{\numberline {7}Mehrstufige Experimente}{29}{chapter.7}
+\contentsline {section}{\numberline {7.1}Beispiel}{29}{section.7.1}
+\contentsline {paragraph}{Konstruktion von ${\ensuremath {\mathbb {P}}}$}{29}{section*.30}
+\contentsline {section}{\numberline {7.2}Definition}{29}{section.7.2}
+\contentsline {paragraph}{Mehrstufige Experimente}{29}{section*.31}
+\contentsline {section}{\numberline {7.3}Satz}{30}{section.7.3}
+\contentsline {section}{\numberline {7.4}Beispiel}{30}{section.7.4}
+\contentsline {paragraph}{Unabh\IeC {\"a}ngige Experimente}{30}{section*.32}
+\contentsline {chapter}{\numberline {8}Bedingte Wahrscheinlichkeiten}{32}{chapter.8}
+\contentsline {section}{\numberline {8.1}Definition}{32}{section.8.1}
+\contentsline {section}{\numberline {8.2}Satz}{32}{section.8.2}
+\contentsline {paragraph}{Motivation}{32}{section*.33}
+\contentsline {section}{\numberline {8.3}Bemerkung (Zusammenhang zu \IeC {\"U}bergangswahrscheinlichkeiten)}{33}{section.8.3}
+\contentsline {section}{\numberline {8.4}Satz (Multiplikationsformel)}{33}{section.8.4}
+\contentsline {section}{\numberline {8.5}Satz}{33}{section.8.5}
+\contentsline {section}{\numberline {8.6}Beispiel}{34}{section.8.6}
+\contentsline {paragraph}{Modell}{34}{section*.34}
+\contentsline {section}{\numberline {8.7}Beispiel (Ziegenproblem)}{34}{section.8.7}
+\contentsline {section}{\numberline {8.8}Beispiel (Simpson-Paradoxon)}{35}{section.8.8}
+\contentsline {paragraph}{Erkl\IeC {\"a}rung}{35}{section*.35}
+\contentsline {chapter}{\numberline {9}Stochastische Unabh\IeC {\"a}ngigkeit}{36}{chapter.9}
+\contentsline {section}{\numberline {9.1}Definition}{36}{section.9.1}
+\contentsline {section}{\numberline {9.2}Bemerkung}{36}{section.9.2}
+\contentsline {paragraph}{Wiederholung}{37}{section*.36}
+\contentsline {section}{\numberline {9.3}Bemerkungen}{37}{section.9.3}
+\contentsline {section}{\numberline {9.4}Beispiel (Produktr\IeC {\"a}ume)}{37}{section.9.4}
+\contentsline {paragraph}{Behauptung}{38}{section*.37}
+\contentsline {section}{\numberline {9.5}Satz}{38}{section.9.5}
+\contentsline {paragraph}{Definition}{39}{section*.38}
+\contentsline {section}{\numberline {9.6}Satz (Blockungslemma)}{39}{section.9.6}
+\contentsline {section}{\numberline {9.7}Satz}{40}{section.9.7}
+\contentsline {section}{\numberline {9.8}Beispiel (Bernoulli-Kette der L\IeC {\"a}nge $n$)}{40}{section.9.8}
+\contentsline {chapter}{\numberline {10}Gemeinsame Verteilung}{41}{chapter.10}
+\contentsline {section}{\numberline {10.1}Definition}{41}{section.10.1}
+\contentsline {paragraph}{Wiederholung}{41}{section*.39}
+\contentsline {paragraph}{Bemerkung}{41}{section*.40}
+\contentsline {section}{\numberline {10.2}Beispiel}{42}{section.10.2}
+\contentsline {section}{\numberline {10.3}Beispiel}{42}{section.10.3}
+\contentsline {section}{\numberline {10.4}Definition}{42}{section.10.4}
+\contentsline {section}{\numberline {10.5}Satz}{43}{section.10.5}
+\contentsline {paragraph}{Bemerkung}{43}{section*.41}
+\contentsline {section}{\numberline {10.6}Satz (Blockungslemma)}{43}{section.10.6}
+\contentsline {section}{\numberline {10.7}Satz (allgemeine Transformations-Formel)}{44}{section.10.7}
+\contentsline {section}{\numberline {10.8}Satz}{44}{section.10.8}
+\contentsline {section}{\numberline {10.9}Satz (Faltungsformel)}{44}{section.10.9}
+\contentsline {section}{\numberline {10.10}Satz (Additionsgesetz f\IeC {\"u}r Binomialverteilungen)}{45}{section.10.10}
+\contentsline {chapter}{\numberline {11}Varianz, Kovarianz, Korrelation}{46}{chapter.11}
+\contentsline {section}{\numberline {11.1}Definition}{46}{section.11.1}
+\contentsline {section}{\numberline {11.2}Bemerkungen}{46}{section.11.2}
+\contentsline {section}{\numberline {11.3}Satz}{47}{section.11.3}
+\contentsline {section}{\numberline {11.4}Beispiel}{47}{section.11.4}
+\contentsline {section}{\numberline {11.5}Definition}{48}{section.11.5}
+\contentsline {paragraph}{Bemerkung}{48}{section*.42}
+\contentsline {section}{\numberline {11.6}Satz (Tschebyschov-Ungleichung)}{48}{section.11.6}
+\contentsline {section}{\numberline {11.7}Definition}{49}{section.11.7}
+\contentsline {section}{\numberline {11.8}Satz}{49}{section.11.8}
+\contentsline {section}{\numberline {11.9}Folgerung}{50}{section.11.9}
+\contentsline {section}{\numberline {11.10}Beispiel}{51}{section.11.10}
+\contentsline {section}{\numberline {11.11}Satz}{51}{section.11.11}
+\contentsline {section}{\numberline {11.12}Folgerung}{52}{section.11.12}
+\contentsline {section}{\numberline {11.13}Bemerkung}{52}{section.11.13}
+\contentsline {chapter}{\numberline {12}Wichtige diskrete Verteilungen}{53}{chapter.12}
+\contentsline {section}{\numberline {12.1}Satz (Gesetz seltener Ereignisse)}{53}{section.12.1}
+\contentsline {section}{\numberline {12.2}Definition}{54}{section.12.2}
+\contentsline {section}{\numberline {12.3}Satz}{54}{section.12.3}
+\contentsline {section}{\numberline {12.4}Definition und Satz}{55}{section.12.4}
+\contentsline {section}{\numberline {12.5}Definition und Satz}{56}{section.12.5}
+\contentsline {section}{\numberline {12.6}Satz}{56}{section.12.6}
+\contentsline {paragraph}{Bemerkung}{56}{section*.43}
+\contentsline {section}{\numberline {12.7}Bemerkungen}{57}{section.12.7}
+\contentsline {section}{\numberline {12.8}Beispiel (Multinomiales Versuchsschema)}{57}{section.12.8}
+\contentsline {paragraph}{Modell:}{57}{section*.44}
+\contentsline {section}{\numberline {12.9}Definition}{57}{section.12.9}
+\contentsline {section}{\numberline {12.10}Folgerung}{58}{section.12.10}
+\contentsline {chapter}{\numberline {13}Bedingte Erwartungswerte und bedingte Verteilungen}{59}{chapter.13}
+\contentsline {section}{\numberline {13.1}Definition}{59}{section.13.1}
+\contentsline {section}{\numberline {13.2}Bemerkungen}{59}{section.13.2}
+\contentsline {section}{\numberline {13.3}Beispiel}{60}{section.13.3}
+\contentsline {section}{\numberline {13.4}Satz (Formel vom totalen Erwartungswert)}{60}{section.13.4}
+\contentsline {section}{\numberline {13.5}Beispiel}{60}{section.13.5}
+\contentsline {paragraph}{Erinnerung}{61}{section*.45}
+\contentsline {section}{\numberline {13.6}Satz (Eigenschaften)}{61}{section.13.6}
+\contentsline {section}{\numberline {13.7}Satz (Substitutionsformel)}{61}{section.13.7}
+\contentsline {section}{\numberline {13.8}Beispiel (W\IeC {\"u}rfelwurf)}{62}{section.13.8}
+\contentsline {paragraph}{Modell:}{62}{section*.46}
+\contentsline {section}{\numberline {13.9}Definition}{62}{section.13.9}
+\contentsline {section}{\numberline {13.10}Beispiel}{63}{section.13.10}
+\contentsline {section}{\numberline {13.11}Satz}{63}{section.13.11}
+\contentsline {chapter}{\numberline {14}Grenzwerts\IeC {\"a}tze}{64}{chapter.14}
+\contentsline {section}{\numberline {14.1}Satz (Schwache Gesetz der gro\IeC {\ss }en Zahlen, SGGZ)}{64}{section.14.1}
+\contentsline {section}{\numberline {14.2}Definition}{64}{section.14.2}
+\contentsline {paragraph}{Bemerkung}{65}{section*.47}
+\contentsline {section}{\numberline {14.3}Folgerung (SGGZ von Jakob Bernoulli)}{65}{section.14.3}
+\contentsline {paragraph}{Bemerkung}{65}{section*.48}
+\contentsline {paragraph}{}{65}{section*.49}
+\contentsline {paragraph}{Frage}{65}{section*.50}
+\contentsline {section}{\numberline {14.4}Satz}{65}{section.14.4}
+\contentsline {paragraph}{Wiederholung}{65}{section*.51}
+\contentsline {paragraph}{Nun:}{66}{section*.53}
+\contentsline {paragraph}{Fazit:}{66}{section*.54}
+\contentsline {paragraph}{Beachte:}{66}{section*.55}
+\contentsline {paragraph}{Fragen:}{67}{section*.56}
+\contentsline {section}{\numberline {14.5}Definition}{67}{section.14.5}
+\contentsline {section}{\numberline {14.6}Satz}{67}{section.14.6}
+\contentsline {section}{\numberline {14.7}Satz (ZGWS Lindeberg-Levy)}{67}{section.14.7}
+\contentsline {paragraph}{Anwendung:}{68}{section*.58}
+\contentsline {chapter}{\numberline {15}Statistik - Sch\IeC {\"a}tzprobleme}{69}{chapter.15}
+\contentsline {section}{\numberline {15.1}Sch\IeC {\"a}tzung der Erfolgswahrscheinlichkeit einer Bernoulli-Kette}{69}{section.15.1}
+\contentsline {paragraph}{Modell}{69}{section*.59}
+\contentsline {paragraph}{Erinnerung}{70}{section*.60}
+\contentsline {section}{\numberline {15.2}Allgemeiner Modellrahmen}{70}{section.15.2}
+\contentsline {paragraph}{Annahme:}{70}{section*.61}
+\contentsline {paragraph}{Oft:}{70}{section*.62}
+\contentsline {paragraph}{Annahme:}{70}{section*.63}
+\contentsline {section}{\numberline {15.3}Beispiel (Binomialverteilung)}{70}{section.15.3}
+\contentsline {section}{\numberline {15.4}Beispiel}{71}{section.15.4}
+\contentsline {section}{\numberline {15.5}Definition}{71}{section.15.5}
+\contentsline {section}{\numberline {15.6}Bemerkungen}{71}{section.15.6}
+\contentsline {section}{\numberline {15.7}Definition}{72}{section.15.7}
+\contentsline {section}{\numberline {15.8}Bemerkung}{72}{section.15.8}
+\contentsline {section}{\numberline {15.9}Definition}{72}{section.15.9}
+\contentsline {section}{\numberline {15.10}Beispiel}{72}{section.15.10}
+\contentsline {paragraph}{Wiederholung}{73}{section*.64}
+\contentsline {paragraph}{Bemerkung 15.8:}{73}{section*.65}
+\contentsline {section}{\numberline {15.11}Definition}{73}{section.15.11}
+\contentsline {section}{\numberline {15.12}Beispiel}{73}{section.15.12}
+\contentsline {section}{\numberline {15.13}Beispiel (vgl. 15.4)}{73}{section.15.13}
+\contentsline {chapter}{\numberline {16}Konfidenzbereiche}{75}{chapter.16}
+\contentsline {section}{\numberline {16.1}Beispiel}{75}{section.16.1}
+\contentsline {section}{\numberline {16.2}Definition}{75}{section.16.2}
+\contentsline {section}{\numberline {16.3}Bemerkungen}{76}{section.16.3}
+\contentsline {section}{\numberline {16.4}Beispiel (Konfidenzschranken f\IeC {\"u}r $p$ in $Bin(n,p)$)}{76}{section.16.4}
+\contentsline {paragraph}{Behauptung}{77}{section*.66}
+\contentsline {paragraph}{Wiederholung}{77}{section*.67}
+\contentsline {paragraph}{zu zeigen:}{77}{section*.69}
+\contentsline {paragraph}{Nebenrechnung}{77}{section*.70}
+\contentsline {paragraph}{}{77}{section*.71}
+\contentsline {section}{\numberline {16.5}Allgemeines Konstruktionsprinzip}{78}{section.16.5}
+\contentsline {section}{\numberline {16.6}Bemerkung}{78}{section.16.6}
+\contentsline {section}{\numberline {16.7}Definition}{79}{section.16.7}
+\contentsline {section}{\numberline {16.8}($Bin(n,p), S_n:= X_1 + \ldots + X_n$)}{79}{section.16.8}
+\contentsline {chapter}{\numberline {17}Testtheorie: f\IeC {\"a}llt weg}{80}{chapter.17}
+\contentsline {chapter}{\numberline {18}Allgemeine Modelle}{81}{chapter.18}
+\contentsline {paragraph}{Bisher:}{81}{section*.72}
+\contentsline {paragraph}{Aber:}{81}{section*.73}
+\contentsline {section}{\numberline {18.1}Definition}{81}{section.18.1}
+\contentsline {section}{\numberline {18.2}Bemerkungen}{81}{section.18.2}
+\contentsline {section}{\numberline {18.3}Lemma}{82}{section.18.3}
+\contentsline {section}{\numberline {18.4}Satz und Definition}{82}{section.18.4}
+\contentsline {section}{\numberline {18.5}Folgerung}{82}{section.18.5}
+\contentsline {section}{\numberline {18.6}Folgerung und Definition}{82}{section.18.6}
+\contentsline {paragraph}{Wiederholung}{83}{section*.74}
+\contentsline {section}{\numberline {18.7}Definition (Axiomensystem von Kolmogrov)}{84}{section.18.7}
+\contentsline {section}{\numberline {18.8}Bemerkung}{84}{section.18.8}
+\contentsline {section}{\numberline {18.9}Definition und Satz}{84}{section.18.9}
+\contentsline {section}{\numberline {18.10}Existenz- und Eindeutigkeitssatz}{85}{section.18.10}
+\contentsline {section}{\numberline {18.11}Satz}{85}{section.18.11}
+\contentsline {section}{\numberline {18.12}Beispiel}{86}{section.18.12}
+\contentsline {section}{\numberline {18.13}Beispiel}{87}{section.18.13}
+\contentsline {section}{\numberline {18.14}Definition}{87}{section.18.14}
+\contentsline {section}{\numberline {18.15}Beispiel}{88}{section.18.15}
+\contentsline {section}{\numberline {18.16}Beispiel}{88}{section.18.16}
+\contentsline {section}{\numberline {18.17}Definition und Bemerkung}{89}{section.18.17}
+\contentsline {chapter}{\numberline {19}Zufallsvariablen}{90}{chapter.19}
+\contentsline {section}{\numberline {19.1}Definition und Satz}{90}{section.19.1}
+\contentsline {section}{\numberline {19.2}Bemerkung}{90}{section.19.2}
+\contentsline {paragraph}{Erinnerung}{91}{section*.75}
+\contentsline {paragraph}{Messbarkeit:}{91}{section*.76}
+\contentsline {section}{\numberline {19.3}Bemerkung}{92}{section.19.3}
+\contentsline {section}{\numberline {19.4}Bemerkung}{92}{section.19.4}
+\contentsline {section}{\numberline {19.5}Bemerkung}{93}{section.19.5}
+\contentsline {section}{\numberline {19.6}Beispiel}{93}{section.19.6}
+\contentsline {section}{\numberline {19.7}Definition}{94}{section.19.7}
+\contentsline {section}{\numberline {19.8}Bemerkung}{94}{section.19.8}
+\contentsline {chapter}{\numberline {20}Rechnen mit Dichten}{95}{chapter.20}
+\contentsline {section}{\numberline {20.1}Satz}{95}{section.20.1}
+\contentsline {section}{\numberline {20.2}Beispiel}{96}{section.20.2}
+\contentsline {section}{\numberline {20.3}Beispiel}{96}{section.20.3}
+\contentsline {section}{\numberline {20.4}Beispiel}{96}{section.20.4}
