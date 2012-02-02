@@ -17,3 +17,18 @@
 \contentsline {section}{\numberline {3.3}A29}{15}{section.3.3}
 \contentsline {section}{\numberline {3.4}Erg\IeC {\"a}nzung zur Vorlesung}{16}{section.3.4}
 \contentsline {section}{\numberline {3.5}A26}{17}{section.3.5}
+\contentsline {chapter}{\numberline {4}02.02.2012}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}A30}{18}{section.4.1}
+\contentsline {paragraph}{a)}{18}{section*.4}
+\contentsline {paragraph}{b)}{18}{section*.5}
+\contentsline {paragraph}{c)}{19}{section*.6}
+\contentsline {paragraph}{d)}{19}{section*.7}
+\contentsline {paragraph}{e)}{19}{section*.8}
+\contentsline {paragraph}{f)}{20}{section*.9}
+\contentsline {paragraph}{g)}{20}{section*.10}
+\contentsline {section}{\numberline {4.2}A32}{20}{section.4.2}
+\contentsline {paragraph}{a)}{20}{section*.11}
+\contentsline {paragraph}{b)}{21}{section*.12}
+\contentsline {section}{\numberline {4.3}A31}{21}{section.4.3}
+\contentsline {section}{\numberline {4.4}A33}{22}{section.4.4}
+\contentsline {paragraph}{a)}{22}{section*.13}

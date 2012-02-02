@@ -402,4 +402,145 @@ $$\Rightarrow |\Omega_k| = {s-k \choose r-1} \quad (a_2 < \ldots < a_r \text{ au
 $$|\{X_{(r)} = j\}| = {j-k-1 \choose r-2} \quad (a_2 < \ldots < a_{r-1} \text{ aus } k+1, \ldots, j-1 \text{ ziehen})$$
 $\Rightarrow \text{Beh.}$
 
+\chapter{02.02.2012}
+\section{A30}
+$\vartheta \in \Theta = \N$
+\newline
+$X_1, \ldots, X_n$ unabh. ZVen, identisch verteilt mit $\Prim_\vartheta(X_i = x_i) = \frac{1}{\vartheta}$ für $x_i \in \{1, \ldots, \vartheta\}$ \newline
+$x = (x_1, \ldots, x_n)$ Beobachtung, $x \in \N^n$ \newline
+$X := (X_1, \ldots, X_n)$
+\paragraph{a)}
+$$L_x(\vartheta) = \Prim_\vartheta(X=x)$$
+$$= \Prim_\vartheta(X_1 = x_1, \ldots, X_n = x_n)$$
+$$L_x(\vartheta) = \begin{cases} (\frac{1}{\vartheta})^n & \max\limits_{1 \leq j \leq n}{x_j} \leq \vartheta \\ 0 & \text{ sonst } \end{cases}$$
+$$\Rightarrow L_x(\vartheta) = \frac{1}{\vartheta^n} \cdot 1_{\{\max \limits_{1 \leq j \leq n}{x_j} \leq \vartheta\}}$$
+
+\paragraph{b)}
+\begin{enumerate}
+	\item $\vartheta < \max\limits_{1 \leq j \leq n}{x_n} \colon L_x(\vartheta) = 0$
+	\item $\vartheta \geq \max\limits_{1 \leq j \leq n}{x_j} \colon L_x(\vartheta)  = \frac{1}{\vartheta^n} > 0, L_x$ fallend in $\vartheta$.
+\end{enumerate}
+$\Rightarrow \hat{\vartheta}_n = \hat{\vartheta}_n(X_1, \ldots, X_n) = \max\limits_{1 \leq j \leq n}{X_j}$ \newline
+$\hat{\vartheta}_n$ ist ML-Schätzer für $\vartheta$.
+
+\paragraph{c)} $\Prim_\vartheta(\hat{\vartheta}_n \leq k) = \Prim_\vartheta(\max\limits_{1 \leq j \leq n}{X_j} \leq k)$
+$$= \prod\limits_{j=1}^n{\Prim_\vartheta(X_j \leq k)} = (\frac{k}{\vartheta})^n, \quad k = 1, \ldots, \vartheta.$$
+$$\Rightarrow \Prim_\vartheta(\hat{\vartheta}_n=k) =$$
+$$\Prim_\vartheta(\hat{\vartheta}_n \leq k) - \Prim_\vartheta(\hat{\vartheta}_n \leq k-1)$$
+$$= (\frac{k}{\vartheta})^n - (\frac{k-1}{\vartheta})^n$$
+
+\paragraph{d)}
+$$\E_\vartheta[\hat{\vartheta}_n] = \sum\limits_{k=1}^{\vartheta}{k \cdot ((\frac{k}{\vartheta})^n - (\frac{k-1}{\vartheta})^n)}$$
+$$= \sum\limits_{k=1}^{\vartheta}{\frac{k^{n+1}}{\vartheta^n} - \sum\limits_{k=1}^{\vartheta}{\frac{(k-1)^{n+1}}{\vartheta^n} - \sum\limits_{k=1}^{\vartheta}{\frac{(k-1)^n}{\vartheta^n}}}}$$
+$$= \vartheta - \frac{1}{\vartheta^n} \sum\limits_{k=2}^{\vartheta}{(k-1)^n} < \vartheta, \quad \vartheta \geq 2$$
+$\Rightarrow \hat{\vartheta}_n$ ist \underline{nicht} erwartungstreu.
+
+\paragraph{e)}
+nach d) gilt
+$$\E_\vartheta(\hat{\vartheta}_n) = \vartheta - \frac{1}{\vartheta^n} \sum\limits_{k=2}^n{(k-1)^n}$$
+und
+$$0 \leq \frac{1}{\vartheta^n} \sum\limits_{k=2}^{\vartheta}{\underbrace{(k-1}_{\leq \vartheta-1})^n \leq \frac{1}{\vartheta^n} \cdot (\vartheta-1) \cdot (\vartheta-1)^n}$$
+$$= (\vartheta-1) \cdot (\frac{\vartheta-1}{\vartheta})^n \overset{n \rightarrow \infty}{\rightarrow} 0$$
+d.h. $\E_\vartheta(\hat{\vartheta}_n) \rightarrow \vartheta \quad (n \rightarrow \infty)$. \newline
+$\Rightarrow \hat{\vartheta}_n$
+ ist asymptotisch erwartungstreu.
+ \newline
+ Zu zeigen:
+ $$\hat{\vartheta}_n \overset{\Prim_\vartheta}{\rightarrow} \vartheta \quad \forall \vartheta \in \Theta = \N$$
+ sei $0 < \epsilon < 1$.
+ $$\Prim(|\hat{\vartheta}_n - \vartheta| \geq \epsilon)$$
+ $$= \Prim(\hat{\vartheta}_n \leq \vartheta - 1)$$
+ (da $\vartheta \in \N, \hat{\vartheta}_n \in \{1, \ldots, \vartheta\}$)
+ 
+ $$= (\frac{\vartheta-1}{\vartheta})^n \rightarrow 0 \quad (n \rightarrow \infty)$$
+ Sei $\hat{\epsilon} \geq 1:$
+ $$\Prim(|\hat{\vartheta}_n- \vartheta|  \geq \hat{\epsilon}) \leq \Prim(|\hat{\vartheta}_n - \vartheta| \geq \epsilon) \text{ für ein } \epsilon> 1.$$
+ $\Rightarrow (\hat{\vartheta}_n)_{n \in \N}$ ist konsistent.
+ 
+ \paragraph{f)}
+ $\widetilde{\vartheta_n} := \frac{\hat{\vartheta}_n^{n+1}- (\hat{\vartheta}_n -1)^{n+1}}{\hat{\vartheta}_n^n - (\hat{\vartheta}_n - 1)^n}$
+ $$\E_\vartheta(\underbrace{\widetilde{\vartheta_n}}_{= f(\hat{\vartheta}_n)}) = \sum\limits_{k=1}^{\vartheta}{f(k) \cdot \Prim(\hat{\vartheta}_n = k)}$$
+ $$= \sum\limits_{k=1}^{\vartheta}{\frac{k^{n+1}- (k-1)^{n+1}}{k^n - (k-1)^n} \cdot ((\frac{k}{\vartheta})^n - (\frac{k-1}{\vartheta})^n)}$$
+ $$= \sum\limits_{k=1}^\vartheta{\frac{k^{n+1} - (k-1)^{n+1}}{\vartheta^n}} \overset{\text{Teleskopsumme}}{=} \frac{\vartheta^{n+1}}{\vartheta^n} - \frac{0}{\vartheta^n} = \vartheta$$
+ 
+ $\Rightarrow \widetilde{\hat{\vartheta}_n}$ ist erwartungstreu.
+ 
+ \paragraph{g)}
+ $\hat{\vartheta}_{10}(x_1, \ldots, x_{10}) = 113$
+ $$\rightarrow \widetilde{\vartheta}_{10} = f(113) \approx 123,76$$
+ 
+ 
+ \section{A32}
+ \paragraph{a)}
+ zu zeigen: $\alpha^{-\frac{1}{n}} \cdot \hat{\vartheta}_n$ ist eine obere Konfidenzschranke für $\vartheta$ zum Niveau $1-\alpha$.
+ 
+ $$\Prim_\vartheta(\vartheta \leq \alpha^{-\frac{1}{n} \hat{\vartheta}_n})$$
+ $$= \Prim_\vartheta(\hat{\vartheta}_n \geq \alpha^{\frac{1}{n}} \cdot \vartheta) = \underbrace{1 - \Prim_\vartheta(\hat{\vartheta}_n < \vartheta \sqrt[n]{\alpha})}_{=: p_\alpha}$$
+ 
+ \begin{enumerate}
+ 	\item $\vartheta \sqrt[n]{\alpha} \in \N \colon$
+ 	$$\Prim_\vartheta(\hat{\vartheta}_n < \vartheta \sqrt[n]{\alpha}) = \left(\underbrace{\frac{\vartheta \sqrt[n]{\alpha}-1}{\vartheta}}_{\sqrt[n]{\alpha} - \frac{1}{\vartheta}}\right )^n < \alpha$$
+ 	\item $\vartheta \sqrt[n]{\alpha} \notin \N \colon$
+ 	$$\Prim_\vartheta(\hat{\vartheta}_n < \vartheta \sqrt[n]{\alpha}) = \left(\frac{\lfloor \vartheta \sqrt[n]{\alpha} \rfloor}{\vartheta}\right)^n < \alpha$$
+ \end{enumerate}
+ 
+ $$\Rightarrow \Prim_\vartheta(\vartheta \leq \alpha^{-\frac{1}{n}}) > 1- \alpha \qquad \qed$$
+ 
+ \paragraph{b)}
+ $$\Prim_\vartheta(\vartheta \leq 1.1 \cdot \hat{\vartheta}_n) \geq 0.99$$
+ $$\Leftrightarrow \Prim_\vartheta(\hat{\vartheta}_n \geq \frac{\vartheta}{1.1}) \geq 0.99$$
+ $$\Leftrightarrow 1- \Prim_\vartheta(\hat{\vartheta}_n < \frac{\vartheta}{1.1}) \geq 0.99$$
+ $$\Leftrightarrow 1- \left(\frac{\lfloor\frac{\vartheta}{1.1}\rfloor}{\vartheta} \right)^n \geq 0.99$$
+ $$\Leftrightarrow 1 - \left(\frac{10}{11}\right)^n \geq 0.99$$
+ $$\Leftrightarrow n \geq 49$$
+ 
+ \section{A31}
+ $X_1, \ldots, X_n$ unabhängig identisch verteilt mit $Po(\lambda)$ \footnote{Poisson-Verteilung}
+ \newline
+ ZGWS:
+ $$\lim\limits_{n \rightarrow \infty}{\Prim_\lambda(\left|\frac{\sum\limits_{i=1}^n{X_i} - n \lambda}{\sqrt{n \lambda}}\right|) \leq h} = \phi(h) - \phi(-h) = 2 \phi(h)-1$$
+ $$\bar{X_n} := \frac{1}{n} \sum\limits_{i=1}^n{X_i}.$$
+ Es gilt
+ $$\left | \frac{n \cdot \bar{X_n} - n \lambda}{\sqrt {n \lambda}}  \right | \leq h$$
+ $$\Leftrightarrow (n \bar{X_n} - n \lambda)^2 \leq h^2 \cdot n \lambda$$
+ $$\Leftrightarrow n^2 \lambda^2 - n h^2 \lambda - 2 n^2 \bar{X_n} \lambda + n^2 \bar{X_n}^2 \leq 0$$
+ $$\Leftrightarrow \lambda^2 - \lambda (2 \bar{X_n} + \frac{h^2}{n}) + \bar{X_n}^2 \leq 0$$ \footnote{nach oben geöffnete Parabel}
+ $"=0"$ für $\lambda_{1,2} = (\bar{X_n} + \frac{h^2}{2n}) \overset{+}{-} \underbrace{\sqrt{(\bar{X_n} + \frac{h^2}{n})^2 - \bar{X_n}^2}}_{= \sqrt{\bar{X_n} \frac{h^2}{n} + \frac{h^4}{4n^2}}}$ \newline
+ Definiere
+ $$U_n := \bar{X_n} + \frac{h^2}{2n} - \sqrt{\bar{X_n} \frac{h^2}{n} + \frac{h^4}{4n^2}}$$
+ $$O_n := \bar{X_n} + \frac{h^2}{2n} + \sqrt{\bar{X_n} \frac{h^2}{n} + \frac{h^4}{4n^2}}$$
+ 
+ Dann gilt $U_n \leq \lambda \leq O_n \Leftrightarrow \left | \frac{n \bar{X_n} - n \lambda}{\sqrt{n \lambda}} \right | \leq h$
+ 
+ $$1-\alpha \overset{!}{=} 2 \phi(h)-1$$
+ $$\Leftrightarrow \phi(h) = \frac{2-\alpha}{2}$$
+ $$\Leftrightarrow h = \phi^{-1}(\frac{2-\alpha}{2})$$
+ $$= \phi^{-1}(1-\frac{\alpha}{2})$$
+ 
+ Für $h = \phi^{-1}(1-\frac{\alpha}{2})$ ist also $[U_n(h), O_n(h)]$ ein asymptotisches Konfidenzintervall zum Niveau $1 - \alpha$.
+ 
+ \section{A33}
+ $X_1, \ldots, X_n \overset{u.i.v.}{\sim} \mathcal{G}(\vartheta) \quad \vartheta \in \Theta= (0,1)$ \footnote{Geometrische Verteilung}
+ 
+ \paragraph{a)}
+ $$L_x(\vartheta) = \Prim_\vartheta((X_1, \ldots, X_n) = x)$$
+ $$= \prod\limits_{i=1}^n{\Prim_\vartheta(X_i = x_i)} = \prod\limits_{i=1}^n{(\vartheta \cdot (1-\vartheta)^{x_i})}$$
+ $$= \vartheta^n \cdot (1-\vartheta)^{\sum\limits_{i=1}^n{x_i}}$$
+ 
+ $$\bar{X_n} := \frac{1}{n} \sum\limits_{i=1}^n{X_i},$$
+ $$\bar{x_n} := \frac{1}{n} \sum\limits_{i=1}^n{x_i}$$
+ $$\Rightarrow \log L_x (\vartheta) = n \cdot \log(\vartheta) + n \cdot \bar{x_n} \log(1-\vartheta)$$
+ $$\frac{\partial}{\partial \vartheta} \log L_x(\vartheta) = \frac{n}{\vartheta} - n \bar{x_n} \cdot \frac{1}{1-\vartheta} \overset{!}{=} 0$$
+ $$\Leftrightarrow \frac{1-\vartheta}{\vartheta} = \bar{X_n} \Leftrightarrow \vartheta = \frac{1}{1+ \bar{x_n}}$$
+ $$\frac{\partial^2}{(\partial \vartheta)^2} = - \frac{n}{\vartheta^2}- n \bar{x_n} \frac{1}{(1-\vartheta)^2}< 0$$
+ $\Rightarrow \hat{\vartheta}_n = \frac{1}{1+ \bar{X_n}}$ ist ML-Schätzer
+ 
+ $$\hat{\vartheta}_n = f(\bar{X_n})$$
+ Hinweis: $f(\bar{X_n}) > f(a) + f^\prime(a) \cdot (\bar{X_n}-a) \quad \forall a > 0$ (da $\bar{X_n}$ \underline{nicht} konstant, insbesondere gilt nicht $\bar{X_n} \equiv a$)
+ 
+	$$\E_\vartheta \hat{\vartheta}_n) > \E(f(a) + f^\prime(a) (\bar{X_n} - a))$$
+	$$= f(a) + f^\prime(a) (\E(\bar{X_n}) - a) \quad \forall a > 0$$
+	insbesondere für $a= \E(\bar{X_n}) = \E X_1 = \frac{1}{1-\vartheta}$ \footnote{durch die Unabhängigkeit} \newline
+	$\Rightarrow f(a) = \vartheta$ und $\E_\vartheta(\hat{\vartheta}_n) > \vartheta$ 
+ 
 \end{document}
