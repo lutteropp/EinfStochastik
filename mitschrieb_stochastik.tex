@@ -2691,5 +2691,149 @@ $$= F(\sqrt{y}) - F(-\sqrt{y})$$
 Dichte ($y>0$):
 $$g(y) = f(\sqrt{y}) \cdot \frac{1}{2 \sqrt{y}} + f(-\sqrt{y}) \cdot \frac{1}{2 \sqrt{y}}$$
 
-\end{document}
+%07.02.2012
+\paragraph{Erinnerung}
+$f \colon \R^k \rightarrow \R$ Dichtefunktion von $X = (X_1, \ldots, X_k)$
+\newline
+$Y=T(X)$ \footnote{Transformation von $X$}
+\newline
+$\Prim(X \notin U) = 0 = \int\limits_{U^c}{f(x) dx}$
+\section{Satz}
+Sei $U:= \{x \in \R^k \colon f(x) > 0 \}$ offen, $V \subset \R^k$ offen, $T \colon U \rightarrow V$ bijektiv, stetig differenzierbar,
+$T^\prime(x) \neq 0, \quad x \in U$. Dann hat $Y:=T(X)$ die Dichte
+$$g(y) = \frac{f(T^{-1}(y))}{|\det T^{\prime}(T^{-1}(y))|}, \quad y \in V$$
+$(g(y) = 0, \quad y \notin V.)$
 
+\begin{proof}
+zu zeigen:
+$$\Prim(Y \in B) = \int\limits_B{f(y) dy, \quad B \in \mathcal{B}^k} \qquad (*)$$
+Wir zeigen $(*)$ für offenes $B \subset V$. (Das genügt!) \footnote{siehe Maßtheorie} Dann
+$$\Prim(Y \in B) = \Prim(X \in T^{-1}(B))$$
+$$= \int\limits_{T^{-1}(B)}{f(x) dx} \qquad | x = T^{-1}(y), y = T(x)$$
+$$= \int\limits_B{f(T^{-1}(y) \left(\det T^\prime(T^{-1}(y))\right)^{-1} dy}$$
+Analysis 3! \footnote{Jacobi-Determinante}
+\end{proof}
+
+\section{Beispiel (Polarmethode)}
+Seien $X_1, X_2$ stochastisch unabhängig und $U(0,1)$-verteilt.
+Dann $f(x_1, x_2) = 1_{(0,1)^2}(x_1, x_2)$
+Es sei 
+$$T(x_1, x_2) = (\sqrt{-2 \log x_1} \cos(2 \pi x_1), \sqrt{-2 \log x_2} \sin(2 \pi x_2))$$
+Dann ist $T((0,1)^2) = \R^1 \backslash \{(y_1, y_2) \colon y_1 \geq 0, y_2 = 0 \}.$ (Nullmenge)
+
+$\det T^\prime(x_1, x_2) = \frac{2\pi}{x_1}$ (Übung!)
+
+Aus Satz 20.5 folgt $(x_1 = \exp [-\frac{1}{2}(y_1^2, y_2^2)])$
+
+$$g(y_1, y_2) = (\frac{2 \pi}{\exp [- \frac{1}{2} (y_1^2 + y_2^2)]})^{-1} 1_V(y_1,y_2)$$
+$$\overset{!}{=} f(y_1) f(y_2)$$
+19.8.(i) $\leadsto Y_1, Y_2$ unabhängig $N(0,1)$-verteilt.
+
+\section{Beispiel}
+$T(x) = Ax + b$,
+
+$A \in \R^{k \times k}$ regulär, $b \in \R^k, Y = T(X)$ hat Dichte
+$$g(y) = \frac{f(A^{-1}(y-b))}{|\det A|}$$
+
+\section{Bemerkung}
+Sei $T \colon \R^k \rightarrow \R^s$ mit $k>s$. Betrachte
+$$\widetilde{T} \colon \R^k \rightarrow \R^{s+(k-s)}$$ mit
+$$\widetilde{T}(x) = (T_1(x), \ldots, T_s(x), \underbrace{T_{s+1}(x), \ldots, T_k(x)}_{\text{"Auffüllen"}}$$
+
+Erfüllt $\widetilde{T}$ die Voraussetzung von Satz 20.5, dann hat
+$$\widetilde{Y} := \widetilde{T}(x)$$
+eine Dichte $f_{\widetilde{Y}}$. Wegen
+$$Y = (\widetilde{Y_1}, \widetilde{Y_2})$$
+folgt , dass $Y$ die Dichte
+
+$$f_Y(y_1, \ldots, y_s) = \int{ \int{f_{\widetilde{Y}}(y_1, \ldots, y_s, y_{s+1}, \ldots, y_k) dy_{s+1} \ldots dy_k}}$$
+
+\section{Beispiel}
+$k=2, s=1$
+$$Y:= T(X) := X_1 + X_2$$
+$$\widetilde{T}(x_1, x_2) := (x_1 + x_2, x_1)$$
+Dann hat $\widetilde{T}$ die Jacobi-Determinante 1 und $\widetilde{Y} := (x_1 + x_2, x_2)$ die Dichte $f_{\widetilde{y}}(y_1, y_2) = f(y_2, y_1-y_2) 1$ und damit die Dichte
+$$f_{X_1 + X_2} = \int f(y_2, y_1-y_2) dy_2$$
+Sind $X_1, X_2$ unabhängig, d.h. $f(x_1, x_2) = f_1(x_1) f_2(x_2)$, dann gilt
+$$f_{X_1 + X_2}(z) = \int f_{X_1}(t) f_{X_2}(z-t) dt$$
+(Faltungsformel)
+
+$(= f_1 * f_2 (z))$
+
+\section{Satz (Additionsgesetz für Nomalv.)}
+Seien $X,Y$ unabhängig, $X \sim N(\mu, \sigma^2), Y \sim N(\nu, \tau^2)$. Dann gilt
+$$X + Y \sim N(\mu + \nu, \sigma^2 + \tau^2)$$
+
+\begin{proof}
+Seien $U,V$ unabhängig $N(0,1)$-verteilt. Setze
+$$\widetilde{X} := \sigma U + \mu, \widetilde{Y} := \tau V + U.$$
+Dann sind $\widetilde{X}, \widetilde{Y}$ unabhängig und es gilt
+$$(X,Y) \overset{d}{=} (\widetilde{X}, \widetilde{Y}).$$
+Damit (!)
+$$X+Y \overset{d}{=} \widetilde{X} + \widetilde{Y} = \sigma U + \tau V + \mu + \nu$$
+$$= \sqrt{\sigma^2 + \tau^2} (\underbrace{\frac{\sigma}{\sqrt{\sigma^2 + \tau^2}} U + \frac{\tau}{\sqrt{\sigma^2 + \tau^2}} V}_{N(0,1) \text{ ÜA!}}) + (\mu + \nu)$$
+Faltungsformel!
+\end{proof}
+
+\section{Definition und Satz}
+Seien $X_1, \ldots, X_k$ unabhängig $N(0,1)$-verteilt.
+
+Betrachte $Y:= X_1^2 + \ldots + X_k^2.$ Die Verteilung von $Y$ heißt
+\textbf{$\chi^2$-Verteilung} mit $k$ \textbf{Freiheitsgraden} (kurz $Y \sim \chi^2_k$). $Y$ hat die Dichte
+$$f_k(x) = \frac{1}{2^{\frac{k}{2}} \Gamma(\frac{k}{2})} x^{\frac{k}{2}-1} e^{-\frac{x}{2}}, \quad x > 0.$$
+
+\paragraph{Beweisidee:}
+$\Gamma(\alpha) = \int\limits_0^{\infty}{x^{\alpha-1} e^{-x} dx}, \quad \alpha > 0.$
+($\Gamma(k) = (k-1)!$).
+
+Man beweist zunächst den Fall $k=1$ (Transformationsformel).
+
+Der allgemeine Fall folgt induktiv mit Faltungsformel. Allgemeiner gilt ein Additionsgesetz für Gammaverteilungen (siehe Übungsblatt).
+
+\chapter{Kenngrößen von Verteilungen}
+
+\paragraph{Erinnerung:}
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum
+
+$X \colon \Omega \rightarrow \R$
+
+\begin{enumerate}
+	\item $\E X := \sum\limits_{\omega \in \Omega} X(\omega) \Prim(\{\omega\})$
+	\item $= \sum\limits_{X \colon \Prim(X=x) > 0} x \Prim(X=x)$
+\end{enumerate}
+
+\paragraph{Jetzt:}
+$(\Omega, \mathcal{A}, \Prim)$ Wahrscheinlichkeitsraum, $X \colon \Omega \rightarrow \R$ Zufallsvariable.
+
+\paragraph{Ziel:} Definition von $\E X$!
+
+\begin{enumerate}
+	\item $X \geq 0$. Für $n \in \N$ sei 
+	$$X_n(\omega) := \begin{cases} 0, & \text{falls } X(\omega)=0 \\ \frac{j-1}{2^n}, & \text{falls } \frac{j-1}{2^n} < X \leq \frac{j}{2^n}, j=1, \ldots, n 2^n \\
+	n, & \text{falls } X(\omega) > n. \end{cases}$$
+	Es gilt \footnote{Linke Intervallgrenze als Approx} $X_n(\omega) \leq X_{n+1}(\omega), \lim\limits_{n \rightarrow \infty}{X_n(\omega) = X(\omega)}$, und wir definieren
+	
+	$$\E X_n := \sum\limits_{j=1}^{n 2^n}{\frac{j-1}{2^n} \left(F\left(\frac{j}{2^n}\right) - F\left(\frac{j-1}{2^n}\right)\right)} + n (1-F(n))$$ \footnote{$F$ Verteilungsfkt.}, wobei $F(x):= \Prim(X \leq x)$. (Motivation kommt von (2).)
+	
+	Es gilt 
+	$$\E X_n \leq \E X_{n-1}$$ und wir definieren:
+	$$\E X := \lim\limits_{n \rightarrow \infty} \E X_n \in [0, \infty].$$
+	Erwartungswert von $X$ ($\E X = \int X d \Prim$).
+	
+	\item $X$ beliebig. Dann gilt
+	$$X = X^+ - X^-$$
+	mit $X^+ := \max \{X,0\}, X^- := - \min \{X,0\}$
+	
+	(Es gilt $|X| = X^+ + X^-$.)
+\end{enumerate}
+
+\section{Definition}
+$X$ ist \textbf{integrierbar}, wenn $\E X^+ < \infty$ und $\E X^- < \infty$. In diesem Fall sei $\E X := \E X^+ - \E X^- \left(= \int X d \Prim = \int X(\omega) d \Prim(\omega) = \int X(\omega) \Prim(d \omega)\right)$
+
+\section{Satz}
+Besitzt $X$ eine Dichte $f$, dann ist $X$ genau dann integrierbar, wenn
+$$\int |x| f(x) dx < \infty.$$
+Dann gilt
+$$\int x f(x) dx = \E X.$$
+
+\end{document}

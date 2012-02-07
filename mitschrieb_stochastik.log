@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.1.25)  31 JAN 2012 12:51
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.1.25)  7 FEB 2012 12:56
 entering extended mode
  %&-line parsing enabled.
 **mitschrieb_stochastik.tex
@@ -817,11 +817,11 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 {/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./mitschrieb_stochastik
 .toc [2
 
-] [3] [4] [5])
+] [3] [4] [5] [6])
 \tf@toc=\write5
 \openout5 = `mitschrieb_stochastik.toc'.
 
- [6]
+
 [7]
 Kapitel 1.
 [8
@@ -1085,7 +1085,7 @@ Package hyperref Warning: Token not allowed in a PDFDocEncoded string,
 
 pdfTeX warning: pdflatex (file ./drawing.pdf): PDF inclusion: found PDF version
  <1.5>, but at most version <1.4> allowed
-<drawing.pdf, id=1462, 353.61801pt x 185.24207pt>
+<drawing.pdf, id=1512, 353.61801pt x 185.24207pt>
 File: drawing.pdf Graphic file (type pdf)
  <use drawing.pdf> [78 <./drawing.pdf
 
@@ -1120,16 +1120,16 @@ Kapitel 17.
 Kapitel 18.
 [81
 
-] [82] [83] <bild.jpg, id=1511, 642.4pt x 513.92pt>
+] [82] [83] <bild.jpg, id=1561, 642.4pt x 513.92pt>
 File: bild.jpg Graphic file (type jpg)
  <use bild.jpg> [84]
-[85 <./bild.jpg>] <bild2.jpg, id=1534, 770.88pt x 385.44pt>
+[85 <./bild.jpg>] <bild2.jpg, id=1584, 770.88pt x 385.44pt>
 File: bild2.jpg Graphic file (type jpg)
  <use bild2.jpg>
-[86 <./bild2.jpg>] <bild3.jpg, id=1544, 706.64pt x 385.44pt>
+[86 <./bild2.jpg>] <bild3.jpg, id=1594, 706.64pt x 385.44pt>
 File: bild3.jpg Graphic file (type jpg)
  <use bild3.jpg>
-<bild4.jpg, id=1545, 642.4pt x 449.68pt>
+<bild4.jpg, id=1595, 642.4pt x 449.68pt>
 File: bild4.jpg Graphic file (type jpg)
  <use bild4.jpg> [87 <./bild3.jpg>]
 [88 <./bild4.jpg>] [89]
@@ -1161,10 +1161,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 2587--2588
 
  []
 
-[92] <kreis.jpg, id=1581, 385.44pt x 385.44pt>
+[92] <kreis.jpg, id=1631, 385.44pt x 385.44pt>
 File: kreis.jpg Graphic file (type jpg)
  <use kreis.jpg>
-<sinus.jpg, id=1582, 449.68pt x 385.44pt>
+<sinus.jpg, id=1632, 449.68pt x 385.44pt>
 File: sinus.jpg Graphic file (type jpg)
  <use sinus.jpg> [93 <./kreis.jpg> <./sinus.jpg>]
 Overfull \hbox (21.3109pt too wide) detected at line 2622
@@ -1184,46 +1184,50 @@ Overfull \hbox (72.36542pt too wide) in paragraph at lines 2631--2632
 Kapitel 20.
 [95
 
-] [96] (./mitschrieb_stochastik.aux) ) 
+] [96] [97] [98] [99]
+Kapitel 21.
+[100
+
+] [101] (./mitschrieb_stochastik.aux) ) 
 Here is how much of TeX's memory you used:
- 9519 strings out of 256216
- 137872 string characters out of 1917072
+ 9553 strings out of 256216
+ 138256 string characters out of 1917072
  212641 words of memory out of 1500000
- 12003 multiletter control sequences out of 10000+200000
+ 12013 multiletter control sequences out of 10000+200000
  29039 words of font info for 77 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  45i,13n,43p,407b,686s stack positions out of 5000i,500n,6000p,200000b,15000s
- </home/sarah/.texlive2007/texmf-var/font
-s/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/sarah/.texlive2007/texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/sarah/.texlive2007/texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/sarah/.texlive2007/texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/sarah/.texlive2007/texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/sarah/.texlive2007/texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/sarah/.texlive2007/texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/sarah/.texlive2007/texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/sarah/.texlive2007/texmf-
-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/sarah/.texlive2007/texmf
--var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/sarah/.texlive2007/texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/sarah/.texlive2007/tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/sarah/.texlive2007/te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/share/texmf/fonts/type
-1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></u
-sr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/
-bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/s
-hare/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/blues
-ky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/
-texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
-cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fo
-nts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.
-pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/
-type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cmex/fmex8.pfb>
-</usr/share/texmf/fonts/type1/public/cmex/fmex9.pfb></usr/share/texmf/fonts/typ
-e1/bluesky/latex-fonts/line10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msa
-m10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texmf/
-fonts/type1/bluesky/ams/msbm7.pfb>
-Output written on mitschrieb_stochastik.pdf (96 pages, 855697 bytes).
+ </home/sarah/.texlive2007/texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/sarah/.texlive2007/texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/sarah/.texlive2007/texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/sarah/.texlive2007/texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/sarah/.texlive2007/texmf-var
+/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/sarah/.texlive2007/texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/sarah/.texlive2007/texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/sarah/.texlive2007/texmf-
+var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/sarah/.texlive2007/texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/sarah/.texlive2007/texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/sarah/.texlive2007/tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/sarah/.texlive2007/te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/sarah/.texlive2007/t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/share/texmf/fonts/typ
+e1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></
+usr/share/texmf/fonts/type1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1
+/bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></usr/
+share/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/blue
+sky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share
+/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/f
+onts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6
+.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cmex/fmex8.pfb
+></usr/share/texmf/fonts/type1/public/cmex/fmex9.pfb></usr/share/texmf/fonts/ty
+pe1/bluesky/latex-fonts/line10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/ms
+am10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texmf
+/fonts/type1/bluesky/ams/msbm7.pfb>
+Output written on mitschrieb_stochastik.pdf (101 pages, 883415 bytes).
 PDF statistics:
- 2370 PDF objects out of 2487 (max. 8388607)
- 506 named destinations out of 1000 (max. 131072)
- 1508 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2465 PDF objects out of 2487 (max. 8388607)
+ 530 named destinations out of 1000 (max. 131072)
+ 1588 words of extra memory for PDF output out of 10000 (max. 10000000)
 
