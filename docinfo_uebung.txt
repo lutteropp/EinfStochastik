@@ -1,0 +1,7 @@
+[ /Author (Sarah Lutteropp)
+/Creator ()
+/Producer (pdflatex and ghostscript)
+/Title (\337bung Einf\374hrung in die Stochastik)
+/Subject ()
+/Keywords ()
+/DOCINFO pdfmark
