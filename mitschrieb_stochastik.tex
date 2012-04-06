@@ -448,7 +448,7 @@ Dann heißt $(\Omega, \Prim)$ (ein diskreter Wahrscheinlichkeitsraum!) \textbf{L
 
 \section{Definition}
 Sei $\Omega \neq \emptyset$ beliebig!
-$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum $\Leftrightarrow \exists$ abzählbare Menge $\Omega_0 \subset \Omega$, $\exists p \colon \Omega \rightarrow [0, \infty)$ mit $p(\omega=0)$ für alle $\omega \notin \Omega_0$, und $\sum\limits_{\omega \in \Omega_0}{p(\omega)} = 1$, und $\Prim(A) = \sum \limits_{\omega \in A \cap \Omega_0}{p(\omega)}, A \subset \Omega$.
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum $\Leftrightarrow \exists$ abzählbare Menge $\Omega_0 \subset \Omega$, $\exists p \colon \Omega \rightarrow [0, \infty)$ mit $p(\omega)=0$ für alle $\omega \notin \Omega_0$, und $\sum\limits_{\omega \in \Omega_0}{p(\omega)} = 1$, und $\Prim(A) = \sum \limits_{\omega \in A \cap \Omega_0}{p(\omega)}, A \subset \Omega$.
 
 \paragraph{Wiederholung}
 $(\Omega, \Prim)$ Wahrscheinlichkeitsraum
@@ -496,7 +496,7 @@ $|A| = card(A)$ = Anzahl der Elemente einer endlichen Menge $A$
 \section{Grundregeln}
 $A_1, \ldots, A_k$ endliche Menge
 \newline
-(i) $A_i \cap A_j = \emptyset, i \neq j \Rightarrow \left|\bigcup\limits_{j=1}^{n}{A_j}\right| = \sum\limits_{j=1}^{n}{A_j}$
+(i) $A_i \cap A_j = \emptyset, i \neq j \Rightarrow \left|\bigcup\limits_{j=1}^{n}{A_j}\right| = \sum\limits_{j=1}^{n}{|A_j|}$
 \newline
 \label{grundregeln}
 (ii) $|A_1 \times \ldots \times A_n| = \prod\limits_{j=1}^{k}{|A_j|}$
@@ -526,7 +526,7 @@ nein & $k$-Permutationen aus $M$ ohne Wiederholung, $Per_{k,\neq}^n$ & $k$-Kombi
 	\item $Per_k^{n} := M^k$
 	\item $Per_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_i \neq a_j \text{ für } i \neq j\}$
 	\item $Kom_k^{n} := \{(a_1,\ldots,a_k= \in M^k \colon a_1 \leq a_2 \leq \ldots \leq a_k\}$
-	\item $(Kom_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 < a_2 < \ldots < a_k\}$
+	\item $Kom_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 < a_2 < \ldots < a_k\}$
 \end{itemize}
 
 \section{Satz}
@@ -575,7 +575,7 @@ $\leadsto$ Siebformel!
 $k$ Teilchen sollen auf $n$ nummerierte Fächer verteilt werden. Analogie zu Urnenmodell: Nummer der Kugel $\hat{=}$ Nummer des Fachs, Nummer der Ziehung $\hat{=}$ Nummer des Teilchens
 
 \begin{tabular}{|c|p{3cm}|p{3cm}|} \hline 
- \begin{tiny} \backslashbox{Unterscheidbare\\ Teilchen}{Mehrfachbesetzungen} \end{tiny} & ja & nein \\ \hline
+ \begin{tiny} \backslashbox{Mehrfachbesetzungen}{Unterscheidbare\\ Teilchen} \end{tiny} & ja & nein \\ \hline
 ja & $Per_k^n$ \textcolor{blue}{Maxwell-Boltzmann} & $Kom_k^n$ \textcolor{blue}{Bose-Einstein-Statistik}\\ \hline
 nein & $Per_{k,\neq}^n$ \textcolor{blue}{Fermi-Dirak-Statistik} & $Kom_{k,\neq}^n$ \\ \hline
 \end{tabular}
