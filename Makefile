@@ -8,6 +8,7 @@ TARGETS_PDF = $(TARGETS:%=%.pdf)
 TARGETS_PUBLISH = $(TARGETS:%=%_publish.pdf)
 
 STDOUT_FILTER = ".*:[0-9]*:.*\|warning"
+TEX_ARGS = -interaction=nonstopmode -file-line-error
 
 all: $(TARGETS_PDF)
 
