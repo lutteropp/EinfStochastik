@@ -1924,7 +1924,7 @@ Immernoch in der Bernoullikette gilt
 Seien $X_1, X_2, \ldots$ unabhängig auf gleicher Verteilung mit $\E X_1^2 < \infty$.
 Setze $$S_n := X_1 + \ldots + X_n, \quad n \in \N$$
 $$S_n^* = \frac{S_n - n \E X_1}{\sqrt{n \cdot V(X_1)}}, \quad n \in \N$$
-Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^y \leq h)} = \phi(h), \quad h \in \R$
+Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^* \leq h)} = \phi(h), \quad h \in \R$
 
 \begin{proof}
 	Wahrscheinlichkeitstheorie im Sommersemester.
@@ -1932,7 +1932,7 @@ Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^y \leq h)} = \phi(h), \quad h \i
 
 \paragraph{Anwendung:}
 Sei $S_n \sim Bin(n,p)$. \newline
-Nun sei $\Prim(a \leq S_n \leq b) = \frac{a - np^{ \textcolor{blue}{+ \frac{1}{2}}}}{\sqrt{n p (1-p)}} \leq \frac{S_n - np}{\underbrace{\sqrt{n p (1-p)}}_{S_n^*}} \leq \frac{b - np ^{\textcolor{blue}{+\frac{1}{2}}}}{\sqrt{n p (1-p)}} $
+Nun sei $\Prim(a \leq S_n \leq b) = \frac{a - np^{ \textcolor{blue}{+ \frac{1}{2}}}}{\sqrt{n p (1-p)}} \leq \underbrace{\frac{S_n - np}{\sqrt{n p (1-p)}}}_{S_n^*} \leq \frac{b - np ^{\textcolor{blue}{+\frac{1}{2}}}}{\sqrt{n p (1-p)}} $
 $= \phi\left(\frac{b-np}{\sqrt{n p (1-p)}}\right) - \phi\left(\frac{a-np}{\sqrt{n p (1-p)}}\right)$
 \newline
 erst standardisieren, dann approximieren
@@ -2148,7 +2148,7 @@ $$\Prim_p(R_n - \frac{1}{2 \sqrt{\alpha n}} \leq p \leq R_n + \frac{1}{2 \sqrt{\
 $$= \Prim_p(|R_n - p| \leq \frac{1}{2 \sqrt{\alpha n}}) \geq 1 - \frac{V_p(R_n)}{(\frac{1}{2 \sqrt{\alpha n}})^2} = 1 - \frac{p (1-p) 4 \alpha n}{n} \geq 1 - \alpha$$ \footnote{Hier wurde die Tschebyschew- Ungl. benutzt.}
 
 Mit 
-$$I_n := [\max\{0, R_n - \frac{1}{2 \sqrt{\alpha n}}, \min \{1, R_n + \frac{1}{2 \sqrt{\alpha n}}\}]$$
+$$I_n := [\max\{0, R_n - \frac{1}{2 \sqrt{\alpha n}}\}, \min \{1, R_n + \frac{1}{2 \sqrt{\alpha n}}\}]$$
 gilt
 $$\Prim_p(I_n \ni p) \geq 1 - \alpha \quad (\text{z.B. } \geq 0.95)$$
 
@@ -2179,8 +2179,8 @@ Falls $\Theta \subset \R$ und $C(x)$ Intervall $(\forall x)$, so heißt $C$ \tex
 
 \section{Beispiel (Konfidenzschranken für $p$ in $Bin(n,p)$)}
 	Sei $S_n \sim Bin(n,p)$. Gesucht $p_u, p_o \colon \{0, \ldots, n\} \rightarrow [0,1]$ mit
-	$$\Prim_p(p \leq p_o(S_n) \geq 1 - \beta), \quad p \in [0,1] \quad (2)$$
-	$$\Prim_p(p_u(S_n) \leq p) \geq 1- \beta), \quad p \in [0,1] \quad (3)$$
+	$$\Prim_p(p \leq p_o(S_n)) \geq 1 - \beta, \quad p \in [0,1] \quad (2)$$
+	$$\Prim_p(p_u(S_n) \leq p)) \geq 1- \beta, \quad p \in [0,1] \quad (3)$$
 	
 	\begin{enumerate}
 		\item $k=0: \quad p_u(0) := 0 \quad p_o(0) := 1-\beta^{\frac{1}{n}}$
@@ -2255,7 +2255,7 @@ Ziel: $C(x)$ "möglichst klein", d.h. $A(\vartheta)$ möglichst klein
 \section{Bemerkung}
 Setzt man in 16.4
 $$\mathcal{X} = \{0, \ldots, n\}, \Theta = [0,1]$$
-$$A(\vartheta) := \{x \in \mathcal{X} \colon u(\vartheta) \leq x \leq o(\vartheta= \},$$
+$$A(\vartheta) := \{x \in \mathcal{X} \colon u(\vartheta) \leq x \leq o(\vartheta) \},$$
 wobei
 $$u(\vartheta) := \max \left \{k \in \mathcal{X} \colon \sum\limits_{j=0}^{k-1}{{n \choose j} \vartheta^j (1-\vartheta)^{n-j} \leq \frac{\alpha}{2}} \right \},$$
 $$o(\vartheta) := \min \left \{ k \in \mathcal{X} \colon \sum\limits_{j=k+1}^n{{n \choose j} \vartheta^j (1-\vartheta)^{n-j}} \leq \frac{\alpha}{2} \right \}$$
@@ -2331,7 +2331,7 @@ Man nennt $\sigma(\mathcal{M})$ die \textbf{von $\mathcal{M}$ erzeugte $\sigma$-
 
 \section{Folgerung}
 \begin{enumerate}
-	\item $\mathcal{M}_1 \subset \mathcal{M}_2 \Rightarrow \sigma(\mathcal{M}_1 \subset \sigma(\mathcal{M}_2))$
+	\item $\mathcal{M}_1 \subset \mathcal{M}_2 \Rightarrow \sigma(\mathcal{M}_1) \subset \sigma(\mathcal{M}_2)$
 	\item $\sigma(\sigma(\mathcal{M})) \subset \sigma(\mathcal{M})$
 	\item $\mathcal{M}_1 \subset \sigma(\mathcal{M}_2)$ und $M_2 \subset \sigma(\mathcal{M}_1) \Rightarrow \sigma(\mathcal{M}_1) = \sigma(\mathcal{M}_2)$ Übungsaufgabe
 \end{enumerate}
@@ -2620,7 +2620,7 @@ $$f_j(t)= \int \ldots \int f(x_1, \ldots, x_{j-1}, t, x_{j+1}, \ldots, x_k) dx_1
 
 \section{Beispiel}
 $(X,Y)$ habe Dichte 
-$$f(x,y) := \frac{1}{\pi} 1_\{x^2 + y^2 \leq 1\} \equiv 1_K(x,y), K = \{(x,y) \colon x^2 + y^2 \leq 1\} )$$
+$$f(x,y) := \frac{1}{\pi} 1_{\{x^2 + y^2 \leq 1\}} \equiv 1_K(x,y), K = \{(x,y) \colon x^2 + y^2 \leq 1\} )$$
 Dann
 $$f_1(x) = \int{f(x,y) dy} = \int 1_{\{x^2 + y^2 \leq 1\}} dy = \int 1_{\{|y| \leq \sqrt{1-x^2}\}} dy$$
 $$= \begin{cases} 0, & \text{ falls } |x| > 1 \\ \frac{2}{\pi} \sqrt{1-x^2}, & \text{ falls } |x| \leq 1 \end{cases}$$
