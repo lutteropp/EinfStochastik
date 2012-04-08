@@ -6,4 +6,5 @@
 *.log
 *.out
 *.pdf
+*.pdf_tex
 *.toc
