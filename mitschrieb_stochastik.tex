@@ -628,7 +628,7 @@ Seien $A_1, \ldots, A_n \subset \Omega$ und $X := \sum\limits_{j=1}^{n}{1_{A_j}}
 
 \section{Satz (Transformationsformel)}
 \label{5.4}
-Seien $X \colon \Omega \Rightarrow \R$ und $g \colon \R \rightarrow \R$. Definiere $g(X) \colon \Omega \rightarrow \R$ durch $$g(X)(\omega) = g(X(\omega)).$$ Dann ist $g(X) \in L^1(\Prim)$ genau dann, wenn
+Seien $X \colon \Omega \rightarrow \R$ und $g \colon \R \rightarrow \R$. Definiere $g(X) \colon \Omega \rightarrow \R$ durch $$g(X)(\omega) = g(X(\omega)).$$ Dann ist $g(X) \in L^1(\Prim)$ genau dann, wenn
 $$\sum\limits_{x \colon \Prim(X=x)>0}{|g(x)| \Prim(X=x)} < \infty$$\footnote{$\Prim(X=x) = \Prim(\{\omega \in \Omega \colon X(\omega)=x\})$}
 
 In diesem Fall gilt
@@ -803,9 +803,9 @@ Problem: Definiere $p(\omega) = \Prim(\{\omega\})$
 	$p_n(a_n | a_1, \ldots, a_{n-1}) \geq 0 \quad \sum\limits_{a_n \in \Omega_n}{p_n(a_n|a_1, \ldots, a_{n-1})} = 1$
 \end{enumerate}
 Setze für $\omega = (a_1, \ldots, a_n) \in \Omega$
-$$p(\omega) := p_1(a_1) \cdot p_2(a_2|a_1) \cdot p_3(a_3|a_1,a_2) \cdot \ldots \cdot p_n(a_n|a_1,\ldots,a_{n-1}) \quad \text{1. Pfadregel}$$
+$$p(\omega) := p_1(a_1) \cdot p_2(a_2|a_1) \cdot p_3(a_3|a_1,a_2) \cdot \ldots \cdot p_n(a_n|a_1,\ldots,a_{n-1}) \quad \text{1. Pfadregel (Produkt von Übergangswahrscheinlichkeiten)}$$
 Schließlich sei
-$$\Prim(A) := \sum\limits_{\omega \in A}{p(\omega)}, \quad A \subset \Omega \qquad \text{Produkt von Übergangswahrscheinlichkeiten}$$
+$$\Prim(A) := \sum\limits_{\omega \in A}{p(\omega)}, \quad A \subset \Omega$$
 
 \section{Satz}
 $(\Omega, \Prim)$ ist diskreter Wahrscheinlichkeitsraum.
@@ -945,7 +945,7 @@ Denn:
 $$\Prim(A|B)= \frac{\Prim(A\cap B)}{\Prim(B)} = \sum\limits_{j}{\frac{\Prim(A \cap B\cap K_j)}{\Prim(B)} \frac{\Prim(B \cap K_j)}{\Prim(B \cap K_j)}}$$
 $$ = \sum\limits_{j}{\underbrace{\Prim(K_j|B)}_{\text{Bewerbungsrate der Frauen im j-ten Fach}}\underbrace{\Prim(A|B \cap K_j)}_{\text{siehe oben}}}$$
 analog
-$$\Prim(A|B^c) = \sum{\Prim(K_j|B^c) \Prim(A|B^c \cap K_j)}$$
+$$\Prim(A|B^c) = \sum\limits_{j}{\Prim(K_j|B^c) \Prim(A|B^c \cap K_j)}$$
 
 Die absolute Erfolgsquote ist eine gewichtete Summe der relativen Erfolgsquoten.
 
@@ -1138,8 +1138,28 @@ $\Omega := \{1, \ldots, 6\}^2$
 \newline
 $\Prim$ = Gleichverteilung (2-maliger Würfelwurf)
 $$X_1((k,l)):= \min(k,l), X_2((k,l)) := \max(k,l)$$
-(TODO: Tabelle)
 $$\Prim(X_1 = i, X_2 = j), \quad i,j = 1, \ldots, 6$$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+\backslashbox{i}{j} & 1 & 2 & 3 & 4 & 5 & 6 & $\sum$ \\ 
+\hline 
+1 & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{11}{36}$ \\  
+\hline 
+2 & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{9}{36}$ \\  
+\hline 
+3 & $0$ & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{7}{36}$ \\  
+\hline 
+4 & $0$ & $0$ & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{5}{36}$ \\  
+\hline 
+5 & $0$ & $0$ & $0$ & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$ \\  
+\hline 
+6 & $0$ & $0$ & $0$ & $0$ & $0$ & $\frac{1}{36}$ & $\frac{1}{36}$ \\  
+\hline 
+$\sum$ & $\frac{1}{36}$ & $\frac{3}{36}$ & $\frac{5}{36}$ & $\frac{7}{36}$ & $\frac{9}{36}$ & $\frac{11}{36}$ & $1$ \\  
+\hline 
+\end{tabular} 
+\end{center}
 
 
 
@@ -1323,8 +1343,8 @@ Sei $\E X^2 < \infty$.
 		$$\Prim(A_i \cap A_j) = \frac{r}{r+s} \frac{r+c}{r+s+c}, \quad i \neq j$$
 		($c=-1$: Ziehen ohne Zurücklegen, $c=0 \hat{=}$ Ziehen mit Zurücklegen, $c>0$: Polyasches Urnenschema). Dann
 		$$V\left(\sum\limits_{i=1}^n{X_i}\right) = n p (1-p) \cdot \left(1 + \frac{(n-1) \cdot c}{r+s+c}\right)$$
-		(3) $X \sim Bin(n,p): V(x) = n p (1-p) \quad (c=0)$ \newline
-		(4) $X \sim Hyp (n,r,s): V(X) = n p (1-p) \left(1 - \frac{(n-1)}{r+s-1}\right) \quad (c=-1)$
+	\item $X \sim Bin(n,p): V(x) = n p (1-p) \quad (c=0)$ \newline
+	\item $X \sim Hyp (n,r,s): V(X) = n p (1-p) \left(1 - \frac{(n-1)}{r+s-1}\right) \quad (c=-1)$
 \end{enumerate}
 
 \section{Definition}
@@ -1337,7 +1357,7 @@ $X \sim Bin(n,p),\quad X^* = \frac{X-np}{\sqrt{n p (1-p)}}$
 
 \section{Satz (Tschebyschov-Ungleichung)}
 Für jede Zufallsvariable $X$ mit $\E X^2 < \infty$ gilt
-$$\Prim(|X-\E X| \geq c) \leq \frac{V(X)}{c^2}), \quad c > 0.$$
+$$\Prim(|X-\E X| \geq c) \leq \frac{V(X)}{c^2}, \quad c > 0.$$
 
 \begin{proof}
 	Es sei (für gegebenes $c>0$)
@@ -1560,7 +1580,7 @@ Wkt. für $k$ Fehlversuche bis zum $r$-ten Erfolg in einer ("unendlichen" Bernou
 \section{Bemerkungen}
 \begin{enumerate}
 	\item Siehe Box oben.
-	\item $X \sim Nb(r,p), Y \sim Nb(r,p), X$ und $Y$ unabhängig $$\Leftarrow X+Y \sim Nb(r+s,p)$$
+	\item $X \sim Nb(r,p), Y \sim Nb(s,p), X$ und $Y$ unabhängig $$\Leftarrow X+Y \sim Nb(r+s,p)$$
 \end{enumerate}
 
 \begin{proof}
@@ -1669,7 +1689,7 @@ $= \frac{1}{3} (15) = 5$
 
 \section{Satz (Formel vom totalen Erwartungswert)} \label{13.4}
 Es gelte $\Omega = \bigcup\limits_{j}{A_j}$ mit $A_i \cap A_j = \emptyset$
-Für $i \neq j$ und $\Prim(A_j) > 0, j = 1, 2, \ldots$. Dann
+für $i \neq j$ und $\Prim(A_j) > 0, j = 1, 2, \ldots$. Dann
 $$\E X = \sum\limits_{j}{\E [X | A_j] \Prim(A_j)}$$
 ($X=1_B \leadsto $ Formel der totalen Wahrscheinlichkeit)
 
@@ -1698,6 +1718,7 @@ $\E [X | A] = \frac{1}{\Prim(A)} \sum\limits_{\omega \in A}{X(\omega) \Prim(\{\o
 $\E X = \sum\limits_{j}{\E [A|A_j] \Prim(A_j)}$
 
 \section{Satz (Eigenschaften)}
+\label{13.6}
 $\E |X| < \infty, \E |Y| < \infty, Z \colon \Omega \rightarrow \R^n, z \in \R^n$ mit $\Prim(Z=z)>0$.
 \begin{enumerate}
 	\item $\E [X+Y | A] = \E [X|A] + \E[Y | A]$
@@ -1714,7 +1735,7 @@ $\E |X| < \infty, \E |Y| < \infty, Z \colon \Omega \rightarrow \R^n, z \in \R^n$
 \end{proof}
 
 \section{Satz (Substitutionsformel)}
-Sei $X \colon \Omega \rightarrow \R^n, Z \colon \Omega \rightarrow \R^k, g \colon \R^n \rightarrow \R^k$ mit $\E |g(X,Z)| < \infty$. Dann gilt für $z \in \R^k$ mit $\Prim(Z=z>0)$
+Sei $X \colon \Omega \rightarrow \R^n, Z \colon \Omega \rightarrow \R^k, g \colon \R^n \times \R^k \rightarrow \R$ mit $\E |g(X,Z)| < \infty$. Dann gilt für $z \in \R^k$ mit $\Prim(Z=z)>0$
 $$\E [g(X,Z)| Z = z ] = \E [g(X,z) | Z=z]$$
 
 \begin{proof}
@@ -1740,7 +1761,7 @@ $$X = X_0 + \sum\limits_{j=1}^{X_0}{X_j}$$
 $$\E [X | X_0 = k] = \E [X_0 + \sum\limits_{j=1}^{X_0}{X_j}|X_0 =k]$$
 $$= \E [k + \sum\limits_{j=1}^k{X_j} | X_0 = k]$$
 $$= k + \sum\limits_{j=1}^k{\E [X_j | X_0 = k]}$$
-$$\overset{g}{=} k + \sum\limits_{j=1}^k{\E X_j} = k + k \cdot 3,5 = 4,5 k$$
+$$\overset{\ref{13.6} g}{=} k + \sum\limits_{j=1}^k{\E X_j} = k + k \cdot 3,5 = 4,5 k$$
 $$\E X = \sum\limits_{j=1}^6{\E [X | X_0 = k] \Prim(X_0 = k)}$$
 $$= 4,5 \cdot \frac{1}{6} \cdot \sum\limits_{k=1}^6{k} = \frac{9}{2} + \frac{1}{6} \cdot \frac{42}{2} = \frac{63}{4}$$
 
@@ -1765,9 +1786,9 @@ minimal für $h(Z) = \E [X|Z]$.
 	$$\E (X - h(Z))^2$$
 	$$\overset{13.4}{=} \sum\limits_j{\E [(X-h(Z))^2 | Z=z_j] \Prim(Z=z_j)}$$
 	$$= \sum\limits_j{\E [(X-h(z_j))^2 | Z=z_j] \Prim(Z=z_j)}$$
-	$$= \sum\limits_j{(\E [(X- \E[X | Z=z_j]) + (\E [X | Z = z_j] - h(z_j))^2 | Z = z_j] \Prim(Z=z_j)}$$ TODO: Rauskriegen, was das heißen soll
-	$$\sum\limits_j{\E [(X-\E [X|Z=z_j]))^2 | Z = z_j] \Prim(Z=z_j)}$$
-	$$2 \sum\limits_j{\E [(\underbrace{\E [X|Z=z_j] - h(z_j))]}_{\text{Vor den EW ziehen}} (X-\E[X|Z=z_j]) | Z = z_j) \Prim(Z=z_j)}$$
+	$$= \sum\limits_j{\E [((X- \E[X | Z=z_j]) + (\E [X | Z = z_j] - h(z_j)))^2 | Z = z_j] \Prim(Z=z_j)}$$
+	$$= \sum\limits_j{\E [(X-\E [X|Z=z_j]))^2 | Z = z_j] \Prim(Z=z_j)}$$
+	$$ + 2 \sum\limits_j{\E [(\underbrace{\E [X|Z=z_j] - h(z_j))]}_{\text{Vor den EW ziehen}} (X-\E[X|Z=z_j]) | Z = z_j) \Prim(Z=z_j)}$$
 	$$ + \sum\limits_j{(\E [X|Z=z_j]- h(z_j))^2 \Prim(Z=z_j)}$$
 	Nebenrechnung: $\E[X - \E [X | Z = z_j]| Z = z_j] = 0$
 	$$\leadsto \text{Minimierer: } h(z_j) = \E [X | Z = z_j]$$
