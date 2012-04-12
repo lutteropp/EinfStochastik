@@ -525,7 +525,7 @@ nein & $k$-Permutationen aus $M$ ohne Wiederholung, $Per_{k,\neq}^n$ & $k$-Kombi
 \begin{itemize}
 	\item $Per_k^{n} := M^k$
 	\item $Per_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_i \neq a_j \text{ für } i \neq j\}$
-	\item $Kom_k^{n} := \{(a_1,\ldots,a_k= \in M^k \colon a_1 \leq a_2 \leq \ldots \leq a_k\}$
+	\item $Kom_k^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 \leq a_2 \leq \ldots \leq a_k\}$
 	\item $Kom_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 < a_2 < \ldots < a_k\}$
 \end{itemize}
 
@@ -1603,7 +1603,7 @@ $$X_1 + \ldots + X_s = n$$
 Es gilt für $i_1, \ldots, l_s \in \N_0, i_1 + \ldots + i_s = n$
 
 $$|\{X_1 = i_1, \ldots, X_s = i_s\}|$$
-$$= {n \choose i_1} {n-i_1 \choose i_2} \cdots {n - i_1 \ldots - i_{s-1} \choose i_s}$$
+$$= {n \choose i_1} {n-i_1 \choose i_2} \cdots {n - i_1 - \ldots - i_{s-1} \choose i_s}$$
 $$= \frac{n!}{i_1! i_2! \ldots i_s!} =: {n \choose i_1 \ldots i_s}$$
 
 ($p_1^{i_1} \cdot p_2^{i_2} \cdots p_s^{i_s}$)
@@ -2671,7 +2671,7 @@ Hat $(X_1, \ldots, X_n)$ die Dichte $f$. Dann gilt:
 $X = (X_1, \ldots, X_k)$ $k$-dimensionaler Zufallsvektor mit Dichte $f$. Sei 
 $$T \colon \R^k \rightarrow \R^s \quad (s \leq k)$$
 Sei $Y := T(X)$.
-($Y$ ist $s$-dimensionaler Zufallsvektor, falls $Z$ messbar ist.)
+($Y$ ist $s$-dimensionaler Zufallsvektor, falls $T$ messbar ist.)
 
 \section{Satz}
 Sei $K=1$, d.h. $X$ sei reelle Zufallsvariable. Die Dichte $f$ sei stückweise stetig und es gelte 
@@ -2702,7 +2702,7 @@ $g(y) = \frac{1}{|a|} f(\frac{y-b}{a})$
 $X \sim N(0,1)$ \footnote{Normalverteilung mit Mittelwert 0 und Standardabweichung 1},
 $T(x) = \sigma x + \mu$ ($\sigma > 0, \mu \in \R$), $Y:= T(X) = \sigma X+\mu$
 
-$$g(y) = \frac{1}{\sigma} \varphi(\frac{y-\mu}{\sigma}) = \frac{1}{\sqrt{2 \pi}} \exp [- \frac{(y-\mu)^2}{\sigma^2}]$$ \footnote{$\varphi$ ist die Dichte der Standardnormalverteilung}
+$$g(y) = \frac{1}{\sigma} \varphi(\frac{y-\mu}{\sigma}) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp [- \frac{(y-\mu)^2}{\sigma^2}]$$ \footnote{$\varphi$ ist die Dichte der Standardnormalverteilung}
 
 \section{Beispiel}
 $T(x) = x^2, Y = X^2$
