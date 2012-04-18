@@ -1,0 +1,44 @@
+# backup files
+*~
+*.~*
+*.backup
+
+# temp files
+*.sw[a-p]
+
+# special Linux files
+.directory
+
+# special Windows files
+Desktop.ini
+Thumbs.db
+
+# special OSX files
+._*
+.DS_Store
+.Spotlight-V100
+.Trashes
+Icon?
+*.synctex.*
+
+# temp build files
+*.aux
+*.dvi
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.nav
+*.out
+*.snm
+*.spellcheck
+*.pdf_tex
+*.toc
+
+# build results
+*.log
+*.pdf
