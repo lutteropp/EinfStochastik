@@ -2,6 +2,8 @@
 
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage{libertine}
+\renewcommand*\oldstylenums[1]{{\fontfamily{fxlj}\selectfont #1}}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{bibgerm}
@@ -13,7 +15,7 @@
 \usepackage{fancyhdr}
 \usepackage[pdftex,pdfpagelabels,colorlinks,backref,pagebackref]{hyperref}
 \usepackage{tikz} % SELBST HINZUGEFÜGT
-\usepackage{slashbox}
+\usepackage{diagbox}
 % == Set the heading style ===================================================
 \setlength{\headheight}{14pt}
 \pagestyle{fancyplain}
@@ -446,7 +448,7 @@ Dann heißt $(\Omega, \Prim)$ (ein diskreter Wahrscheinlichkeitsraum!) \textbf{L
 
 \section{Definition}
 Sei $\Omega \neq \emptyset$ beliebig!
-$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum $\Leftrightarrow \exists$ abzählbare Menge $\Omega_0 \subset \Omega$, $\exists p \colon \Omega \rightarrow [0, \infty)$ mit $p(\omega=0)$ für alle $\omega \notin \Omega_0$, und $\sum\limits_{\omega \in \Omega_0}{p(\omega)} = 1$, und $\Prim(A) = \sum \limits_{\omega \in A \cap \Omega_0}{p(\omega)}, A \subset \Omega$.
+$(\Omega, \Prim)$ diskreter Wahrscheinlichkeitsraum $\Leftrightarrow \exists$ abzählbare Menge $\Omega_0 \subset \Omega$, $\exists p \colon \Omega \rightarrow [0, \infty)$ mit $p(\omega)=0$ für alle $\omega \notin \Omega_0$, und $\sum\limits_{\omega \in \Omega_0}{p(\omega)} = 1$, und $\Prim(A) = \sum \limits_{\omega \in A \cap \Omega_0}{p(\omega)}, A \subset \Omega$.
 
 \paragraph{Wiederholung}
 $(\Omega, \Prim)$ Wahrscheinlichkeitsraum
@@ -494,7 +496,7 @@ $|A| = card(A)$ = Anzahl der Elemente einer endlichen Menge $A$
 \section{Grundregeln}
 $A_1, \ldots, A_k$ endliche Menge
 \newline
-(i) $A_i \cap A_j = \emptyset, i \neq j \Rightarrow \left|\bigcup\limits_{j=1}^{n}{A_j}\right| = \sum\limits_{j=1}^{n}{A_j}$
+(i) $A_i \cap A_j = \emptyset, i \neq j \Rightarrow \left|\bigcup\limits_{j=1}^{n}{A_j}\right| = \sum\limits_{j=1}^{n}{|A_j|}$
 \newline
 \label{grundregeln}
 (ii) $|A_1 \times \ldots \times A_n| = \prod\limits_{j=1}^{k}{|A_j|}$
@@ -523,8 +525,8 @@ nein & $k$-Permutationen aus $M$ ohne Wiederholung, $Per_{k,\neq}^n$ & $k$-Kombi
 \begin{itemize}
 	\item $Per_k^{n} := M^k$
 	\item $Per_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_i \neq a_j \text{ für } i \neq j\}$
-	\item $Kom_k^{n} := \{(a_1,\ldots,a_k= \in M^k \colon a_1 \leq a_2 \leq \ldots \leq a_k\}$
-	\item $(Kom_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 < a_2 < \ldots < a_k\}$
+	\item $Kom_k^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 \leq a_2 \leq \ldots \leq a_k\}$
+	\item $Kom_{k,\neq}^{n} := \{(a_1,\ldots,a_k) \in M^k \colon a_1 < a_2 < \ldots < a_k\}$
 \end{itemize}
 
 \section{Satz}
@@ -573,7 +575,7 @@ $\leadsto$ Siebformel!
 $k$ Teilchen sollen auf $n$ nummerierte Fächer verteilt werden. Analogie zu Urnenmodell: Nummer der Kugel $\hat{=}$ Nummer des Fachs, Nummer der Ziehung $\hat{=}$ Nummer des Teilchens
 
 \begin{tabular}{|c|p{3cm}|p{3cm}|} \hline 
- \begin{tiny} \backslashbox{Unterscheidbare\\ Teilchen}{Mehrfachbesetzungen} \end{tiny} & ja & nein \\ \hline
+ \begin{tiny} \backslashbox{Mehrfachbesetzungen}{Unterscheidbare\\ Teilchen} \end{tiny} & ja & nein \\ \hline
 ja & $Per_k^n$ \textcolor{blue}{Maxwell-Boltzmann} & $Kom_k^n$ \textcolor{blue}{Bose-Einstein-Statistik}\\ \hline
 nein & $Per_{k,\neq}^n$ \textcolor{blue}{Fermi-Dirak-Statistik} & $Kom_{k,\neq}^n$ \\ \hline
 \end{tabular}
@@ -626,7 +628,7 @@ Seien $A_1, \ldots, A_n \subset \Omega$ und $X := \sum\limits_{j=1}^{n}{1_{A_j}}
 
 \section{Satz (Transformationsformel)}
 \label{5.4}
-Seien $X \colon \Omega \Rightarrow \R$ und $g \colon \R \rightarrow \R$. Definiere $g(X) \colon \Omega \rightarrow \R$ durch $$g(X)(\omega) = g(X(\omega)).$$ Dann ist $g(X) \in L^1(\Prim)$ genau dann, wenn
+Seien $X \colon \Omega \rightarrow \R$ und $g \colon \R \rightarrow \R$. Definiere $g(X) \colon \Omega \rightarrow \R$ durch $$g(X)(\omega) = g(X(\omega)).$$ Dann ist $g(X) \in L^1(\Prim)$ genau dann, wenn
 $$\sum\limits_{x \colon \Prim(X=x)>0}{|g(x)| \Prim(X=x)} < \infty$$\footnote{$\Prim(X=x) = \Prim(\{\omega \in \Omega \colon X(\omega)=x\})$}
 
 In diesem Fall gilt
@@ -801,9 +803,9 @@ Problem: Definiere $p(\omega) = \Prim(\{\omega\})$
 	$p_n(a_n | a_1, \ldots, a_{n-1}) \geq 0 \quad \sum\limits_{a_n \in \Omega_n}{p_n(a_n|a_1, \ldots, a_{n-1})} = 1$
 \end{enumerate}
 Setze für $\omega = (a_1, \ldots, a_n) \in \Omega$
-$$p(\omega) := p_1(a_1) \cdot p_2(a_2|a_1) \cdot p_3(a_3|a_1,a_2) \cdot \ldots \cdot p_n(a_n|a_1,\ldots,a_{n-1}) \quad \text{1. Pfadregel}$$
+$$p(\omega) := p_1(a_1) \cdot p_2(a_2|a_1) \cdot p_3(a_3|a_1,a_2) \cdot \ldots \cdot p_n(a_n|a_1,\ldots,a_{n-1}) \quad \text{1. Pfadregel (Produkt von Übergangswahrscheinlichkeiten)}$$
 Schließlich sei
-$$\Prim(A) := \sum\limits_{\omega \in A}{p(\omega)}, \quad A \subset \Omega \qquad \text{Produkt von Übergangswahrscheinlichkeiten}$$
+$$\Prim(A) := \sum\limits_{\omega \in A}{p(\omega)}, \quad A \subset \Omega$$
 
 \section{Satz}
 $(\Omega, \Prim)$ ist diskreter Wahrscheinlichkeitsraum.
@@ -943,7 +945,7 @@ Denn:
 $$\Prim(A|B)= \frac{\Prim(A\cap B)}{\Prim(B)} = \sum\limits_{j}{\frac{\Prim(A \cap B\cap K_j)}{\Prim(B)} \frac{\Prim(B \cap K_j)}{\Prim(B \cap K_j)}}$$
 $$ = \sum\limits_{j}{\underbrace{\Prim(K_j|B)}_{\text{Bewerbungsrate der Frauen im j-ten Fach}}\underbrace{\Prim(A|B \cap K_j)}_{\text{siehe oben}}}$$
 analog
-$$\Prim(A|B^c) = \sum{\Prim(K_j|B^c) \Prim(A|B^c \cap K_j)}$$
+$$\Prim(A|B^c) = \sum\limits_{j}{\Prim(K_j|B^c) \Prim(A|B^c \cap K_j)}$$
 
 Die absolute Erfolgsquote ist eine gewichtete Summe der relativen Erfolgsquoten.
 
@@ -1136,8 +1138,28 @@ $\Omega := \{1, \ldots, 6\}^2$
 \newline
 $\Prim$ = Gleichverteilung (2-maliger Würfelwurf)
 $$X_1((k,l)):= \min(k,l), X_2((k,l)) := \max(k,l)$$
-(TODO: Tabelle)
 $$\Prim(X_1 = i, X_2 = j), \quad i,j = 1, \ldots, 6$$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+\backslashbox{i}{j} & 1 & 2 & 3 & 4 & 5 & 6 & $\sum$ \\ 
+\hline 
+1 & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{11}{36}$ \\  
+\hline 
+2 & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{9}{36}$ \\  
+\hline 
+3 & $0$ & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{7}{36}$ \\  
+\hline 
+4 & $0$ & $0$ & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{2}{36}$ & $\frac{5}{36}$ \\  
+\hline 
+5 & $0$ & $0$ & $0$ & $0$ & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$ \\  
+\hline 
+6 & $0$ & $0$ & $0$ & $0$ & $0$ & $\frac{1}{36}$ & $\frac{1}{36}$ \\  
+\hline 
+$\sum$ & $\frac{1}{36}$ & $\frac{3}{36}$ & $\frac{5}{36}$ & $\frac{7}{36}$ & $\frac{9}{36}$ & $\frac{11}{36}$ & $1$ \\  
+\hline 
+\end{tabular} 
+\end{center}
 
 
 
@@ -1321,8 +1343,8 @@ Sei $\E X^2 < \infty$.
 		$$\Prim(A_i \cap A_j) = \frac{r}{r+s} \frac{r+c}{r+s+c}, \quad i \neq j$$
 		($c=-1$: Ziehen ohne Zurücklegen, $c=0 \hat{=}$ Ziehen mit Zurücklegen, $c>0$: Polyasches Urnenschema). Dann
 		$$V\left(\sum\limits_{i=1}^n{X_i}\right) = n p (1-p) \cdot \left(1 + \frac{(n-1) \cdot c}{r+s+c}\right)$$
-		(3) $X \sim Bin(n,p): V(x) = n p (1-p) \quad (c=0)$ \newline
-		(4) $X \sim Hyp (n,r,s): V(X) = n p (1-p) \left(1 - \frac{(n-1)}{r+s-1}\right) \quad (c=-1)$
+	\item $X \sim Bin(n,p): V(x) = n p (1-p) \quad (c=0)$ \newline
+	\item $X \sim Hyp (n,r,s): V(X) = n p (1-p) \left(1 - \frac{(n-1)}{r+s-1}\right) \quad (c=-1)$
 \end{enumerate}
 
 \section{Definition}
@@ -1335,7 +1357,7 @@ $X \sim Bin(n,p),\quad X^* = \frac{X-np}{\sqrt{n p (1-p)}}$
 
 \section{Satz (Tschebyschov-Ungleichung)}
 Für jede Zufallsvariable $X$ mit $\E X^2 < \infty$ gilt
-$$\Prim(|X-\E X| \geq c) \leq \frac{V(X)}{c^2}), \quad c > 0.$$
+$$\Prim(|X-\E X| \geq c) \leq \frac{V(X)}{c^2}, \quad c > 0.$$
 
 \begin{proof}
 	Es sei (für gegebenes $c>0$)
@@ -1558,7 +1580,7 @@ Wkt. für $k$ Fehlversuche bis zum $r$-ten Erfolg in einer ("unendlichen" Bernou
 \section{Bemerkungen}
 \begin{enumerate}
 	\item Siehe Box oben.
-	\item $X \sim Nb(r,p), Y \sim Nb(r,p), X$ und $Y$ unabhängig $$\Leftarrow X+Y \sim Nb(r+s,p)$$
+	\item $X \sim Nb(r,p), Y \sim Nb(s,p), X$ und $Y$ unabhängig $$\Leftarrow X+Y \sim Nb(r+s,p)$$
 \end{enumerate}
 
 \begin{proof}
@@ -1581,7 +1603,7 @@ $$X_1 + \ldots + X_s = n$$
 Es gilt für $i_1, \ldots, l_s \in \N_0, i_1 + \ldots + i_s = n$
 
 $$|\{X_1 = i_1, \ldots, X_s = i_s\}|$$
-$$= {n \choose i_1} {n-i_1 \choose i_2} \cdots {n - i_1 \ldots - i_{s-1} \choose i_s}$$
+$$= {n \choose i_1} {n-i_1 \choose i_2} \cdots {n - i_1 - \ldots - i_{s-1} \choose i_s}$$
 $$= \frac{n!}{i_1! i_2! \ldots i_s!} =: {n \choose i_1 \ldots i_s}$$
 
 ($p_1^{i_1} \cdot p_2^{i_2} \cdots p_s^{i_s}$)
@@ -1667,7 +1689,7 @@ $= \frac{1}{3} (15) = 5$
 
 \section{Satz (Formel vom totalen Erwartungswert)} \label{13.4}
 Es gelte $\Omega = \bigcup\limits_{j}{A_j}$ mit $A_i \cap A_j = \emptyset$
-Für $i \neq j$ und $\Prim(A_j) > 0, j = 1, 2, \ldots$. Dann
+für $i \neq j$ und $\Prim(A_j) > 0, j = 1, 2, \ldots$. Dann
 $$\E X = \sum\limits_{j}{\E [X | A_j] \Prim(A_j)}$$
 ($X=1_B \leadsto $ Formel der totalen Wahrscheinlichkeit)
 
@@ -1696,6 +1718,7 @@ $\E [X | A] = \frac{1}{\Prim(A)} \sum\limits_{\omega \in A}{X(\omega) \Prim(\{\o
 $\E X = \sum\limits_{j}{\E [A|A_j] \Prim(A_j)}$
 
 \section{Satz (Eigenschaften)}
+\label{13.6}
 $\E |X| < \infty, \E |Y| < \infty, Z \colon \Omega \rightarrow \R^n, z \in \R^n$ mit $\Prim(Z=z)>0$.
 \begin{enumerate}
 	\item $\E [X+Y | A] = \E [X|A] + \E[Y | A]$
@@ -1712,7 +1735,7 @@ $\E |X| < \infty, \E |Y| < \infty, Z \colon \Omega \rightarrow \R^n, z \in \R^n$
 \end{proof}
 
 \section{Satz (Substitutionsformel)}
-Sei $X \colon \Omega \rightarrow \R^n, Z \colon \Omega \rightarrow \R^k, g \colon \R^n \rightarrow \R^k$ mit $\E |g(X,Z)| < \infty$. Dann gilt für $z \in \R^k$ mit $\Prim(Z=z>0)$
+Sei $X \colon \Omega \rightarrow \R^n, Z \colon \Omega \rightarrow \R^k, g \colon \R^n \times \R^k \rightarrow \R$ mit $\E |g(X,Z)| < \infty$. Dann gilt für $z \in \R^k$ mit $\Prim(Z=z)>0$
 $$\E [g(X,Z)| Z = z ] = \E [g(X,z) | Z=z]$$
 
 \begin{proof}
@@ -1738,7 +1761,7 @@ $$X = X_0 + \sum\limits_{j=1}^{X_0}{X_j}$$
 $$\E [X | X_0 = k] = \E [X_0 + \sum\limits_{j=1}^{X_0}{X_j}|X_0 =k]$$
 $$= \E [k + \sum\limits_{j=1}^k{X_j} | X_0 = k]$$
 $$= k + \sum\limits_{j=1}^k{\E [X_j | X_0 = k]}$$
-$$\overset{g}{=} k + \sum\limits_{j=1}^k{\E X_j} = k + k \cdot 3,5 = 4,5 k$$
+$$\overset{\ref{13.6} g}{=} k + \sum\limits_{j=1}^k{\E X_j} = k + k \cdot 3,5 = 4,5 k$$
 $$\E X = \sum\limits_{j=1}^6{\E [X | X_0 = k] \Prim(X_0 = k)}$$
 $$= 4,5 \cdot \frac{1}{6} \cdot \sum\limits_{k=1}^6{k} = \frac{9}{2} + \frac{1}{6} \cdot \frac{42}{2} = \frac{63}{4}$$
 
@@ -1763,9 +1786,9 @@ minimal für $h(Z) = \E [X|Z]$.
 	$$\E (X - h(Z))^2$$
 	$$\overset{13.4}{=} \sum\limits_j{\E [(X-h(Z))^2 | Z=z_j] \Prim(Z=z_j)}$$
 	$$= \sum\limits_j{\E [(X-h(z_j))^2 | Z=z_j] \Prim(Z=z_j)}$$
-	$$= \sum\limits_j{(\E [(X- \E[X | Z=z_j]) + (\E [X | Z = z_j] - h(z_j))^2 | Z = z_j] \Prim(Z=z_j)}$$ TODO: Rauskriegen, was das heißen soll
-	$$\sum\limits_j{\E [(X-\E [X|Z=z_j]))^2 | Z = z_j] \Prim(Z=z_j)}$$
-	$$2 \sum\limits_j{\E [(\underbrace{\E [X|Z=z_j] - h(z_j))]}_{\text{Vor den EW ziehen}} (X-\E[X|Z=z_j]) | Z = z_j) \Prim(Z=z_j)}$$
+	$$= \sum\limits_j{\E [((X- \E[X | Z=z_j]) + (\E [X | Z = z_j] - h(z_j)))^2 | Z = z_j] \Prim(Z=z_j)}$$
+	$$= \sum\limits_j{\E [(X-\E [X|Z=z_j]))^2 | Z = z_j] \Prim(Z=z_j)}$$
+	$$ + 2 \sum\limits_j{\E [(\underbrace{\E [X|Z=z_j] - h(z_j))]}_{\text{Vor den EW ziehen}} (X-\E[X|Z=z_j]) | Z = z_j) \Prim(Z=z_j)}$$
 	$$ + \sum\limits_j{(\E [X|Z=z_j]- h(z_j))^2 \Prim(Z=z_j)}$$
 	Nebenrechnung: $\E[X - \E [X | Z = z_j]| Z = z_j] = 0$
 	$$\leadsto \text{Minimierer: } h(z_j) = \E [X | Z = z_j]$$
@@ -1901,7 +1924,7 @@ Immernoch in der Bernoullikette gilt
 Seien $X_1, X_2, \ldots$ unabhängig auf gleicher Verteilung mit $\E X_1^2 < \infty$.
 Setze $$S_n := X_1 + \ldots + X_n, \quad n \in \N$$
 $$S_n^* = \frac{S_n - n \E X_1}{\sqrt{n \cdot V(X_1)}}, \quad n \in \N$$
-Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^y \leq h)} = \phi(h), \quad h \in \R$
+Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^* \leq h)} = \phi(h), \quad h \in \R$
 
 \begin{proof}
 	Wahrscheinlichkeitstheorie im Sommersemester.
@@ -1909,7 +1932,7 @@ Dann gilt $lim_{n \rightarrow \infty}{\Prim(S_n^y \leq h)} = \phi(h), \quad h \i
 
 \paragraph{Anwendung:}
 Sei $S_n \sim Bin(n,p)$. \newline
-Nun sei $\Prim(a \leq S_n \leq b) = \frac{a - np^{ \textcolor{blue}{+ \frac{1}{2}}}}{\sqrt{n p (1-p)}} \leq \frac{S_n - np}{\underbrace{\sqrt{n p (1-p)}}_{S_n^*}} \leq \frac{b - np ^{\textcolor{blue}{+\frac{1}{2}}}}{\sqrt{n p (1-p)}} $
+Nun sei $\Prim(a \leq S_n \leq b) = \frac{a - np^{ \textcolor{blue}{+ \frac{1}{2}}}}{\sqrt{n p (1-p)}} \leq \underbrace{\frac{S_n - np}{\sqrt{n p (1-p)}}}_{S_n^*} \leq \frac{b - np ^{\textcolor{blue}{+\frac{1}{2}}}}{\sqrt{n p (1-p)}} $
 $= \phi\left(\frac{b-np}{\sqrt{n p (1-p)}}\right) - \phi\left(\frac{a-np}{\sqrt{n p (1-p)}}\right)$
 \newline
 erst standardisieren, dann approximieren
@@ -2125,7 +2148,7 @@ $$\Prim_p(R_n - \frac{1}{2 \sqrt{\alpha n}} \leq p \leq R_n + \frac{1}{2 \sqrt{\
 $$= \Prim_p(|R_n - p| \leq \frac{1}{2 \sqrt{\alpha n}}) \geq 1 - \frac{V_p(R_n)}{(\frac{1}{2 \sqrt{\alpha n}})^2} = 1 - \frac{p (1-p) 4 \alpha n}{n} \geq 1 - \alpha$$ \footnote{Hier wurde die Tschebyschew- Ungl. benutzt.}
 
 Mit 
-$$I_n := [\max\{0, R_n - \frac{1}{2 \sqrt{\alpha n}}, \min \{1, R_n + \frac{1}{2 \sqrt{\alpha n}}\}]$$
+$$I_n := [\max\{0, R_n - \frac{1}{2 \sqrt{\alpha n}}\}, \min \{1, R_n + \frac{1}{2 \sqrt{\alpha n}}\}]$$
 gilt
 $$\Prim_p(I_n \ni p) \geq 1 - \alpha \quad (\text{z.B. } \geq 0.95)$$
 
@@ -2156,8 +2179,8 @@ Falls $\Theta \subset \R$ und $C(x)$ Intervall $(\forall x)$, so heißt $C$ \tex
 
 \section{Beispiel (Konfidenzschranken für $p$ in $Bin(n,p)$)}
 	Sei $S_n \sim Bin(n,p)$. Gesucht $p_u, p_o \colon \{0, \ldots, n\} \rightarrow [0,1]$ mit
-	$$\Prim_p(p \leq p_o(S_n) \geq 1 - \beta), \quad p \in [0,1] \quad (2)$$
-	$$\Prim_p(p_u(S_n) \leq p) \geq 1- \beta), \quad p \in [0,1] \quad (3)$$
+	$$\Prim_p(p \leq p_o(S_n)) \geq 1 - \beta, \quad p \in [0,1] \quad (2)$$
+	$$\Prim_p(p_u(S_n) \leq p)) \geq 1- \beta, \quad p \in [0,1] \quad (3)$$
 	
 	\begin{enumerate}
 		\item $k=0: \quad p_u(0) := 0 \quad p_o(0) := 1-\beta^{\frac{1}{n}}$
@@ -2224,7 +2247,7 @@ $$C(x):= \{ \vartheta \in \Theta \colon x \in A(\vartheta)\}$$\footnote{Konfiden
 Dann gilt
 $$x \in A(\vartheta) \Leftrightarrow \vartheta \in C(x)$$
 \begin{center}
-	\includegraphics[scale=1]{drawing.pdf}
+	\input{drawing.pdf_tex}
 \end{center}
 $$\widetilde{C}:= \{(x, \vartheta) \colon x \in A(\vartheta)\}$$
 Ziel: $C(x)$ "möglichst klein", d.h. $A(\vartheta)$ möglichst klein
@@ -2232,7 +2255,7 @@ Ziel: $C(x)$ "möglichst klein", d.h. $A(\vartheta)$ möglichst klein
 \section{Bemerkung}
 Setzt man in 16.4
 $$\mathcal{X} = \{0, \ldots, n\}, \Theta = [0,1]$$
-$$A(\vartheta) := \{x \in \mathcal{X} \colon u(\vartheta) \leq x \leq o(\vartheta= \},$$
+$$A(\vartheta) := \{x \in \mathcal{X} \colon u(\vartheta) \leq x \leq o(\vartheta) \},$$
 wobei
 $$u(\vartheta) := \max \left \{k \in \mathcal{X} \colon \sum\limits_{j=0}^{k-1}{{n \choose j} \vartheta^j (1-\vartheta)^{n-j} \leq \frac{\alpha}{2}} \right \},$$
 $$o(\vartheta) := \min \left \{ k \in \mathcal{X} \colon \sum\limits_{j=k+1}^n{{n \choose j} \vartheta^j (1-\vartheta)^{n-j}} \leq \frac{\alpha}{2} \right \}$$
@@ -2308,7 +2331,7 @@ Man nennt $\sigma(\mathcal{M})$ die \textbf{von $\mathcal{M}$ erzeugte $\sigma$-
 
 \section{Folgerung}
 \begin{enumerate}
-	\item $\mathcal{M}_1 \subset \mathcal{M}_2 \Rightarrow \sigma(\mathcal{M}_1 \subset \sigma(\mathcal{M}_2))$
+	\item $\mathcal{M}_1 \subset \mathcal{M}_2 \Rightarrow \sigma(\mathcal{M}_1) \subset \sigma(\mathcal{M}_2)$
 	\item $\sigma(\sigma(\mathcal{M})) \subset \sigma(\mathcal{M})$
 	\item $\mathcal{M}_1 \subset \sigma(\mathcal{M}_2)$ und $M_2 \subset \sigma(\mathcal{M}_1) \Rightarrow \sigma(\mathcal{M}_1) = \sigma(\mathcal{M}_2)$ Übungsaufgabe
 \end{enumerate}
@@ -2597,7 +2620,7 @@ $$f_j(t)= \int \ldots \int f(x_1, \ldots, x_{j-1}, t, x_{j+1}, \ldots, x_k) dx_1
 
 \section{Beispiel}
 $(X,Y)$ habe Dichte 
-$$f(x,y) := \frac{1}{\pi} 1_\{x^2 + y^2 \leq 1\} \equiv 1_K(x,y), K = \{(x,y) \colon x^2 + y^2 \leq 1\} )$$
+$$f(x,y) := \frac{1}{\pi} 1_{\{x^2 + y^2 \leq 1\}} \equiv 1_K(x,y), K = \{(x,y) \colon x^2 + y^2 \leq 1\} )$$
 Dann
 $$f_1(x) = \int{f(x,y) dy} = \int 1_{\{x^2 + y^2 \leq 1\}} dy = \int 1_{\{|y| \leq \sqrt{1-x^2}\}} dy$$
 $$= \begin{cases} 0, & \text{ falls } |x| > 1 \\ \frac{2}{\pi} \sqrt{1-x^2}, & \text{ falls } |x| \leq 1 \end{cases}$$
@@ -2648,7 +2671,7 @@ Hat $(X_1, \ldots, X_n)$ die Dichte $f$. Dann gilt:
 $X = (X_1, \ldots, X_k)$ $k$-dimensionaler Zufallsvektor mit Dichte $f$. Sei 
 $$T \colon \R^k \rightarrow \R^s \quad (s \leq k)$$
 Sei $Y := T(X)$.
-($Y$ ist $s$-dimensionaler Zufallsvektor, falls $Z$ messbar ist.)
+($Y$ ist $s$-dimensionaler Zufallsvektor, falls $T$ messbar ist.)
 
 \section{Satz}
 Sei $K=1$, d.h. $X$ sei reelle Zufallsvariable. Die Dichte $f$ sei stückweise stetig und es gelte 
@@ -2679,7 +2702,7 @@ $g(y) = \frac{1}{|a|} f(\frac{y-b}{a})$
 $X \sim N(0,1)$ \footnote{Normalverteilung mit Mittelwert 0 und Standardabweichung 1},
 $T(x) = \sigma x + \mu$ ($\sigma > 0, \mu \in \R$), $Y:= T(X) = \sigma X+\mu$
 
-$$g(y) = \frac{1}{\sigma} \varphi(\frac{y-\mu}{\sigma}) = \frac{1}{\sqrt{2 \pi}} \exp [- \frac{(y-\mu)^2}{\sigma^2}]$$ \footnote{$\varphi$ ist die Dichte der Standardnormalverteilung}
+$$g(y) = \frac{1}{\sigma} \varphi(\frac{y-\mu}{\sigma}) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp [- \frac{(y-\mu)^2}{\sigma^2}]$$ \footnote{$\varphi$ ist die Dichte der Standardnormalverteilung}
 
 \section{Beispiel}
 $T(x) = x^2, Y = X^2$
